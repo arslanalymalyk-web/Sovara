@@ -1,0 +1,16 @@
+[["wait",800],
+ ["key","2"],
+ ["until","document.querySelector('[data-readout]').textContent.includes('policy')",30000],
+ ["wait",1200],
+ ["shot","shots/hold-policy.png"],
+ ["until","window.__bench.clones.HOLD.length>0",30000],
+ ["wait",1500],
+ ["shot","shots/hold-done.png"],
+ ["key","3"],
+ ["until","document.querySelector('[data-readout]').textContent.includes('gate 1/6')",30000],
+ ["wait",700],
+ ["shot","shots/block-g1.png"],
+ ["until","window.__bench.clones.BLOCK.length>0",40000],
+ ["wait",1500],
+ ["shot","shots/block-done.png"]
+]
