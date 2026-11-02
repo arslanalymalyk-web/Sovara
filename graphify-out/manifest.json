@@ -2094,9 +2094,9 @@
     "semantic_hash": ""
   },
   "skills-lock.json": {
-    "mtime": 1793630527.031873,
-    "seen": 1793641241.2258465,
-    "ast_hash": "c6a5902ed9522c7ae7c805467e3ae6df",
+    "mtime": 1793644763.485062,
+    "seen": 1793644806.2948847,
+    "ast_hash": "904706a97ea6a83872a5a2ee4c3bb3d3",
     "semantic_hash": ""
   },
   ".claude/CLAUDE.md": {
@@ -5298,15 +5298,15 @@
     "semantic_hash": ""
   },
   "react-bits-lab/package.json": {
-    "mtime": 1793644025.0785582,
-    "seen": 1793644094.1031685,
-    "ast_hash": "6e1c5f212d8cc62d72b8bda3a0839c1c",
+    "mtime": 1793644690.3010635,
+    "seen": 1793644806.2923138,
+    "ast_hash": "576cefa6fdcdbcd9cc68ca16b15ce6fa",
     "semantic_hash": ""
   },
   "react-bits-lab/src/App.tsx": {
-    "mtime": 1793644546.7455435,
-    "seen": 1793644634.1665692,
-    "ast_hash": "9cdeca5a4c0d1538cf0b9d2bf2f48c06",
+    "mtime": 1793644706.6094158,
+    "seen": 1793644806.29234,
+    "ast_hash": "b391da333f22d7f2add8928660dd97c9",
     "semantic_hash": ""
   },
   "react-bits-lab/src/components/react-bits/GradientText/GradientText.tsx": {
@@ -5412,9 +5412,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/README.md": {
-    "mtime": 1793644600.7050655,
-    "seen": 1793644634.1813867,
-    "ast_hash": "5ff4a1a7962d6e14c3a6da1dd81d2e4a",
+    "mtime": 1793644757.733416,
+    "seen": 1793644806.3072987,
+    "ast_hash": "8301b9d2294c9a0f8035598a0e7859cd",
     "semantic_hash": ""
   },
   "react-bits-lab/index.html": {
@@ -5627,6 +5627,300 @@
     "ast_hash": "2c45eec36d7b72cd0adb3e3934a3d3e2",
     "semantic_hash": ""
   },
+  ".agents/skills/design-taste-frontend/assets/base.js": {
+    "mtime": 1793644763.449645,
+    "seen": 1793644806.2827652,
+    "ast_hash": "5dd0784c14e17078fb7d97f9a837091a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/assets/charts.js": {
+    "mtime": 1793644763.4497108,
+    "seen": 1793644806.2827744,
+    "ast_hash": "0864e4b64994f8f2f1c1309cb47101fe",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/assets/scenes/stage.js": {
+    "mtime": 1793644763.4518242,
+    "seen": 1793644806.282778,
+    "ast_hash": "e9e37f2ab6a45706a3cedee5c7b983e0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/evals/evals.json": {
+    "mtime": 1793644763.4497044,
+    "seen": 1793644806.2827802,
+    "ast_hash": "99d6bf5572678a47e797a824b92d0fff",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/app.json": {
+    "mtime": 1793644763.4497404,
+    "seen": 1793644806.2827823,
+    "ast_hash": "d06586a5abf11c588624c4ec096caa63",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/directions.json": {
+    "mtime": 1793644763.4497404,
+    "seen": 1793644806.2827837,
+    "ast_hash": "2ace3a566f04c62e858d0e301a7f5cb2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/heroes.json": {
+    "mtime": 1793644763.4498188,
+    "seen": 1793644806.282786,
+    "ast_hash": "2a6244b32222798a5915d996e9f6f329",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/motions.json": {
+    "mtime": 1793644763.4497867,
+    "seen": 1793644806.2827883,
+    "ast_hash": "89ddb35071ca3c381c9b5654bf0de81d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/palettes.json": {
+    "mtime": 1793644763.449797,
+    "seen": 1793644806.28279,
+    "ast_hash": "9c0b1072fa730c38a1e50326daf7342a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/photos.json": {
+    "mtime": 1793644763.449839,
+    "seen": 1793644806.282792,
+    "ast_hash": "4eb4f32fe028dbf1c7c121404a3c86b1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/sections.json": {
+    "mtime": 1793644763.4499087,
+    "seen": 1793644806.2827938,
+    "ast_hash": "82fdc4a45c2bbaa256992d833605f50d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/sites.json": {
+    "mtime": 1793644763.4503598,
+    "seen": 1793644806.2827954,
+    "ast_hash": "bc687b33a29748d3e25b70e235fb450c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/type.json": {
+    "mtime": 1793644763.4499087,
+    "seen": 1793644806.2827973,
+    "ast_hash": "0015267c9eb8b8aa0367d3564471c5a4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/assets.mjs": {
+    "mtime": 1793644763.4504719,
+    "seen": 1793644806.2827985,
+    "ast_hash": "3637e9fb21e2afd2360440e20939aee5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/draw.mjs": {
+    "mtime": 1793644763.4506176,
+    "seen": 1793644806.2828,
+    "ast_hash": "6b49302383e9b8280d8a504554a89ba8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/inspect.mjs": {
+    "mtime": 1793644763.4504986,
+    "seen": 1793644806.2828016,
+    "ast_hash": "28249b1995a1579ae7f692d0e32b5df7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/app-draw.mjs": {
+    "mtime": 1793644763.4524693,
+    "seen": 1793644806.2828033,
+    "ast_hash": "f2b67f939a9714f5dbc66fae8554354b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/cdp.mjs": {
+    "mtime": 1793644763.4524922,
+    "seen": 1793644806.282805,
+    "ast_hash": "ef00d74becd052114890d365820d3e9e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/inspection-files.mjs": {
+    "mtime": 1793644763.4525564,
+    "seen": 1793644806.2828062,
+    "ast_hash": "036423fad7c2acdac27c0f326ef3a24e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/probe.mjs": {
+    "mtime": 1793644763.4525952,
+    "seen": 1793644806.2828078,
+    "ast_hash": "dad571f8052ec07896f4ccdcd2ea3c55",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/rules.mjs": {
+    "mtime": 1793644763.4525952,
+    "seen": 1793644806.2828095,
+    "ast_hash": "12fe8da2f2b2eac8fb88c5925b6a8b21",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lint.mjs": {
+    "mtime": 1793644763.4504986,
+    "seen": 1793644806.2828112,
+    "ast_hash": "f653ce179e61df363622bdb08fd69fc6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/scenes.mjs": {
+    "mtime": 1793644763.4505625,
+    "seen": 1793644806.2828124,
+    "ast_hash": "58d717ed58f82be567350aa6edc9b98d",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/Ui.tsx": {
+    "mtime": 1793644706.6065636,
+    "seen": 1793644806.2923975,
+    "ast_hash": "e1160c8ac2fc43060fa0c442fe4498ee",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/BounceCards/BounceCards.tsx": {
+    "mtime": 1793644676.8425553,
+    "seen": 1793644806.2935345,
+    "ast_hash": "a54e1afb8ec09e5ae9ac39c4b160dc4b",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Carousel/Carousel.tsx": {
+    "mtime": 1793644676.8507051,
+    "seen": 1793644806.2935362,
+    "ast_hash": "c0a8e9769bfcde27efddbae3c7cb7609",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/ChromaGrid/ChromaGrid.tsx": {
+    "mtime": 1793644676.8431752,
+    "seen": 1793644806.2935376,
+    "ast_hash": "83d75cb5ea8554d2f7848d8209d39f1e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Counter/Counter.tsx": {
+    "mtime": 1793644676.8448272,
+    "seen": 1793644806.293539,
+    "ast_hash": "895050a64d32739e490c95d7b4e180ac",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Dock/Dock.tsx": {
+    "mtime": 1793644676.8330638,
+    "seen": 1793644806.2935412,
+    "ast_hash": "9d59943295e6c90102c5733458128884",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Folder/Folder.tsx": {
+    "mtime": 1793644676.8404217,
+    "seen": 1793644806.293543,
+    "ast_hash": "bb32286d8c1e39592246921aa16d207a",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/GlassSurface/GlassSurface.tsx": {
+    "mtime": 1793644676.8441353,
+    "seen": 1793644806.293545,
+    "ast_hash": "f2c52f198e658b186072088ef4e4b44e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/GooeyNav/GooeyNav.tsx": {
+    "mtime": 1793644676.8494225,
+    "seen": 1793644806.2935464,
+    "ast_hash": "f607a115450359ddb44b7c253b6053f0",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/PillNav/PillNav.tsx": {
+    "mtime": 1793644676.848551,
+    "seen": 1793644806.2935479,
+    "ast_hash": "6749c8f955eed008c713564ba00970a6",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Stack/Stack.tsx": {
+    "mtime": 1793644676.8473256,
+    "seen": 1793644806.2935493,
+    "ast_hash": "c3abc3cf88a79ab98173138fe62a15d9",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Stepper/Stepper.tsx": {
+    "mtime": 1793644676.8501158,
+    "seen": 1793644806.2935512,
+    "ast_hash": "5d9acfd28ae979a3b0f2a0cd224bb986",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/TiltedCard/TiltedCard.tsx": {
+    "mtime": 1793644676.8414443,
+    "seen": 1793644806.2935526,
+    "ast_hash": "729185393deb8c2a42a56fcae90f61cd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/README.md": {
+    "mtime": 1793644763.4462864,
+    "seen": 1793644806.2948864,
+    "ast_hash": "584bfa12c35b8c06df428deead797aae",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/SKILL.md": {
+    "mtime": 1793644763.4462864,
+    "seen": 1793644806.2948883,
+    "ast_hash": "fe445bafa7de21620e201c0660782f57",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/app-screens.md": {
+    "mtime": 1793644763.4500344,
+    "seen": 1793644806.2948902,
+    "ast_hash": "5ab4d22276990859c67f7ff43819e4cf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/colour.md": {
+    "mtime": 1793644763.4500344,
+    "seen": 1793644806.2948923,
+    "ast_hash": "ed2d6bf506e34cc7ac367a49be4c46b3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/copy.md": {
+    "mtime": 1793644763.4500952,
+    "seen": 1793644806.2948937,
+    "ast_hash": "af0e017bd419b5ba65bcd1674e47664a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/critique.md": {
+    "mtime": 1793644763.4501054,
+    "seen": 1793644806.2948952,
+    "ast_hash": "aa8895d37febb8ef1bbc55980f678ad9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/imagery.md": {
+    "mtime": 1793644763.4501593,
+    "seen": 1793644806.2948968,
+    "ast_hash": "b79a629229f225b683a607bfd7ab8beb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/layout.md": {
+    "mtime": 1793644763.4501758,
+    "seen": 1793644806.2948983,
+    "ast_hash": "82c275c532a6e56c43946380a13d1ebe",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/motion.md": {
+    "mtime": 1793644763.4502141,
+    "seen": 1793644806.2948995,
+    "ast_hash": "01ba9079a706b741fa608596fc6c2d76",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/research.md": {
+    "mtime": 1793644763.4502804,
+    "seen": 1793644806.294901,
+    "ast_hash": "550742238e1ad47035613ee0519e9509",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/scenes.md": {
+    "mtime": 1793644763.4503717,
+    "seen": 1793644806.2949026,
+    "ast_hash": "0f813d901630ec1264b2cdab41216185",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/tells.md": {
+    "mtime": 1793644763.4503598,
+    "seen": 1793644806.294904,
+    "ast_hash": "c4de5b16893aa24398b7e7365cec0627",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/type.md": {
+    "mtime": 1793644763.4504366,
+    "seen": 1793644806.2949052,
+    "ast_hash": "2258b887a5c37da15dba006e86090f8c",
+    "semantic_hash": ""
+  },
   ".claude/skills/img2threejs/integrations/glb_character_pipeline/node/package-lock.json": {
     "mtime": 1793637075.0,
     "seen": 1793641241.2271624,
@@ -5640,9 +5934,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/package-lock.json": {
-    "mtime": 1793644025.1265583,
-    "seen": 1793644094.123612,
-    "ast_hash": "e491f5add438d1498fd20e3274876750",
+    "mtime": 1793644690.3490636,
+    "seen": 1793644806.3108473,
+    "ast_hash": "d6c09adb01e16770c6e61929555f7e24",
     "semantic_hash": ""
   },
   "rgs-portal/3d/package-lock.json": {
