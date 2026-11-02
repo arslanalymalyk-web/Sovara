@@ -333,6 +333,7 @@
     if (!pw) L0.errors.password = 'login.err.password';
     var u = D.users.filter(function (x) { return x.email.toLowerCase() === email.toLowerCase(); })[0];
     if (!L0.errors.email && !u) L0.errors.email = 'login.err.unknown';
+    else if (!L0.errors.email && u.status !== 'active') L0.errors.email = u.status === 'suspended' ? 'login.err.suspended' : 'login.err.inactive';
     if (Object.keys(L0.errors).length) { render(); var f = document.querySelector('[aria-invalid="true"]'); if (f) f.focus(); return; }
     L0.busy = true; render();
     setTimeout(function () {
@@ -774,6 +775,8 @@
   window.RGSUI = { S: S, ST: ST, D: D, A: A, API: API, CFG: CFG, FIXTURE: FIXTURE, navLabel: navLabel, MODULE_BY: MODULE_BY, t: t, esc: esc, ic: ic, L: L, fmtDate: fmtDate, toast: toast, user: user, org: org,
     go: go, render: render, actLabel: actLabel, loadingState: loadingState, emptyState: emptyState, errorState: errorState, deniedState: deniedState,
     byId: byId, SVC_IMG: SVC_IMG, initials: initials, canAny: canAny, moduleAllowed: moduleAllowed };
+  // A saved session for an account that has since been suspended does not carry on.
+  if (S.userId) { var cu0 = byId(D.users, S.userId); if (!cu0 || cu0.status !== 'active') { S.userId = null; save('user', null); } }
   var h0 = location.hash.slice(1);
   if (S.userId && h0 && /^[A-Za-z0-9._~-]+$/.test(h0) && (MODULE_BY[routeBase(h0)] || window.RGSPages.handles(routeBase(h0)))) S.route = h0;
   render();

@@ -1529,7 +1529,7 @@
       return { id: d.id };
     };
     H['support.request'] = function (actor, p, t, now) {
-      allow(actor, 'support.use', null);
+      need(A.canAnywhere(ds, actor, 'support.use'), 'forbidden');
       var subject = String(p.subject || '').trim(), msg = String(p.message || '').trim();
       need(subject.length >= 3, 'subject_required'); need(msg.length >= 10, 'message_required');
       need(SUPPORT_CATS.indexOf(p.category) >= 0, 'category_required');
