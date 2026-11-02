@@ -70,27 +70,36 @@
     var types = prof ? prof.types : API().FILE_TYPES, max = prof ? prof.max : API().MAX_FILE;
     if (types.indexOf(item.type) < 0) { item.status = 'rejected'; item.error = prof ? prof.typeError : 'dlg.err.fileType'; U().render(); return; }
     if (item.size > max || item.size <= 0) { item.status = 'rejected'; item.error = prof ? prof.sizeError : 'dlg.err.fileSize'; U().render(); return; }
-    item.status = 'uploading'; item.progress = 0; item.error = null; U().render();
+    item.status = 'uploading'; item.progress = 0; item.error = null; renderKeep();
     var simulateFail = !!(S().simFail && !item.failedOnce);
     Promise.all([sha256(item.file), headHex(item.file)]).then(function (res) {
       var hash = res[0]; item.sha256 = hash; item.head = res[1];
       var steps = 0;
       var timer = setInterval(function () {
         steps++; item.progress = Math.min(100, steps * 25);
-        if (simulateFail && steps === 2) { clearInterval(timer); item.status = 'failed'; item.failedOnce = true; item.error = 'up.err.network'; U().render(); return; }
+        if (simulateFail && steps === 2) { clearInterval(timer); item.status = 'failed'; item.failedOnce = true; item.error = 'up.err.network'; renderKeep(); return; }
         if (steps >= 4) {
           clearInterval(timer);
           var payload = Object.assign({ name: item.name, size: item.size, type: item.type, sha256: hash, head: item.head, idempotencyKey: item.key }, prof && prof.payload ? prof.payload(ctx) : {});
           var r = API().dispatch('file.register', me().id, payload);
-          if (!r.ok) { item.status = r.code === 'file_type' || r.code === 'file_size' ? 'rejected' : 'failed'; item.error = 'err.' + r.code; U().render(); return; }
+          if (!r.ok) { item.status = r.code === 'file_type' || r.code === 'file_size' ? 'rejected' : 'failed'; item.error = 'err.' + r.code; renderKeep(); return; }
           item.status = 'done'; item.fileId = r.result.id; item.validation = r.result.validation; item.quarantined = r.result.quarantined; item.duplicates = r.result.duplicates; BLOBS[item.fileId] = item.file;
           if (onDone) onDone(item);
-          U().render();
+          renderKeep();
           return;
         }
         refreshUploadRow(ctx, item);
       }, 180);
     });
+  }
+  // Re-render without losing text typed into the form that holds an upload control (the control re-renders the page as files change).
+  function renderKeep() {
+    var snap = {};
+    document.querySelectorAll('form [data-upctx]').forEach(function (inp) {
+      Array.from(inp.form ? inp.form.elements : []).forEach(function (x) { if (x.id && x.type !== 'file' && x.type !== 'checkbox' && x.type !== 'radio' && x.type !== 'submit' && x.type !== 'button') snap[x.id] = x.value; });
+    });
+    U().render();
+    Object.keys(snap).forEach(function (id) { var x = document.getElementById(id); if (x && x.value !== snap[id]) x.value = snap[id]; });
   }
   function refreshUploadRow(ctx, item) { var el = document.querySelector('[data-up="' + item.key + '"] .progress > i'); if (el) el.style.width = item.progress + '%'; }
   function addFiles(ctx, files, onDone) {
@@ -571,7 +580,7 @@
         var ctx = el.getAttribute('data-ctx'), list = uploads(ctx), item = list.filter(function (i) { return i.key === v; })[0];
         s.uploads[ctx] = list.filter(function (i) { return i.key !== v; });
         if (item && item.fileId && /^draft-/.test(ctx)) { var dd = ST().get('request', ctx.slice(6)); saveDraft({ attachments: dd.attachments.filter(function (x) { return x !== item.fileId; }) }, true); }
-        U().render(); return true;
+        renderKeep(); return true;
       }
       case 'draft-file-remove': { var d2 = ST().get('request', wiz().draftId); saveDraft({ attachments: d2.attachments.filter(function (x) { return x !== v; }) }, true); U().render(); return true; }
       case 'simfail': s.simFail = el.checked; return false;
