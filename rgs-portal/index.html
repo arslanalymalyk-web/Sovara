@@ -1209,6 +1209,11 @@ tbody tr:hover td { background: var(--frame); }
 .qa-btn { background: var(--sheet); border-color: var(--card-edge); box-shadow: none; border-radius: 10px; }
 .qa-btn:hover { background: var(--frame); }
 @media (max-width: 900px) { .pgrid > .pcard:only-child { display: flex; } }
+/* cool the paper tokens: warm cream/tan becomes the frame's blue-grey family */
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --bg: #e8ebf0; --surface: #ffffff; --surface-2: #f3f5f8; --line: #e1e5eb; --line-strong: #c3cad6; } }
+:root[data-theme="light"] { --bg: #e8ebf0; --surface: #ffffff; --surface-2: #f3f5f8; --line: #e1e5eb; --line-strong: #c3cad6; }
+th { background: var(--surface-2); }
+.pill.plain, .pill.num { border-color: transparent; background: var(--surface-2); }
 /* IDs: one mono job */
 .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
 @media (max-width: 900px) {
