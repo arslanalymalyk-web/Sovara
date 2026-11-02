@@ -16,6 +16,7 @@ const box = { display: 'grid', gap: 12, padding: 24, border: '1px solid #333', b
 
 import Backgrounds from './Backgrounds';
 import Animations from './Animations';
+import Ui from './Ui';
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
       </main>
       <Backgrounds />
       <Animations />
+      <Ui />
     </ClickSpark>
   );
 }

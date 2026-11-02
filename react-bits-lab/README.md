@@ -13,3 +13,5 @@ They were written from the repo's `public/r/*.json` registry files because the s
 Backgrounds (in `src/components/react-bits/backgrounds/`): Aurora, Particles, Iridescence, Waves, LiquidChrome, Orb, Silk, Beams, Balatro, Dither (WebGL, no extra deps). Gallery: `src/Backgrounds.tsx`.
 
 Animations (in `src/components/react-bits/animations/`): FadeContent, AnimatedContent, ScrollFloat, ScrollReveal, TrueFocus, CircularText, ScrollVelocity, CurvedLoop, GlareHover, MagnetLines, Noise, Shuffle. Gallery: `src/Animations.tsx`.
+
+UI (in `src/components/react-bits/ui/`): Dock, Folder, TiltedCard, BounceCards, ChromaGrid, GlassSurface, Counter, Stack, PillNav, GooeyNav, Stepper, Carousel (adds @hugeicons). Gallery: `src/Ui.tsx`.
