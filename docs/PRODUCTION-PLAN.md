@@ -1,6 +1,6 @@
 # RGS Client Portal — production plan
 
-Status: draft for approval. Written from the decisions below; nothing here is built yet except the front-end prototype in `rgs-portal/`.
+Status: **approved decisions recorded 2 Nov 2026** (§1 and §1a). Nothing here is built yet except the front-end prototype in `rgs-portal/`, which is the executable specification.
 
 ## 1. Decisions taken
 
@@ -8,7 +8,7 @@ Status: draft for approval. Written from the decisions below; nothing here is bu
 |---|---|
 | Goal | Production system for RGS staff and customer companies |
 | Size | Under 50 users, small number of projects |
-| Target date | Live in 1–2 months (see §5: this does not fit everything) |
+| Schedule | **Staged release approved** (§5): first live ≈ week 8, rest over months 3–6 |
 | Stack | TypeScript (Next.js / Node) + PostgreSQL |
 | Hosting | Microsoft Azure, Saudi Arabia region (confirm region and service availability) |
 | Sign-in | Staff: company single sign-on (Microsoft Entra ID). Customers: email + password with MFA. |
@@ -17,9 +17,38 @@ Status: draft for approval. Written from the decisions below; nothing here is bu
 | Notifications | In-portal, email, WhatsApp/SMS, push (installable web app) |
 | Field use | Undecided; start with a responsive web app, revisit after crew feedback |
 | Compliance | Saudi PDPL, ISO 27001-style controls, record retention periods |
-| AI | Claude-based assistant over records the signed-in user may see (see risk R1) |
+| AI | **Left out of launch**; the rule-based briefing stays. Revisit when a Saudi-region option and a PDPL basis exist (risk R1) |
 | Git | One pull request per stage into `main` |
-| RGS decision owner | **Not assigned yet** (see §6) |
+| RGS decision owner | **Not assigned yet** (see §6): the main blocker |
+
+
+## 1a. Build decisions (answered 2 Nov 2026)
+
+| Topic | Decision |
+|---|---|
+| Code location | New `app/` folder in this repo; `rgs-portal/` stays as the executable spec and its tests keep running |
+| Infrastructure as code | Bicep; RGS IT runs the templates, the builder never holds cloud credentials |
+| Database library | Drizzle ORM on PostgreSQL, SQL migrations reviewed in pull requests |
+| Customer sign-in | Microsoft Entra External ID (email + password + MFA, invitation only, in-region) |
+| Staff sign-in | Microsoft Entra ID single sign-on |
+| Sessions | MFA for everyone; 30 minute idle timeout; 12 hour maximum session |
+| Email | Azure Communication Services Email, from a verified RGS domain |
+| Working week | Sunday to Thursday (Friday and Saturday are the weekend); time zone Asia/Riyadh |
+| Retention | 10 years after project closure for project records and the audit log (configurable per record type) |
+| Project setup | Operations and project managers create projects, packages, areas and milestones; the administrator can override |
+| Files | 100 MB maximum; PDF, images, Office files and DWG; checksum and malware scan |
+| Environments | Dev, staging and production |
+| Address | A subdomain of RGS's domain (e.g. `portal.<rgs-domain>`); RGS IT adds the DNS record |
+| Pull requests | One per stage into `main` |
+
+### Stage 0 deliverables (next pull request, after PR #2 merges)
+
+1. `app/` Next.js + TypeScript skeleton with strict TypeScript, linting, unit and end-to-end test runners, and the Sunday–Thursday working-calendar helper.
+2. Drizzle schema and migrations for organisations, users, role assignments, delegated authorities, projects, audit log and support requests; append-only audit table; row-level-security policies.
+3. A port of `rbac.js` as a server module, with the prototype's permission tests converted into automated server tests (the prototype stays the oracle).
+4. `infra/` Bicep templates for dev, staging and production: PostgreSQL, Blob storage, App Service, Key Vault, Entra app registrations (documented), Communication Services, monitoring, backups.
+5. CI: lint, type-check, tests, migration check and a Bicep validation on every push.
+6. A runbook for RGS IT: what to deploy, in what order, and which values they must supply.
 
 ## 2. Target architecture
 
