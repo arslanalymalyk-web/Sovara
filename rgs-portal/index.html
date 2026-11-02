@@ -1214,6 +1214,23 @@ tbody tr:hover td { background: var(--frame); }
 :root[data-theme="light"] { --bg: #e8ebf0; --surface: #ffffff; --surface-2: #f3f5f8; --line: #e1e5eb; --line-strong: #c3cad6; }
 th { background: var(--surface-2); }
 .pill.plain, .pill.num { border-color: transparent; background: var(--surface-2); }
+
+/* ===== touch and legibility floors (ui-ux-pro-max audit) =====
+   Text never drops below 12px. On phones and touch screens the type scale steps up one notch and every control reaches 44px;
+   small inline record links keep their look but get a 44px hit area through an invisible extension. */
+.nav a .stage, .tag-sample, .ptabs .count, .plan-n, .avatar.sm, .mono { font-size: max(12px, 1em); }
+.nav a .stage, .tag-sample, .ptabs .count, .plan-n, .avatar.sm { font-size: 12px; }
+@media (pointer: coarse), (max-width: 900px) {
+  :root { --fs-xs: .8125rem; --fs-sm: .875rem; --fs-md: 1rem; }
+  .btn, .btn-sm, .input, .select, .textarea, .iconbtn, .userbtn, .seg .btn, .langswitch button { min-height: 44px; }
+  .iconbtn { min-width: 44px; }
+  .nav a, .topbar .search .input, .scope-select, .dir-tools .input, .dir-tools .select, .act-tools .select,
+  .card.card-b[class*="-tools"] .select, .card.card-b[class*="-tools"] .input { min-height: 44px; }
+  .check, .toggle { min-height: 44px; }
+  a.rec, a.linkbtn, .linkbtn, td a:not(.btn), .crumbs a { position: relative; }
+  a.rec::after, a.linkbtn::after, .linkbtn::after, td a:not(.btn)::after, .crumbs a::after { content: ""; position: absolute; inset: -10px -6px; }
+  .plan-area, .dot { font-size: 12px; }
+}
 /* IDs: one mono job */
 .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
 @media (max-width: 900px) {
