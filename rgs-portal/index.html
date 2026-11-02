@@ -92,7 +92,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 [dir="rtl"] .flip { transform: scaleX(-1); }
 
 /* ---------- Buttons ---------- */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); min-height: 44px; padding: 0 var(--s5); border-radius: var(--r-sm); border: 1px solid transparent; font-weight: 600; font-size: var(--fs-md); cursor: pointer; text-decoration: none; transition: background .15s, border-color .15s, color .15s; white-space: nowrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); min-height: 44px; padding: 0 var(--s5); border-radius: var(--r-sm); border: 1px solid transparent; font-weight: 600; font-size: var(--fs-md); cursor: pointer; text-decoration: none; transition: background .15s, border-color .15s, color .15s, transform .08s ease-out; white-space: nowrap; }
 .btn-primary { background: var(--accent); color: var(--on-accent); }
 .btn-primary:hover { background: var(--accent-hover); }
 .btn-secondary { background: var(--surface); border-color: var(--line-strong); color: var(--ink); }
@@ -1110,6 +1110,29 @@ tbody tr:hover td { background: var(--surface-2); }
   .card.card-b[class*="-tools"] > :first-child, .card.card-b[class*="-tools"] .rq-search { grid-column: 1 / -1; }
   .tbl-projects th:nth-child(3), .tbl-projects td:nth-child(3) { display: none; }
   .tbl-projects .proj-bar .progress { display: none; }
+}
+/* ---- motion (Operate surface: feedback, state, continuity; transform and opacity only) ---- */
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes view-in { from { opacity: 0; } }
+@keyframes fill-in { from { transform: scaleX(0); } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 8px); } }
+.iconbtn, a.rec, .pcard, .userbtn { transition: transform .08s ease-out, background .12s; }
+.nav a { transition: background .12s, color .12s; }
+td, .card-b a.rowlink { transition: background .1s; }
+.enter { animation: view-in .14s ease-out; }
+/* the one authored moment: figures arrive as measured, not pasted */
+.enter .progress > i { transform-origin: left center; animation: fill-in .55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+[dir="rtl"] .enter .progress > i { transform-origin: right center; }
+.dlg-scrim.dlg-enter { animation: fade-in .15s ease-out; }
+.dlg.dlg-enter { animation: pop-in .2s cubic-bezier(0.16, 1, 0.3, 1); }
+.menu.menu-enter { animation: pop-in .14s cubic-bezier(0.16, 1, 0.3, 1); }
+.toast { animation: toast-in .2s cubic-bezier(0.16, 1, 0.3, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .enter, .enter .progress > i { animation: none; }
+  .dlg.dlg-enter, .menu.menu-enter { animation: fade-in .12s linear; }
+  .toast { animation: fade-in .12s linear; }
+  .rail, .app .scrim { transition: none; }
 }
 </style>
 

@@ -684,12 +684,19 @@
   }
 
   // ---------------------------------------------------------------- render + events
+  var wasDlg = false, wasMenu = false;
   function render() {
     applyEnv();
     var keepScroll = window.scrollY;
     root.innerHTML = S.userId ? renderApp() + (S.dialog ? window.RGSPages.renderDialog(user()) : '') : renderLogin();
     if (S.userId && S.dialog) window.RGSPages.afterDialogRender();
     if (keepScroll) window.scrollTo(0, keepScroll);
+    // Motion plays once per arrival: a re-render from typing or a click inside an open dialog must not replay it.
+    var dlgOpen = !!(S.userId && S.dialog), dlg = document.getElementById('dlg');
+    if (dlgOpen && !wasDlg && dlg) { dlg.classList.add('dlg-enter'); var scrim = document.querySelector('.dlg-scrim'); if (scrim) scrim.classList.add('dlg-enter'); }
+    wasDlg = dlgOpen;
+    var menu = document.querySelector('.menu'); if (menu && !wasMenu) menu.classList.add('menu-enter'); wasMenu = !!menu;
+    var view = document.getElementById('content'); if (S.enter && !S.loading && view) view.classList.add('enter'); S.enter = false;
     enhanceA11y();
   }
   function go(route, fromHistory) {
@@ -702,7 +709,7 @@
     // a new history entry per page, so the browser Back button walks the journey in reverse
     if (!fromHistory && location.hash.slice(1) !== route) { try { history.pushState(null, '', '#' + route); } catch (e) {} }
     render(); window.scrollTo(0, 0);
-    clearTimeout(go.t); go.t = setTimeout(function () { S.loading = false; render(); var c = document.getElementById('content'); if (c) c.focus({ preventScroll: true }); }, 320);
+    clearTimeout(go.t); go.t = setTimeout(function () { S.loading = false; S.enter = true; render(); var c = document.getElementById('content'); if (c) c.focus({ preventScroll: true }); }, 320);
   }
 
   root.addEventListener('click', function (ev) {
