@@ -1,0 +1,25 @@
+name: Portal checks
+on:
+  push:
+    branches: ['**']
+    paths: ['rgs-portal/**', 'package.json', '.github/workflows/portal-checks.yml']
+  pull_request:
+    paths: ['rgs-portal/**', 'package.json', '.github/workflows/portal-checks.yml']
+jobs:
+  portal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Every persona opens every screen without errors
+        run: npm run test:crawl
+      - name: Key workflows end to end
+        run: npm run test:workflows
+      - name: Phone layout and touch sizes
+        run: npm run test:mobile
+      - name: Accessibility (axe, light and dark)
+        run: npm run test:a11y
