@@ -1,0 +1,87 @@
+{
+ "scanMethod": "grid-3x3",
+ "targetMinDetails": 3,
+ "note": "Zones scanned with build_detail_inventory.py (di/); every detail maps to a spec entry.",
+ "details": [
+  {
+   "id": "d-notches",
+   "kind": "contour",
+   "description": "rectangular steps in the perimeter at top/bottom/left/right",
+   "region": {
+    "x": 0,
+    "y": 0,
+    "width": 1,
+    "height": 1,
+    "units": "normalized"
+   },
+   "scale": "meso",
+   "affects": "silhouette",
+   "mapsTo": {
+    "type": "localFeature",
+    "ref": "perimeter-notches"
+   },
+   "evidenceRef": "di/zone-r0c1.png",
+   "confidence": 0.85
+  },
+  {
+   "id": "d-letters",
+   "kind": "hole",
+   "description": "RGS letter cut-outs with a gap in the leg of the R",
+   "region": {
+    "x": 0.12,
+    "y": 0.37,
+    "width": 0.7,
+    "height": 0.28,
+    "units": "normalized"
+   },
+   "scale": "meso",
+   "affects": "silhouette and interior",
+   "mapsTo": {
+    "type": "localFeature",
+    "ref": "letter-cutouts"
+   },
+   "evidenceRef": "di/zone-r1c1.png",
+   "confidence": 0.85
+  },
+  {
+   "id": "d-rim",
+   "kind": "bevel",
+   "description": "assumed small rim chamfer (not observable in the flat reference)",
+   "region": {
+    "x": 0,
+    "y": 0,
+    "width": 1,
+    "height": 1,
+    "units": "normalized"
+   },
+   "scale": "micro",
+   "affects": "edge highlight",
+   "mapsTo": {
+    "type": "localFeature",
+    "ref": "rim-chamfer"
+   },
+   "evidenceRef": "di/zone-r0c0.png",
+   "confidence": 0.4
+  },
+  {
+   "id": "d-cutout-wall",
+   "kind": "stain",
+   "description": "slightly darker, rougher cut-out walls (AO)",
+   "region": {
+    "x": 0.12,
+    "y": 0.37,
+    "width": 0.7,
+    "height": 0.28,
+    "units": "normalized"
+   },
+   "scale": "micro",
+   "affects": "material response",
+   "mapsTo": {
+    "type": "localOverride",
+    "ref": "cutout-wall-shade"
+   },
+   "evidenceRef": "di/zone-r1c1.png",
+   "confidence": 0.4
+  }
+ ]
+}

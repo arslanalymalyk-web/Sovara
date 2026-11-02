@@ -1,0 +1,2 @@
+[{"id":"overall-silhouette","score":0.95,"visible":true,"notes":"Unchanged by the structural pass; IoU 0.961."},
+ {"id":"wordmark-cutouts","score":0.88,"visible":true,"notes":"Cut-outs hold through the pass; named part, selectable and explodable as the single body."}]

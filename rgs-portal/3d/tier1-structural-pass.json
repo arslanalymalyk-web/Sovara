@@ -1,0 +1,25 @@
+STATUS pass=structural-pass completed=1 blocked=none next=diagnose_render.py
+{
+  "passed": true,
+  "checks": {
+    "silhouetteIoU": 0.9611,
+    "aspectRatioDelta": 0.0,
+    "scaleDelta": 0.0098,
+    "bilateralSymmetryError": 0.0715,
+    "colorDelta": {
+      "checked": 1,
+      "maxDeltaE": 6.91,
+      "perComponent": [
+        {
+          "componentId": null,
+          "deltaE": 6.91
+        }
+      ],
+      "gated": false
+    }
+  },
+  "failures": [],
+  "maskWarnings": [],
+  "renderHash": "8a612db1e7c8a888",
+  "passId": "structural-pass"
+}

@@ -1,0 +1,14 @@
+{
+  "admitted": true,
+  "reasons": [],
+  "provenance": {
+    "viewpoint": "reference",
+    "sourcePath": "/home/user/Sovara/rgs-portal/3d/reference.png",
+    "width": 134,
+    "height": 134,
+    "foregroundCoverage": 0.4942,
+    "largestComponentFraction": 1.0,
+    "pHash": 17267041906102942976,
+    "duplicateOfHash": null
+  }
+}

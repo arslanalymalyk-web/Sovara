@@ -1,0 +1,3 @@
+[{"id":"overall-silhouette","score":0.95,"visible":true,"notes":"Unchanged; IoU 0.961."},
+ {"id":"wordmark-cutouts","score":0.9,"visible":true,"notes":"Under grazing light the cut-out walls and rounded stroke ends read cleanly; letters stay legible from three-quarter and the rear shows them mirrored as expected for a cut-through."},
+ {"id":"orange-finish","score":0.85,"visible":true,"notes":"Matte print; mean disc colour dE76 6.65 vs the reference after removing the blue-tinted fill and the white sheen."}]

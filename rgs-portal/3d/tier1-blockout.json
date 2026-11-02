@@ -1,0 +1,26 @@
+STATUS pass=blockout completed=0 blocked=none next=diagnose_render.py
+{
+  "passed": true,
+  "checks": {
+    "silhouetteIoU": 0.9567,
+    "aspectRatioDelta": 0.0048,
+    "scaleDelta": 0.0143,
+    "bilateralSymmetryError": 0.0653,
+    "colorDelta": {
+      "checked": 1,
+      "maxDeltaE": 7.63,
+      "perComponent": [
+        {
+          "componentId": null,
+          "deltaE": 7.63
+        }
+      ],
+      "gated": false
+    }
+  },
+  "failures": [],
+  "maskWarnings": [],
+  "renderHash": "b193d6f1bfe4717a",
+  "passId": "blockout",
+  "mapStrippedRender": "captures/front-unlit.png"
+}

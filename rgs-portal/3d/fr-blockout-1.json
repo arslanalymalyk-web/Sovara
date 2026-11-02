@@ -1,0 +1,2 @@
+[{"id":"overall-silhouette","score":0.92,"visible":true,"notes":"Notched disc outline, 8 steps and chamfered facets line up with the reference (Tier 1 silhouette IoU 0.957, aspect delta 0.005, scale delta 0.014)."},
+ {"id":"wordmark-cutouts","score":0.7,"visible":true,"notes":"R, G, S are present with the R leg gap, but corners are chunky polygons (27/27/29 vertices) where the reference strokes are rounded; perspective also exposes dark cut walls the flat reference lacks."}]

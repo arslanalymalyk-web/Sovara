@@ -1,0 +1,11 @@
+{
+  "name": "rgs-badge-3d",
+  "private": true,
+  "type": "module",
+  "description": "Code-only procedural Three.js model of the RGS logo, rebuilt with the img2threejs pipeline.",
+  "scripts": {
+    "build": "esbuild viewer/main.ts --bundle --format=esm --outfile=dist/viewer.js --minify"
+  },
+  "dependencies": { "three": "0.170.0" },
+  "devDependencies": { "esbuild": "0.24.2" }
+}

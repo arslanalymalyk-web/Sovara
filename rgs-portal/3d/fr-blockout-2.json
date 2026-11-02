@@ -1,0 +1,2 @@
+[{"id":"overall-silhouette","score":0.95,"visible":true,"notes":"Silhouette IoU 0.961, aspect delta 0.000, scale delta 0.010; all 8 steps and facets in place."},
+ {"id":"wordmark-cutouts","score":0.88,"visible":true,"notes":"After re-trace (43/43/46 vertices) the R, G and S have rounded strokes and the R leg gap; remaining difference is slightly crisper stroke ends than the 134 px reference."}]

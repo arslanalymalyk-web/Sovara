@@ -1,0 +1,13 @@
+{
+  "path": "/home/user/Sovara/rgs-portal/3d/reference.png",
+  "type": "png",
+  "bytes": 18294,
+  "width": 134,
+  "height": 134,
+  "aspectRatio": 1.0,
+  "technicalSuitability": "conditional",
+  "warnings": [
+    "low resolution; small geometry/material details may be unreliable"
+  ],
+  "note": "This is only technical image probing. Semantic object suitability still requires visual inspection."
+}

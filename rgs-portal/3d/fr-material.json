@@ -1,0 +1,3 @@
+[{"id":"overall-silhouette","score":0.95,"visible":true,"notes":"Unchanged (IoU 0.961)."},
+ {"id":"wordmark-cutouts","score":0.88,"visible":true,"notes":"Unchanged."},
+ {"id":"orange-finish","score":0.82,"visible":true,"notes":"Albedo #F55B37, satin roughness 0.5, metalness 0; render mean rgb 239,95,66 vs reference 240,96,51 (dE 6.9). Residual +15 blue from the cool fill light, to fix in the lighting pass."}]

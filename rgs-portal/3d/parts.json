@@ -1,0 +1,30 @@
+{
+ "model": "rgs-badge",
+ "parts": [
+  {
+   "name": "Badge body (notched disc with RGS cut-outs)",
+   "kind": "part",
+   "module": "root",
+   "triangles": 828
+  }
+ ],
+ "unnamedMeshes": 0,
+ "integralMeshes": 0,
+ "runtime": {
+  "nodes": [
+   "root"
+  ],
+  "meshes": [
+   "root"
+  ],
+  "sockets": [
+   "root:face-front"
+  ],
+  "colliders": [
+   "root"
+  ],
+  "destructionGroups": [
+   "root"
+  ]
+ }
+}

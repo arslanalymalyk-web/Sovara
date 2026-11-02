@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RGS badge: procedural Three.js model</title>
+<meta name="description" content="The RGS logo rebuilt as a code-only procedural Three.js model (extruded notched disc with RGS cut-outs).">
+<style>
+  html, body { margin: 0; height: 100%; background: #e9e6df; }
+  canvas { display: block; width: 100vw; height: 100vh; touch-action: none; }
+  .hint { position: fixed; inset-inline: 0; bottom: 12px; text-align: center; font: 13px system-ui, sans-serif; color: #3a3a3a; pointer-events: none; }
+</style>
+</head>
+<body>
+<canvas id="c" aria-label="Interactive 3D RGS badge. Drag to rotate."></canvas>
+<p class="hint" id="hint">Drag to rotate. Stylized rebuild from a flat 134 px logo: thickness and back face are invented.</p>
+<script type="module" src="./dist/viewer.js"></script>
+<script>if(new URLSearchParams(location.search).get("orbit")==="0")document.getElementById("hint").hidden=true</script>
+</body>
+</html>
