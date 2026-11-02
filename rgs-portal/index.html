@@ -1142,6 +1142,80 @@ td, .card-b a.rowlink { transition: background .1s; }
   .toast { animation: fade-in .12s linear; }
   .rail, .app .scrim { transition: none; }
 }
+
+/* ===== taste-skill app run · style: framed-sheet =====
+   Question per screen: "what needs my decision today?"  Face: frame tinted from the RGS navy hue (blue-grey),
+   brand orange shrinks to the logo, the 2px active-nav underline and status; white sheet inset 8px, 16px radius, 1px edge, no shadow.
+   Grid: sheet padding 24; card gutters 24 everywhere (var(--s6)). */
+:root {
+  --frame: #e8ebf0; --frame-ink: #1a2740; --frame-muted: #566176; --frame-hover: #dde1e8; --sheet-edge: #d9dde4;
+  --sheet: #ffffff; --card-edge: #e3e6eb;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --frame: #0a1628; --frame-ink: #e4e9f2; --frame-muted: #93a1ba; --frame-hover: #13294b; --sheet-edge: #1d3358; --sheet: #0f1f38; --card-edge: #1d3358; } }
+:root[data-theme="dark"] { --frame: #0a1628; --frame-ink: #e4e9f2; --frame-muted: #93a1ba; --frame-hover: #13294b; --sheet-edge: #1d3358; --sheet: #0f1f38; --card-edge: #1d3358; }
+.app { background: var(--frame); color: var(--frame-ink); }
+.rail { background: var(--frame); color: var(--frame-ink); border: 0; }
+.rail-head { border-bottom: 0; padding: var(--s4) var(--s4) var(--s2); }
+.rail-head .logo-rgs { height: 40px; } .rail-head .logo-gc { height: 30px; }
+.rail-head .appname { color: var(--frame-ink); font-size: 1.15rem; }
+.rail-head .shellname { color: var(--frame-muted); }
+.nav { gap: 2px; }
+.nav-group { color: var(--frame-muted); }
+.nav a { color: var(--frame-ink); min-height: 36px; font-size: var(--fs-sm); }
+.nav a:hover { background: var(--frame-hover); color: var(--frame-ink); }
+.nav a[aria-current="page"] { background: var(--sheet); color: var(--frame-ink); font-weight: 600; box-shadow: inset 2px 0 0 var(--brand-orange); }
+[dir="rtl"] .nav a[aria-current="page"] { box-shadow: inset -2px 0 0 var(--brand-orange); }
+.nav a[aria-current="page"] .icon { color: var(--frame-ink); }
+.nav a .stage { color: var(--frame-muted); border-color: var(--sheet-edge); }
+.nav a[aria-current="page"] .stage { color: var(--frame-muted); border-color: var(--sheet-edge); }
+.rail-foot { border-top: 0; color: var(--frame-muted); } .rail-foot .motto { color: var(--frame-ink); }
+.main { background: var(--frame); }
+.topbar { background: var(--frame); border: 0; backdrop-filter: none; min-height: 48px; padding-block: 6px; }
+.topbar .search .input { background: var(--sheet); border: 1px solid var(--sheet-edge); min-height: 34px; }
+.proto-strip { border: 0; }
+.avatar { background: var(--frame-ink); color: var(--sheet); width: 32px; height: 32px; }
+.userbtn .who span { color: var(--frame-muted); }
+.content { background: var(--sheet); color: var(--ink); border: 1px solid var(--sheet-edge); border-radius: 16px; box-shadow: none;
+  margin: 0 8px 8px 0; padding: 24px; padding-block: 24px 48px; gap: 24px; max-width: none; width: auto; flex: 1; align-content: start; }
+.content:focus, .content:focus-visible { outline: none; } /* programmatic focus target, not a control */
+/* title row: 24px, no rule weight */
+.page-h { border-bottom: 0; padding-bottom: 0; align-items: center; }
+.page-h h1 { font-size: 1.5rem; line-height: 1.2; }
+.page-h p { font-size: var(--fs-sm); }
+/* cards: one tone step and a light edge; no ink top bar */
+.card { border: 1px solid var(--card-edge); border-block-start: 1px solid var(--card-edge); border-radius: 10px; background: var(--sheet); }
+.card-h { padding: 14px 20px; border-bottom: 1px solid var(--card-edge); }
+.card-h h2, .card-h h3 { font-size: 1rem; font-weight: 600; }
+th { border-bottom: 1px solid var(--sheet-edge); }
+tbody tr:hover td { background: var(--frame); }
+.btn-secondary { border-color: var(--sheet-edge); }
+.btn-secondary:hover { background: var(--frame); }
+.input, .select, .textarea { border-color: var(--sheet-edge); }
+/* home masthead becomes a title row: greeting + 24px title, picture as a small illustration */
+.mast { grid-template-columns: minmax(0, 1fr) auto; align-items: center; padding-bottom: 0; border-bottom: 0; gap: var(--s5); }
+.mast .greet { font-size: var(--fs-sm); }
+.mast h1 { font-size: 1.5rem; line-height: 1.2; margin-block: 2px 12px; }
+.mast figure { height: 88px; width: 156px; border-radius: 10px; }
+.mast .chip { border-color: var(--sheet-edge); }
+/* project hero stays a dark object but loses the oversized scale */
+.phero { border-radius: 10px; min-height: 0; }
+.phero h1 { font-size: 1.5rem; }
+.phero-prog .big { font-size: 2.25rem; }
+/* a lone project card spans the sheet instead of stranding a void on its right */
+.pgrid:has(> .pcard:only-child) { grid-template-columns: minmax(0, 1fr); }
+.pgrid > .pcard:only-child { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.pgrid > .pcard:only-child .pcard-img { aspect-ratio: auto; height: 100%; min-height: 200px; max-height: 260px; }
+.pgrid > .pcard:only-child .pcard-img img { height: 100%; object-fit: cover; }
+.qa-btn { background: var(--sheet); border-color: var(--card-edge); box-shadow: none; border-radius: 10px; }
+.qa-btn:hover { background: var(--frame); }
+@media (max-width: 900px) { .pgrid > .pcard:only-child { display: flex; } }
+/* IDs: one mono job */
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+@media (max-width: 900px) {
+  .content { margin: 0; border-radius: 0; border-inline: 0; border-bottom: 0; padding: 16px; }
+  .topbar { background: var(--frame); }
+  .mast { grid-template-columns: 1fr; } .mast figure { display: none; }
+}
 </style>
 
 <div id="root"></div>
