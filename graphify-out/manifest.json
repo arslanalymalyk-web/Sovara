@@ -5285,10 +5285,160 @@
     "ast_hash": "a65fb8816750941d33c835bcdc6ae7ac",
     "semantic_hash": ""
   },
+  "package.json": {
+    "mtime": 1793641365.1785214,
+    "seen": 1793642578.9503188,
+    "ast_hash": "78851902f2213cb3c77f9a01b4d964c1",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/components.json": {
+    "mtime": 1793641919.269904,
+    "seen": 1793642578.9503222,
+    "ast_hash": "303f2fb60284bf617619c3f1e6fdcb44",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/package.json": {
+    "mtime": 1793641944.9825082,
+    "seen": 1793642578.9503243,
+    "ast_hash": "764f505318fe0f7b0efacd533ac2932b",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/App.tsx": {
+    "mtime": 1793642525.383064,
+    "seen": 1793642578.950326,
+    "ast_hash": "2ce75f27c1081d2583e18c55b23a7d77",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/GradientText/GradientText.tsx": {
+    "mtime": 1793642518.771327,
+    "seen": 1793642578.9503276,
+    "ast_hash": "735f81ab5f5a511b4344cc13d498dc3c",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ShinyText/ShinyText.tsx": {
+    "mtime": 1793642518.8391368,
+    "seen": 1793642578.950329,
+    "ast_hash": "42ea75c4f11aaccf75ff5f9a8bc29d7f",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/SplitText/SplitText.tsx": {
+    "mtime": 1793642518.7193272,
+    "seen": 1793642578.950331,
+    "ast_hash": "914891db6c9bed82b32d0815f0a87533",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/main.tsx": {
+    "mtime": 1793642525.3809648,
+    "seen": 1793642578.9503322,
+    "ast_hash": "216c2ab82c5e9420e70a5274e15d96ff",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/tsconfig.json": {
+    "mtime": 1793641919.2659798,
+    "seen": 1793642578.9503334,
+    "ast_hash": "af43eca8f4bc72b1d23d268ee09026ed",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/vite.config.ts": {
+    "mtime": 1793641919.268045,
+    "seen": 1793642578.9503348,
+    "ast_hash": "c07807c225694d7b2c003271b66a06e4",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/SKILL.md": {
+    "mtime": 1793641374.5241256,
+    "seen": 1793642578.9594352,
+    "ast_hash": "b4c813d355059d18dd8c56ab7d78e5dd",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/element-attributes.md": {
+    "mtime": 1793641374.5201502,
+    "seen": 1793642578.9594386,
+    "ast_hash": "8b8ffc48e38a5b4a04baec18a2732cd7",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/playwright-tests.md": {
+    "mtime": 1793641374.522982,
+    "seen": 1793642578.959441,
+    "ast_hash": "99970dceff6228941c8f994e7dd71d27",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/pr-attachments.md": {
+    "mtime": 1793641374.5210917,
+    "seen": 1793642578.9594424,
+    "ast_hash": "1177e18d35661616471a5dbc56d915b8",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/request-mocking.md": {
+    "mtime": 1793641374.5195062,
+    "seen": 1793642578.959444,
+    "ast_hash": "3b74af1fc908062c9c7f2cef04be6a24",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/running-code.md": {
+    "mtime": 1793641374.5170548,
+    "seen": 1793642578.9594457,
+    "ast_hash": "a051719484d5330b826a5664fa1fbb32",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/session-management.md": {
+    "mtime": 1793641374.5222945,
+    "seen": 1793642578.9594471,
+    "ast_hash": "911dd3af00bd5e8c8fa4515970d90dc1",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/storage-state.md": {
+    "mtime": 1793641374.5186799,
+    "seen": 1793642578.9594483,
+    "ast_hash": "c08abef5555579182415cbf6fe38540b",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/test-generation.md": {
+    "mtime": 1793641374.5216708,
+    "seen": 1793642578.9594498,
+    "ast_hash": "beb47388c77b47110c94e3c34739357f",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/tracing.md": {
+    "mtime": 1793641374.5179238,
+    "seen": 1793642578.9594514,
+    "ast_hash": "fd0e9fbd229a8954b2ac86a53c79308e",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/video-recording.md": {
+    "mtime": 1793641374.515776,
+    "seen": 1793642578.9594526,
+    "ast_hash": "839208845060c048ac8e23f114e11aab",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/README.md": {
+    "mtime": 1793642540.3193266,
+    "seen": 1793642578.9647682,
+    "ast_hash": "9e0ab1ebefc72182122996973c8d59bf",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/index.html": {
+    "mtime": 1793641919.2723298,
+    "seen": 1793642578.964771,
+    "ast_hash": "4750ca9efe627dbbf6df5c24e3955a2d",
+    "semantic_hash": ""
+  },
   ".claude/skills/img2threejs/integrations/glb_character_pipeline/node/package-lock.json": {
     "mtime": 1793637075.0,
     "seen": 1793641241.2271624,
     "ast_hash": "536c0727874b1839a29cbd5326a3afdb",
+    "semantic_hash": ""
+  },
+  "package-lock.json": {
+    "mtime": 1793641367.2625213,
+    "seen": 1793642578.9683664,
+    "ast_hash": "b18bdba32ffe22e5b1d223f9352dc475",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/package-lock.json": {
+    "mtime": 1793642519.5153272,
+    "seen": 1793642578.968368,
+    "ast_hash": "eee57cfedd8311e7c77e07cb9ce7523c",
     "semantic_hash": ""
   },
   "rgs-portal/3d/package-lock.json": {
