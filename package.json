@@ -1,0 +1,8 @@
+{
+  "name": "sovara",
+  "private": true,
+  "description": "Sovara project tooling (the RGS portal itself is a static site in rgs-portal/).",
+  "devDependencies": {
+    "@playwright/cli": "0.1.23"
+  }
+}
