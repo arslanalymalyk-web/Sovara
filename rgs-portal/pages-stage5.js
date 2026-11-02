@@ -8,6 +8,8 @@
   var P = window.RGSPages, h = P._h, X = window.RGSPages3;
   var t = h.t, esc = h.esc, pic = h.pic, recLink = h.recLink, go = h.go, pill = h.pill, card = h.card, table = h.table, kv = h.kv,
     crumbs = h.crumbs, emptyBox = h.emptyBox, dueCell = h.dueCell, fd = h.fd, person = h.person, L = h.L, svcTag = h.svcTag;
+    // The two stored placeholders are English sentences; show them in the reader's language.
+  function ph(v) { return v === 'To be confirmed' ? t('fi.clause.tbc') : v === 'Project-approved criterion to be entered from the referenced document' ? t('fi.criterion.tbc') : v; }
   function U() { return window.RGSUI; }
   function S() { return U().S; }
   function ST() { return U().ST; }
@@ -228,7 +230,7 @@
       var seg = (POL('inspections').results || ['pass', 'fail', 'na', 'not_assessed']).map(function (x) { return '<label class="segopt so-' + x + (v === x ? ' sel' : '') + '"><input type="radio" name="r-' + it.key + '" value="' + x + '" data-fres="' + it.key + '"' + (v === x ? ' checked' : '') + '><span>' + esc(t('ires.' + x)) + '</span></label>'; }).join('');
       var needReason = v === 'fail' || v === 'na' || (v === 'not_assessed' && !it.required);
       return '<li class="fitem' + (gap ? ' gap' : '') + (v === 'fail' ? ' failed' : '') + '" id="fi-' + it.key + '"><div class="fi-h"><span class="fi-n mono">' + (n + 1) + '</span><div class="t"><b>' + esc(it.text) + '</b>' +
-        '<span class="muted">' + (it.spec ? esc(it.spec) + ' · ' + esc(t('fi.clause')) + ' ' + esc(it.clause) + ' · ' : '') + esc(it.criterion) + '</span>' +
+        '<span class="muted">' + (it.spec ? esc(it.spec) + ' · ' + esc(t('fi.clause')) + ' ' + esc(ph(it.clause)) + ' · ' : '') + esc(ph(it.criterion)) + '</span>' +
         '<span class="row" style="gap:6px">' + pill(it.required ? 'info' : 'plain', t(it.required ? 'dv.required' : 'dv.optional')) + (it.evidence ? pill('plain', t('fi.evidenceNeeded', { what: it.evidence })) : '') + (it.witness ? pill('warn', it.witness) : '') + '</span></div></div>' +
         '<fieldset class="seg-res" aria-label="' + esc(t('fi.result') + ' ' + (n + 1)) + '">' + seg + '</fieldset>' +
         (gap ? '<div class="field-error">' + ic('alert') + esc(t(pr.gaps.filter(function (x) { return x.key === it.key; })[0].why === 'reason' ? 'fi.err.reason' : 'fi.err.assess')) + '</div>' : '') +
@@ -272,7 +274,7 @@
     var rows = i.items.map(function (it, n) {
       var r = (i.results || {})[it.key] || { result: 'not_assessed' };
       var fs = findings.filter(function (f) { return f.itemKey === it.key; });
-      return '<li class="ditem r-' + r.result + '"><div class="fi-h"><span class="fi-n mono">' + (n + 1) + '</span><div class="t"><b>' + esc(it.text) + '</b><span class="muted">' + (it.spec ? esc(it.spec) + ' · ' + esc(t('fi.clause')) + ' ' + esc(it.clause) + ' · ' : '') + esc(it.criterion) + '</span></div>' + resPill(r.result) + '</div>' +
+      return '<li class="ditem r-' + r.result + '"><div class="fi-h"><span class="fi-n mono">' + (n + 1) + '</span><div class="t"><b>' + esc(it.text) + '</b><span class="muted">' + (it.spec ? esc(it.spec) + ' · ' + esc(t('fi.clause')) + ' ' + esc(ph(it.clause)) + ' · ' : '') + esc(ph(it.criterion)) + '</span></div>' + resPill(r.result) + '</div>' +
         (r.reason ? '<p class="muted">' + esc(t('fi.reason')) + ': ' + esc(r.reason) + '</p>' : '') + (r.measurement ? '<p><span class="label">' + esc(t('fi.measurement')) + '</span> <span class="num">' + esc(r.measurement + ' ' + (it.unit || '')) + '</span></p>' : '') + (r.note ? '<p class="muted">' + esc(r.note) + '</p>' : '') +
         evChips(u.id, r.evidence) + (fs.length ? '<p>' + fs.map(function (f) { return recLink('finding', f.id); }).join(' ') + '</p>' : '') +
         (staff && c.raiseFinding && r.result === 'fail' && !fs.length ? '<a class="btn btn-secondary btn-sm" ' + go('fndnew.' + i.id + '.' + it.key) + '>' + pic('flag') + esc(t('fnd.raise')) + '</a>' : '') + '</li>';
@@ -635,7 +637,7 @@
       '<div class="notice">' + ic('shield') + '<span>' + esc(t('tpl.historyRule')) + '</span></div>' + editor + start + card(esc(t('tpl.versions')), '<div class="card-b stack">' + versions + '</div>');
   }
   function itemsTable(items) {
-    return '<ol class="ditems">' + items.map(function (it) { return '<li class="ditem"><div class="t"><b>' + esc(it.text) + '</b> ' + pill(it.required ? 'info' : 'plain', t(it.required ? 'dv.required' : 'dv.optional')) + '<span class="muted">' + esc([it.spec, it.spec ? t('fi.clause') + ' ' + it.clause : '', it.evidence, it.unit ? t('fi.measurement') + ' (' + it.unit + ')' : '', it.witness].filter(Boolean).join(' · ')) + '</span><span class="muted">' + esc(it.criterion) + '</span></div></li>'; }).join('') + '</ol>';
+    return '<ol class="ditems">' + items.map(function (it) { return '<li class="ditem"><div class="t"><b>' + esc(it.text) + '</b> ' + pill(it.required ? 'info' : 'plain', t(it.required ? 'dv.required' : 'dv.optional')) + '<span class="muted">' + esc([it.spec, it.spec ? t('fi.clause') + ' ' + it.clause : '', it.evidence, it.unit ? t('fi.measurement') + ' (' + it.unit + ')' : '', it.witness].filter(Boolean).join(' · ')) + '</span><span class="muted">' + esc(ph(it.criterion)) + '</span></div></li>'; }).join('') + '</ol>';
   }
   function syncTpl(form) {
     var te = S().tpe; if (!te || !te.items) return;

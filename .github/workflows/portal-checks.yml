@@ -21,6 +21,8 @@ jobs:
         run: npm run test:workflows
       - name: Administration end to end
         run: npm run test:admin
+      - name: Arabic and right-to-left
+        run: npm run test:rtl
       - name: Phone layout and touch sizes
         run: npm run test:mobile
       - name: Accessibility (axe, light and dark)
