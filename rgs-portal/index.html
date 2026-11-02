@@ -729,9 +729,9 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .fchips button.rec { cursor: pointer; font: inherit; font-size: var(--fs-sm); }
 
 /* request detail */
-.nextbar { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); align-items: baseline; padding: var(--s3) var(--s5); border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--info); }
-.nextbar.mine { border-inline-start-color: var(--accent); background: var(--accent-soft); }
-.nextbar .label { font-size: var(--fs-xs); font-weight: 700; color: var(--muted); }
+.nextbar { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); align-items: baseline; padding: var(--s3) var(--s5); }
+
+.nextbar .label { font-size: var(--fs-xs); font-weight: 700;  }
 .thread { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
 .msg { display: flex; gap: var(--s3); align-items: flex-start; }
 .msg .bubble { flex: 1; min-width: 0; padding: var(--s3) var(--s4); border-radius: var(--r-md); border: 1px solid var(--line); background: var(--surface-2); }
@@ -1063,7 +1063,7 @@ tbody tr:hover td { background: var(--surface-2); }
 .proj-bar .progress { flex: 1; }
 /* login */
 .login { grid-template-columns: minmax(380px, 520px) minmax(0, 1fr); background: var(--bg); }
-.login-hero { order: 2; justify-content: flex-end; gap: var(--s6); position: sticky; top: 0; height: 100vh; height: 100dvh; align-self: start; }
+.login-hero { order: 2; justify-content: flex-start; gap: var(--s6); }
 .login-panel { order: 1; background: var(--bg); place-items: start center; padding-block: clamp(24px, 6vh, 64px); }
 .login-card { background: var(--surface); border: 1px solid var(--line); border-block-start: 2px solid var(--ink); border-radius: var(--r-sm); box-shadow: none; }
 .login-hero::after { background: linear-gradient(180deg, var(--navy-a15) 0%, var(--navy-a78) 70%, var(--navy-a94) 100%); }
@@ -1071,7 +1071,39 @@ tbody tr:hover td { background: var(--surface-2); }
 .login-hero h1 { font-size: clamp(3rem, 6.4vw, 5.6rem); }
 .svc-line span + span::before { border-radius: 1px; }
 .demo-box { border-radius: var(--r-sm); }
-@media (max-width: 900px) { .mast { grid-template-columns: 1fr; } .mast figure { height: 132px; } .login { grid-template-columns: 1fr; } .login-hero { order: 0; min-height: 260px; height: auto; position: relative; } }
+@media (max-width: 900px) { .mast { grid-template-columns: 1fr; } .mast figure { height: 132px; } .login { grid-template-columns: 1fr; } .login-hero { order: 0; min-height: 260px; } }
+/* ---- site ledger, screen layer: heroes, filters, notices, tiles, states ---- */
+.card.card-b[class*="-tools"] { color: var(--ink); background: var(--surface-2); border: 0; border-block: 1px solid var(--line-strong); border-radius: 0; padding: var(--s3) var(--s4); }
+.card.card-b[class*="-tools"] label, .card.card-b[class*="-tools"] .label { font-size: var(--fs-xs); color: var(--muted); }
+.card.card-b[class*="-tools"] .select, .card.card-b[class*="-tools"] .input { min-height: 40px; }
+.notice { background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-sm); color: var(--ink-2); }
+.notice.warn { background: var(--warn-soft); border-color: transparent; color: var(--ink); }
+.nextbar { background: var(--ink); color: var(--bg); border-color: var(--ink); border-radius: var(--r-sm); }
+.nextbar .label { color: inherit; opacity: .8; }
+.nextbar a { color: inherit; }
+.nextbar.mine { background: var(--accent-solid); color: var(--white); border-color: var(--accent-solid); }
+.phero { grid-template-columns: minmax(0, 1fr) minmax(200px, 280px) minmax(200px, 26%); gap: var(--s6); align-items: stretch; background: transparent; color: var(--ink); border-radius: 0; border-block-end: 2px solid var(--ink); padding-block-end: var(--s5); min-height: 0; overflow: visible; }
+.phero::before { display: none; }
+.phero-img { color: var(--white); position: relative; inset: auto; order: 3; min-height: 168px; border-radius: var(--r-sm); overflow: hidden; background: var(--nav-bg); }
+.phero-img img { opacity: 1; width: 100%; height: 100%; object-fit: cover; display: block; }
+.phero-b { order: 1; padding: 0; }
+.phero-prog { order: 2; padding: 0; background: transparent; border-inline-start: 0; border-inline: 0; align-content: end; }
+.phero h1 { color: var(--ink); font-size: clamp(2rem, 3.8vw, var(--fs-2xl)); line-height: 1.05; }
+.phero .mono, .phero-loc, .pg-hero .phero-b p { color: var(--muted); }
+.phero-meta dt, .phero-prog .label, .phero-prog .muted { color: var(--muted); }
+.phero-meta dd, .phero-prog .big { color: var(--ink); }
+.phero-prog .big { font-size: 3.5rem; }
+.phero-prog .progress { background: var(--surface-2); border-color: var(--line); }
+.phero .pill { border-color: transparent; }
+.ov-tile { border-radius: var(--r-sm); border-block-start: 2px solid var(--ink); background: var(--surface); }
+.ov-tile b { font-size: 3rem; }
+.state .glyph { border-radius: var(--r-sm); width: 48px; height: 48px; }
+.state .glyph .icon { width: 24px; height: 24px; }
+.state { padding-block: var(--s8); }
+.module-tile { border-radius: var(--r-sm); background: var(--surface); border-block-start: 2px solid var(--ink); }
+.pcard-img { border-radius: 0; }
+.ptabs a, .ptabs button { padding-inline: var(--s4); }
+@media (max-width: 900px) { .phero { grid-template-columns: 1fr; } .phero-img { order: 3; min-height: 120px; } }
 </style>
 
 <div id="root"></div>
