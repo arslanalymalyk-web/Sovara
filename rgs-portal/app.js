@@ -577,7 +577,7 @@
       '</div></section>' +
       '<section class="card"><div class="card-h"><h2>Cards and navigation</h2></div><div class="card-b stack">' +
         '<div class="card" style="box-shadow:none"><div class="list"><div class="list-row"><span class="sev warn"></span><div class="t"><b>Review insulation method statement</b><span class="mono">MS-INS-02 Rev B</span> <span>· due 15 Oct</span></div><span class="pill warn">2 days</span></div></div></div>' +
-        '<div style="background:var(--nav-bg);border-radius:var(--r-md);padding:var(--s3)" class="nav"><a href="#ds" aria-current="page">' + ic('home') + '<span>Active item</span></a><a href="#ds">' + ic('documents') + '<span>Default item</span><span class="stage">S5</span></a></div>' +
+        '<div style="background:var(--frame);border-radius:var(--r-md);padding:var(--s3)" class="nav"><a href="#ds" aria-current="page">' + ic('home') + '<span>Active item</span></a><a href="#ds">' + ic('documents') + '<span>Default item</span><span class="stage">S5</span></a></div>' +
         '<p class="field-hint">Cards set off one object; lists inside them use a severity stripe so state reads at a glance without colour alone (text label always present).</p>' +
       '</div></section></div>';
   }
