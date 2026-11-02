@@ -1,0 +1,24 @@
+{
+  "name": "react-bits-lab",
+  "private": true,
+  "type": "module",
+  "description": "Small React workspace for trying React Bits components (https://github.com/DavidHDev/react-bits). Separate from the static RGS portal.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.7"
+  }
+}
