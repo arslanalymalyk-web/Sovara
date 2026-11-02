@@ -1980,15 +1980,15 @@
     "semantic_hash": ""
   },
   "rgs-portal/api.js": {
-    "mtime": 1793649075.4443018,
-    "seen": 1793649268.1943514,
-    "ast_hash": "1f6dc93ab438a7d801b1f391395b0879",
+    "mtime": 1793651416.6089277,
+    "seen": 1793651715.27692,
+    "ast_hash": "36efca4a8556017172fada26816d3954",
     "semantic_hash": ""
   },
   "rgs-portal/app.js": {
-    "mtime": 1793648961.014453,
-    "seen": 1793649268.1943579,
-    "ast_hash": "49db972f54a3a43ae4eb8de74284aada",
+    "mtime": 1793651354.7636592,
+    "seen": 1793651715.2769225,
+    "ast_hash": "da02595bdf7b1ee9928288fe65d5c446",
     "semantic_hash": ""
   },
   "rgs-portal/config.js": {
@@ -4632,9 +4632,9 @@
     "semantic_hash": ""
   },
   "rgs-portal/index.html": {
-    "mtime": 1793648664.8906538,
-    "seen": 1793648841.7878869,
-    "ast_hash": "6a1c9cc2cef1c453bfb9b4635f183dd6",
+    "mtime": 1793651416.6104174,
+    "seen": 1793651715.2924852,
+    "ast_hash": "dc43070900cb7f0f3a229ce2b75d65bb",
     "semantic_hash": ""
   },
   ".claude/skills/hallmark/references/themes/almanac.jpg": {
@@ -5286,9 +5286,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1793641365.1785214,
-    "seen": 1793642578.9503188,
-    "ast_hash": "78851902f2213cb3c77f9a01b4d964c1",
+    "mtime": 1793651479.8621306,
+    "seen": 1793651715.2742,
+    "ast_hash": "b2329735613458f26cb6a91fc8f07bf6",
     "semantic_hash": ""
   },
   "react-bits-lab/components.json": {
@@ -6858,15 +6858,69 @@
     "semantic_hash": ""
   },
   "rgs-portal/i18n-admin.js": {
-    "mtime": 1793648955.6441069,
-    "seen": 1793649268.1944838,
-    "ast_hash": "72e415f2d9fadd0c01a03f2d7dfa5ea9",
+    "mtime": 1793651203.2823887,
+    "seen": 1793651715.2769725,
+    "ast_hash": "5f418d671eb683635ce9e5e0c64470ef",
     "semantic_hash": ""
   },
   "rgs-portal/pages-admin.js": {
-    "mtime": 1793648738.7873707,
-    "seen": 1793648841.7608,
-    "ast_hash": "21b5f432f08cbf400c8ab79ffae537f8",
+    "mtime": 1793651547.447413,
+    "seen": 1793651715.2770934,
+    "ast_hash": "20d774cd757c1daa60449dc0cbc2bec9",
+    "semantic_hash": ""
+  },
+  ".github/workflows/portal-checks.yml": {
+    "mtime": 1793651479.8624723,
+    "seen": 1793651715.2741218,
+    "ast_hash": "31211ae13e2883fd3b7b6963cad1b26c",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/a11y.mjs": {
+    "mtime": 1793651328.5337272,
+    "seen": 1793651715.2772772,
+    "ast_hash": "bb5cc31922a8325b8b928890f5093838",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/admin.mjs": {
+    "mtime": 1793651479.8522682,
+    "seen": 1793651715.2772794,
+    "ast_hash": "46f61d1f154be23ab5be5269ac3557c7",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/crawl.mjs": {
+    "mtime": 1793650560.8011715,
+    "seen": 1793651715.277281,
+    "ast_hash": "d69de4b6ad77ffed788dcf0b920abe12",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/lib/harness.mjs": {
+    "mtime": 1793650736.4726284,
+    "seen": 1793651715.277283,
+    "ast_hash": "5d80955f06842dfd160f14dc407973ab",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/mobile.mjs": {
+    "mtime": 1793650560.8044796,
+    "seen": 1793651715.2772849,
+    "ast_hash": "69fc5abff07ddb878e7c378027a07843",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/workflows.mjs": {
+    "mtime": 1793650919.0434475,
+    "seen": 1793651715.2772863,
+    "ast_hash": "ce1cdcf23be73dfb7af68ffc0895cd64",
+    "semantic_hash": ""
+  },
+  "docs/PRODUCTION-PLAN.md": {
+    "mtime": 1793650536.317127,
+    "seen": 1793651715.292094,
+    "ast_hash": "ab7a98a20ccfdcb6986a3b35de690cf1",
+    "semantic_hash": ""
+  },
+  "rgs-portal/README.md": {
+    "mtime": 1793651479.8630042,
+    "seen": 1793651715.2924829,
+    "ast_hash": "4852cf6b97740d98c4a73931dbfe4f24",
     "semantic_hash": ""
   },
   ".claude/skills/img2threejs/integrations/glb_character_pipeline/node/package-lock.json": {
@@ -6876,9 +6930,9 @@
     "semantic_hash": ""
   },
   "package-lock.json": {
-    "mtime": 1793641367.2625213,
-    "seen": 1793642578.9683664,
-    "ast_hash": "b18bdba32ffe22e5b1d223f9352dc475",
+    "mtime": 1793651041.2289183,
+    "seen": 1793651715.295578,
+    "ast_hash": "7662ea838ca5692c6e9cf91bb5850e7d",
     "semantic_hash": ""
   },
   "react-bits-lab/package-lock.json": {
