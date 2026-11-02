@@ -23,7 +23,8 @@
   function errBox(code, detail) { return code ? '<div class="notice warn" role="alert">' + ic('alert') + '<span>' + esc(err(code)) + (detail ? ' ' + esc(detail) : '') + '</span></div>' : ''; }
   function save(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   function load(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
-  function num(n) { return (Math.round(n * 100) / 100).toLocaleString(S().lang === 'ar' ? 'ar-SA-u-nu-latn' : 'en-GB'); }
+  var NUM_FMT = {};
+  function num(n) { var k = S().lang === 'ar' ? 'ar-SA-u-nu-latn' : 'en-GB'; return (NUM_FMT[k] = NUM_FMT[k] || new Intl.NumberFormat(k)).format(Math.round(n * 100) / 100); }
   function testPill(example, label) { return example ? ' ' + pill('warn', t('pg.testSetting')) + (label ? ' <span class="muted">' + esc(label) + '</span>' : '') : ''; }
   function msName(id) { var m = ST().get('milestone', id); return m ? L(m, 'name') : id; }
   function nodeLabel(ref) {

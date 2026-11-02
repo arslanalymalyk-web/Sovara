@@ -41,7 +41,9 @@
   function org(u) { return byId(D.orgs, u.orgId); }
   function isCustomer(u) { return org(u).kind === 'customer'; }
   function initials(n) { return n.split(/\s+/).filter(Boolean).map(function (p) { return p.replace(/^Al-/, '')[0]; }).slice(0, 2).join('').toUpperCase(); }
-  function fmtDate(s) { try { return new Date(s).toLocaleDateString(S.lang === 'ar' ? 'ar-SA-u-nu-latn-ca-gregory' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return s; } }
+  // One formatter per locale: building it per call cost ~40x more and runs for every date on every screen.
+  var DATE_FMT = {};
+  function fmtDate(s) { try { var k = S.lang === 'ar' ? 'ar-SA-u-nu-latn-ca-gregory' : 'en-GB'; return (DATE_FMT[k] = DATE_FMT[k] || new Intl.DateTimeFormat(k, { day: 'numeric', month: 'short', year: 'numeric' })).format(new Date(s)); } catch (e) { return s; } }
   function toast(msg) { var el = document.getElementById('toast'); el.textContent = msg; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(function () { el.hidden = true; }, 3600); }
 
   var ICON = {
