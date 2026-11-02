@@ -5304,9 +5304,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/src/App.tsx": {
-    "mtime": 1793644138.5392663,
-    "seen": 1793644205.4065979,
-    "ast_hash": "e45d14a605d3a5d7149de07ed15a013f",
+    "mtime": 1793644546.7455435,
+    "seen": 1793644634.1665692,
+    "ast_hash": "9cdeca5a4c0d1538cf0b9d2bf2f48c06",
     "semantic_hash": ""
   },
   "react-bits-lab/src/components/react-bits/GradientText/GradientText.tsx": {
@@ -5412,9 +5412,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/README.md": {
-    "mtime": 1793644170.906555,
-    "seen": 1793644205.4206512,
-    "ast_hash": "90ee6f203fe71355543b8082c5d6ffd1",
+    "mtime": 1793644600.7050655,
+    "seen": 1793644634.1813867,
+    "ast_hash": "5ff4a1a7962d6e14c3a6da1dd81d2e4a",
     "semantic_hash": ""
   },
   "react-bits-lab/index.html": {
@@ -5547,6 +5547,84 @@
     "mtime": 1793644138.5194094,
     "seen": 1793644205.4070039,
     "ast_hash": "274722b5d9e98a14d3836d823b5b8c3e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/Animations.tsx": {
+    "mtime": 1793644546.7410755,
+    "seen": 1793644634.1665661,
+    "ast_hash": "dd2d4195519ef03bddd1060dd429e791",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/AnimatedContent/AnimatedContent.tsx": {
+    "mtime": 1793644539.945067,
+    "seen": 1793644634.1670024,
+    "ast_hash": "800b0200fe8b005a103b01207382c926",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/CircularText/CircularText.tsx": {
+    "mtime": 1793644539.9507291,
+    "seen": 1793644634.1670043,
+    "ast_hash": "4ba8f6a4157a3a4887af1fa92e9d68de",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/CurvedLoop/CurvedLoop.tsx": {
+    "mtime": 1793644539.95179,
+    "seen": 1793644634.1670065,
+    "ast_hash": "a3534d2a48a95750f4d4fe6627ff8640",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/FadeContent/FadeContent.tsx": {
+    "mtime": 1793644539.941067,
+    "seen": 1793644634.1670084,
+    "ast_hash": "51f3f469128478851e289402645e5384",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/GlareHover/GlareHover.tsx": {
+    "mtime": 1793644539.952323,
+    "seen": 1793644634.16701,
+    "ast_hash": "4818580e943dcf7061fb1327c26fec6a",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/MagnetLines/MagnetLines.tsx": {
+    "mtime": 1793644539.9529483,
+    "seen": 1793644634.1670113,
+    "ast_hash": "9276e9c02bc33d085682b132b2c7a7a3",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/Noise/Noise.tsx": {
+    "mtime": 1793644539.953667,
+    "seen": 1793644634.167013,
+    "ast_hash": "f233e3c21b04e320ac4671a536ea05f4",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/ScrollFloat/ScrollFloat.tsx": {
+    "mtime": 1793644539.9487302,
+    "seen": 1793644634.167014,
+    "ast_hash": "f7bf82f88ef38f93523bcb5893e0b920",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/ScrollReveal/ScrollReveal.tsx": {
+    "mtime": 1793644539.949378,
+    "seen": 1793644634.167015,
+    "ast_hash": "83a0b4ce30db0ad0a922ec3eba832b3b",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/ScrollVelocity/ScrollVelocity.tsx": {
+    "mtime": 1793644539.9512823,
+    "seen": 1793644634.1670167,
+    "ast_hash": "a5ba067c406cadc658e3c6fb9662080c",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/Shuffle/Shuffle.tsx": {
+    "mtime": 1793644539.9566028,
+    "seen": 1793644634.1670182,
+    "ast_hash": "00c736963ae4346ca7cf3431b161fbf3",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/TrueFocus/TrueFocus.tsx": {
+    "mtime": 1793644539.9500718,
+    "seen": 1793644634.1670198,
+    "ast_hash": "2c45eec36d7b72cd0adb3e3934a3d3e2",
     "semantic_hash": ""
   },
   ".claude/skills/img2threejs/integrations/glb_character_pipeline/node/package-lock.json": {

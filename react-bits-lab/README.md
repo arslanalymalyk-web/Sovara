@@ -11,3 +11,5 @@ They were written from the repo's `public/r/*.json` registry files because the s
 `npm run dev` / `npm run build`.
 
 Backgrounds (in `src/components/react-bits/backgrounds/`): Aurora, Particles, Iridescence, Waves, LiquidChrome, Orb, Silk, Beams, Balatro, Dither (WebGL, no extra deps). Gallery: `src/Backgrounds.tsx`.
+
+Animations (in `src/components/react-bits/animations/`): FadeContent, AnimatedContent, ScrollFloat, ScrollReveal, TrueFocus, CircularText, ScrollVelocity, CurvedLoop, GlareHover, MagnetLines, Noise, Shuffle. Gallery: `src/Animations.tsx`.

@@ -15,6 +15,7 @@ import GlitchText from '@/components/react-bits/GlitchText/GlitchText';
 const box = { display: 'grid', gap: 12, padding: 24, border: '1px solid #333', borderRadius: 12 } as const;
 
 import Backgrounds from './Backgrounds';
+import Animations from './Animations';
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
         <section style={box}><GlitchText>Glitch</GlitchText><small>GlitchText · click anywhere for ClickSpark</small></section>
       </main>
       <Backgrounds />
+      <Animations />
     </ClickSpark>
   );
 }
