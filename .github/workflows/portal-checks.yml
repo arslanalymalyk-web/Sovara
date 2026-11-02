@@ -19,6 +19,8 @@ jobs:
         run: npm run test:crawl
       - name: Key workflows end to end
         run: npm run test:workflows
+      - name: Administration end to end
+        run: npm run test:admin
       - name: Phone layout and touch sizes
         run: npm run test:mobile
       - name: Accessibility (axe, light and dark)

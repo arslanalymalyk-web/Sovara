@@ -35,6 +35,11 @@
   function pbSel(id, key, label, opts, cur) {
     return '<div class="field"><label for="' + id + '">' + esc(label) + '</label><select id="' + id + '" class="select" data-pbind="adm.' + key + '">' + opts.map(function (o) { return '<option value="' + esc(o[0]) + '"' + (String(cur) === String(o[0]) ? ' selected' : '') + '>' + esc(o[1]) + '</option>'; }).join('') + '</select></div>';
   }
+  // a form that sits directly under the page title gets a level-2 heading so the outline never skips a level
+  function topForm(html) { return html.replace(/<h3 class="sub-h" tabindex="-1">([\s\S]*?)<\/h3>/, '<h2 class="sub-h" tabindex="-1">$1</h2>'); }
+  function opts(list) { return list.map(function (o) { return [o[0], o[1]]; }); }
+  function todayStr() { return ST().today; }
+  function addDays(d, n) { var x = new Date(d + 'T00:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); }
   function denied() { return emptyBox('shield', t('adm.denied.t'), t('adm.denied.d')); }
   function can(u, action) { return A().can(ds(), u.id, action, null).allowed; }
 
@@ -57,7 +62,7 @@
     });
     var invite = isOpen('adm-invite') ? inviteForm() : '';
     var detail = a.sel ? userDetail(u, a.sel) : '';
-    return pageHead('users', opener('adm-invite', t('adm.invite'), true)) + invite +
+    return pageHead('users', opener('adm-invite', t('adm.invite'), true)) + topForm(invite) +
       '<p class="muted" role="status">' + esc(t('adm.users.count', { n: list.length, m: all.length, a: counts.active, i: counts.invited, s: counts.suspended })) + '</p>' +
       '<section class="card card-b act-tools">' + liveSearch('adm-q', a.uq) +
       pbSel('adm-uorg', 'uorg', t('adm.org'), [['', t('f.all')]].concat(ds().orgs.map(function (o) { return [o.id, U().L(o, 'name')]; })), a.uorg) +
@@ -77,18 +82,31 @@
       (needsProject ? select('projectId', t('adm.scope'), projects.map(function (p) { return [p.id, p.code + ' · ' + U().L(p, 'name')]; })) : '') +
       '<p class="field-hint">' + esc(t('adm.invite.note')) + '</p>', t('adm.invite.send'));
   }
+  function roleChangeForm(x) {
+    var o = ds().orgs.filter(function (y) { return y.id === x.orgId; })[0], side = o && o.kind === 'rgs' ? 'rgs' : 'customer';
+    var roles = Object.keys(A().ROLES).filter(function (r) { return A().ROLES[r].side === side && r !== x.role; });
+    var role = val('role'), def = A().ROLES[role], needsProject = def && def.scopeLevel !== 'global';
+    var projects = ds().projects.filter(function (pj) { return !o || o.kind === 'rgs' || pj.customerOrgId === o.id; });
+    return formWrap('adm-role.' + x.id, t('adm.role.change') + ' · ' + x.name,
+      '<p class="field-hint">' + esc(t('adm.role.note', { role: roleName(x.role) })) + '</p>' +
+      select('role', t('adm.role.new'), roles.map(function (r) { return [r, roleName(r)]; }), { live: true }) +
+      (needsProject ? select('projectId', t('adm.scope'), projects.map(function (pj) { return [pj.id, pj.code + ' · ' + U().L(pj, 'name')]; })) : '') +
+      input('reason', t('dlg.reason'), 'textarea'), t('adm.role.change'));
+  }
   function userDetail(u, id) {
     var x = ds().users.filter(function (y) { return y.id === id; })[0]; if (!x) return '';
     var asg = userAssignments(id), auths = userAuths(id), self = x.id === u.id;
     var acts = '';
     if (!self && x.status === 'active') acts = opener('adm-susp.' + id, t('adm.suspend'), false);
     else if (!self) acts = '<button type="button" class="btn btn-primary" data-pact="adm-activate" data-v="' + esc(id) + '">' + esc(t(x.status === 'invited' ? 'adm.activate' : 'adm.reactivate')) + '</button>';
+    var roleBtn = !self ? opener('adm-role.' + id, t('adm.role.change'), false) : '';
+    var roleForm = isOpen('adm-role.' + id) ? roleChangeForm(x) : '';
     var form = isOpen('adm-susp.' + id) ? formWrap('adm-susp.' + id, t('adm.suspend') + ' · ' + x.name, '<p class="field-hint">' + esc(t('adm.suspend.note')) + '</p>' + input('reason', t('dlg.reason'), 'textarea'), t('adm.suspend'), { danger: true }) : '';
     return card(esc(x.name), kv([[t('adm.email'), esc(x.email)], [t('adm.org'), esc(org(x.orgId))], [t('adm.role'), esc(roleName(x.role))], [t('f.status'), statusPill(x.status)],
       x.statusReason ? [t('adm.status.reason'), esc(x.statusReason)] : null, [t('adm.lastvisit'), esc(fdt(x.lastVisitAt))],
       [t('adm.assignments'), asg.length ? '<ul class="plain">' + asg.map(function (g) { return '<li>' + esc(roleName(g.role)) + ' · ' + esc(scopeText(g.scope)) + '</li>'; }).join('') + '</ul>' : '—'],
       [t('adm.authorities'), auths.length ? '<ul class="plain">' + auths.map(function (d) { return '<li>' + esc(d.id) + ' · ' + esc(U().actLabel(d.action)) + ' ' + pill(d.status === 'active' && !d.revokedAt ? 'ok' : 'plain', t('adm.auth.' + (d.revokedAt ? 'revoked' : d.status))) + '</li>'; }).join('') + '</ul>' : '—']]) +
-      (self ? '<p class="field-hint card-b">' + esc(t('adm.self')) + '</p>' : '') + '<div class="card-b stack"><div class="btn-stack">' + acts + '</div>' + form + '</div>', '', 'adm-detail');
+      (self ? '<p class="field-hint card-b">' + esc(t('adm.self')) + '</p>' : '') + '<div class="card-b stack"><div class="btn-stack">' + roleBtn + acts + '</div>' + roleForm + form + '</div>', '', 'adm-detail');
   }
 
   // =====================================================================================================
@@ -101,14 +119,32 @@
       var pr = o.kind === 'rgs' ? ds().projects : ds().projects.filter(function (p) { return p.customerOrgId === o.id; });
       return '<tr><td><b>' + esc(U().L(o, 'name')) + '</b></td><td>' + pill(o.kind === 'rgs' ? 'brand' : 'info', t('adm.orgkind.' + o.kind)) + '</td><td class="num">' + us.length + ' <span class="muted">(' + esc(t('adm.org.active', { n: act })) + ')</span></td>' +
         '<td>' + (pr.length ? pr.map(function (p) { return '<span class="mono">' + esc(p.code) + '</span>'; }).join('<br>') : '—') + '</td>' +
-        '<td><button type="button" class="btn btn-secondary btn-sm" data-pact="adm-users-org" data-v="' + esc(o.id) + '">' + esc(t('adm.org.viewUsers')) + '<span class="visually-hidden"> · ' + esc(U().L(o, 'name')) + '</span></button></td></tr>';
+         '<td><div class="btn-stack">' + (o.kind === 'rgs' ? '' : opener('adm-orgedit.' + o.id, t('adm.org.rename'), false)) + '<button type="button" class="btn btn-secondary btn-sm" data-pact="adm-users-org" data-v="' + esc(o.id) + '">' + esc(t('adm.org.viewUsers')) + '<span class="visually-hidden"> · ' + esc(U().L(o, 'name')) + '</span></button></div></td></tr>';
     });
-    return pageHead('orgs') + '<div class="notice">' + ic('info') + '<span>' + esc(t('adm.orgs.rule')) + '</span></div>' + card(esc(t('adm.orgs.register')) + ' <span class="pill plain num">' + rows.length + '</span>', table([t('adm.org'), t('adm.kind'), t('adm.users'), t('adm.projects'), ''], rows));
+    var edit = '', fk = F().key || '';
+    if (isOpen('adm-orgnew')) edit = formWrap('adm-orgnew', t('adm.org.new'), '<p class="field-hint">' + esc(t('adm.org.new.note')) + '</p>' + input('name', t('adm.org.name'), 'text') + input('nameAr', t('adm.org.nameAr'), 'text', { optional: true }), t('adm.org.create'));
+    else if (/^adm-orgedit\./.test(fk)) { var oo = ds().orgs.filter(function (y) { return y.id === fk.slice(12); })[0]; if (oo) edit = formWrap(fk, t('adm.org.rename') + ' · ' + U().L(oo, 'name'), input('name', t('adm.org.name'), 'text', { value: oo.name }) + input('nameAr', t('adm.org.nameAr'), 'text', { value: oo.nameAr, optional: true }), t('adm.org.rename')); }
+    return pageHead('orgs', opener('adm-orgnew', t('adm.org.new'), true)) + (edit ? '<div class="card"><div class="card-b">' + topForm(edit) + '</div></div>' : '') + '<div class="notice">' + ic('info') + '<span>' + esc(t('adm.orgs.rule')) + '</span></div>' + card(esc(t('adm.orgs.register')) + ' <span class="pill plain num">' + rows.length + '</span>', table([t('adm.org'), t('adm.kind'), t('adm.users'), t('adm.projects'), ''], rows));
   }
 
   // =====================================================================================================
   // ROLES AND DELEGATED AUTHORITY
   // =====================================================================================================
+  function grantAuthorityForm(u) {
+    var A_ = A(), actions = Object.keys(A_.ACTIONS).filter(function (k) { return A_.ACTIONS[k].kind === 'technical'; }).sort(function (x, y) { return U().actLabel(x).localeCompare(U().actLabel(y)); });
+    var action = val('action'), projectId = val('projectId');
+    var holders = ds().users.filter(function (x) { return x.id !== u.id && x.status === 'active' && A_.ROLES[x.role] && (!action || A_.ROLES[x.role].eligible.indexOf(action) >= 0); });
+    var nominators = ds().users.filter(function (x) { return x.id !== u.id && x.status === 'active'; }).map(function (x) { return [x.id, x.name + ' · ' + roleName(x.role)]; })
+      .concat(ds().orgs.filter(function (o) { return o.kind === 'customer'; }).map(function (o) { return [o.id, U().L(o, 'name')]; }));
+    var from = todayStr();
+    return formWrap('adm-grant', t('adm.grant'), '<p class="field-hint">' + esc(t('adm.grant.note')) + '</p>' +
+      select('action', t('adm.action'), actions.map(function (k) { return [k, U().actLabel(k)]; }), { live: true }) +
+      select('userId', t('adm.grant.holder'), holders.map(function (x) { return [x.id, x.name + ' · ' + roleName(x.role)]; }), { hint: action && !holders.length ? t('adm.grant.noholder') : t('adm.grant.holder.hint') }) +
+      select('projectId', t('adm.scope'), ds().projects.map(function (pj) { return [pj.id, pj.code + ' · ' + U().L(pj, 'name')]; })) +
+      input('validFrom', t('adm.grant.from'), 'date', { value: from }) +
+      input('validTo', t('adm.grant.to'), 'date', { value: addDays(from, 180), hint: t('adm.grant.to.hint') }) +
+      select('nominatedBy', t('adm.grant.nominatedBy'), nominators, { hint: t('adm.grant.nominatedBy.hint') }), t('adm.grant.submit'));
+  }
   function rolesPage(u) {
     if (!can(u, 'admin.roles')) return denied();
     var a = A_(), R = A().ROLES, order = A().ROLE_ORDER;
@@ -132,7 +168,8 @@
     });
     var revForm = '';
     var rk = F().key || ''; if (/^adm-rev\./.test(rk)) { var did = rk.slice(8), dd = ds().authorities.filter(function (x) { return x.id === did; })[0]; if (dd) revForm = formWrap(rk, t('adm.revoke') + ' · ' + dd.id, '<p class="field-hint">' + esc(t('adm.revoke.note', { who: person(dd.userId), what: U().actLabel(dd.action) })) + '</p>' + input('reason', t('dlg.reason'), 'textarea'), t('adm.revoke'), { danger: true }); }
-    return pageHead('roles') + '<div class="notice">' + ic('info') + '<span>' + esc(t('adm.roles.rule')) + '</span></div>' +
+    var grantForm = isOpen('adm-grant') ? grantAuthorityForm(u) : '';
+    return pageHead('roles', opener('adm-grant', t('adm.grant'), true)) + (grantForm ? '<div class="card"><div class="card-b">' + topForm(grantForm) + '</div></div>' : '') + '<div class="notice">' + ic('info') + '<span>' + esc(t('adm.roles.rule')) + '</span></div>' +
       card(esc(t('adm.roles.catalogue')) + ' <span class="pill plain num">' + rows.length + '</span>', table([t('adm.role'), t('adm.kind'), t('adm.level'), t('adm.users'), t('adm.perms.grants'), t('adm.perms.eligible'), ''], rows)) + detail +
       card(esc(t('adm.auth.title')) + ' <span class="pill plain num">' + auths.length + '</span>', (revForm ? '<div class="card-b">' + revForm + '</div>' : '') + (auths.length ? table([t('misc.ref'), t('adm.person'), t('adm.action'), t('adm.scope'), t('adm.valid'), t('f.status'), t('adm.grantedBy'), ''], arows) : emptyBox('shield', t('adm.auth.none'), '')));
   }
@@ -203,15 +240,27 @@
   // SUPPORT
   // =====================================================================================================
   var CATS = ['access', 'data', 'report', 'other'];
+  function ticketDetail(u, x, isAdm) {
+    var thread = [{ by: x.userId, at: x.createdAt, text: x.message, staff: false }].concat(x.replies || []);
+    var items = thread.map(function (m) { return '<li class="' + (m.staff ? 'staff' : 'cust') + '"><b>' + esc(person(m.by)) + '</b> <span class="muted">' + esc(fdt(m.at)) + (m.staff ? ' · ' + esc(t('adm.sup.staff')) : '') + '</span><p>' + esc(m.text) + '</p></li>'; }).join('');
+    var statusBtns = isAdm ? ['open', 'in_progress', 'resolved'].filter(function (k) { return k !== x.status; }).map(function (k) { return '<button type="button" class="btn btn-secondary" data-pact="sup-status" data-v="' + esc(x.id + '|' + k) + '">' + esc(t('adm.sup.mark.' + k)) + '</button>'; }).join('') : '';
+    var key = 'sup-reply.' + x.id;
+    var closed = x.status === 'resolved' && !isAdm;
+    var replyForm = formWrap(key, t('adm.sup.reply'), input('message', t('adm.sup.message'), 'textarea', { rows: 3 }), t('adm.sup.reply.send'));
+    var form = closed ? (isOpen(key) ? replyForm : '<p class="field-hint">' + esc(t('adm.sup.resolved.note')) + '</p>' + opener(key, t('adm.sup.reopen'), false)) : replyForm;
+    return card(esc(x.ref) + ' · ' + esc(x.subject) + ' ' + pill(x.status === 'resolved' ? 'ok' : 'info', t('adm.sup.status.' + x.status)), '<div class="card-b stack"><ul class="plain thread">' + items + '</ul>' + (statusBtns ? '<div class="btn-stack">' + statusBtns + '</div>' : '') + form + '</div>', '', 'adm-ticket');
+  }
   function supportPage(u) {
     var cfg = U().CFG || {}, ch = (cfg.support && cfg.support.channels) || [], isAdm = can(u, 'admin.users');
     var all = ds().supportTickets || [], mine = (isAdm ? all : all.filter(function (x) { return x.userId === u.id; })).slice().reverse();
-    var rows = mine.map(function (x) { return '<tr><td><span class="mono">' + esc(x.ref) + '</span></td><td>' + esc(x.subject) + '<br><span class="muted">' + esc(x.message.length > 120 ? x.message.slice(0, 120) + '…' : x.message) + '</span></td><td>' + esc(t('adm.sup.cat.' + x.category)) + '</td>' + (isAdm ? '<td>' + esc(person(x.userId)) + '</td>' : '') + '<td>' + pill('info', t('adm.sup.status.' + x.status)) + '</td><td>' + esc(fdt(x.createdAt)) + '</td></tr>'; });
+    var sel = A_().tk ? all.filter(function (x) { return x.id === A_().tk && (isAdm || x.userId === u.id); })[0] : null;
+    var rows = mine.map(function (x) { return '<tr' + (sel && sel.id === x.id ? ' aria-selected="true"' : '') + '><td><span class="mono">' + esc(x.ref) + '</span></td><td><button type="button" class="linkbtn" data-pact="sup-open" data-v="' + esc(x.id) + '">' + esc(x.subject) + '</button>' + ((x.replies || []).length ? ' <span class="pill plain num">' + (x.replies || []).length + '</span>' : '') + '<br><span class="muted">' + esc(x.message.length > 120 ? x.message.slice(0, 120) + '…' : x.message) + '</span></td><td>' + esc(t('adm.sup.cat.' + x.category)) + '</td>' + (isAdm ? '<td>' + esc(person(x.userId)) + '</td>' : '') + '<td>' + pill(x.status === 'resolved' ? 'ok' : 'info', t('adm.sup.status.' + x.status)) + '</td><td>' + esc(fdt(x.createdAt)) + '</td></tr>'; });
     var form = isOpen('sup-new') ? formWrap('sup-new', t('adm.sup.new'), select('category', t('adm.sup.category'), CATS.map(function (c) { return [c, t('adm.sup.cat.' + c)]; })) + input('subject', t('adm.sup.subject'), 'text') + input('message', t('adm.sup.message'), 'textarea', { rows: 4, hint: t('adm.sup.message.hint') }), t('adm.sup.send')) : '';
-    return pageHead('support', opener('sup-new', t('adm.sup.new'), true)) + form +
+    var detail = sel ? ticketDetail(u, sel, isAdm) : '';
+    return pageHead('support', opener('sup-new', t('adm.sup.new'), true)) + topForm(form) +
       '<div class="grid-2">' + card(esc(t('adm.sup.contact')), '<div class="card-b">' + (ch.length ? '<ul class="plain">' + ch.map(function (c) { return '<li><b>' + esc(c.label) + '</b> · ' + esc(c.value) + '</li>'; }).join('') + '</ul>' : emptyBox('support', t('adm.sup.nochannels'), t('adm.sup.nochannels.d'))) + '</div>') +
       card(esc(t('adm.sup.safety.t')), '<div class="card-b"><p>' + esc(t('adm.sup.safety.d')) + '</p></div>') + '</div>' +
-      card(esc(t(isAdm ? 'adm.sup.all' : 'adm.sup.mine')) + ' <span class="pill plain num">' + mine.length + '</span>', mine.length ? table([t('misc.ref'), t('adm.sup.subject'), t('adm.sup.category')].concat(isAdm ? [t('adm.person')] : []).concat([t('f.status'), t('adm.when')]), rows) : emptyBox('support', t('adm.sup.none'), t('adm.sup.none.d')));
+      detail + card(esc(t(isAdm ? 'adm.sup.all' : 'adm.sup.mine')) + ' <span class="pill plain num">' + mine.length + '</span>', mine.length ? table([t('misc.ref'), t('adm.sup.subject'), t('adm.sup.category')].concat(isAdm ? [t('adm.person')] : []).concat([t('f.status'), t('adm.when')]), rows) : emptyBox('support', t('adm.sup.none'), t('adm.sup.none.d')));
   }
 
   // =====================================================================================================
@@ -222,6 +271,7 @@
     Array.from(fd_.keys()).forEach(function (k) { v[k] = String(fd_.get(k) || '').trim(); });
     f.values = Object.assign({}, f.values, v); return f.values;
   }
+  function errText(code) { var k = 'err.' + code, v = U().t(k); return v === k ? t('err.generic', { code: code }) : v; }
   function onAct(act, el) {
     var v = el.getAttribute('data-v'), a = A_();
     switch (act) {
@@ -230,6 +280,8 @@
       case 'adm-more': a.alimit += 40; U().render(); return true;
       case 'adm-users-org': a.uorg = v; a.uq = ''; a.urole = ''; a.ustatus = ''; U().go('users'); return true;
       case 'adm-audit-csv': exportAuditCsv(); return true;
+      case 'sup-open': a.tk = a.tk === v ? null : v; U().render(); var tkEl = document.getElementById('adm-ticket'); if (a.tk && tkEl) { tkEl.scrollIntoView({ block: 'nearest' }); var th = tkEl.querySelector('h2'); if (th) th.focus(); } return true;
+      case 'sup-status': { var sp = v.split('|'); var rs = API().dispatch('support.setStatus', me().id, { id: sp[0], status: sp[1] }); U().toast(rs.ok ? t('adm.done.supstatus') : errText(rs.code)); U().render(); return true; }
       case 'adm-activate': { var r = API().dispatch('admin.user.setStatus', me().id, { id: v, status: 'active' }); if (r.ok) U().toast(t('adm.done.activate')); else U().toast(t('err.' + r.code) === 'err.' + r.code ? t('err.generic', { code: r.code }) : t('err.' + r.code)); U().render(); return true; }
     }
     return false;
@@ -237,7 +289,7 @@
   function onChange(el) {
     if (el.hasAttribute('data-f6live') && el.form && /^adm-/.test(el.form.getAttribute('data-f6form') || '')) {
       var f = F(); capture(el.form);
-      if (el.name === 'orgId') { f.values.role = ''; f.values.projectId = ''; } if (el.name === 'role') f.values.projectId = '';
+      if (el.name === 'orgId') { f.values.role = ''; f.values.projectId = ''; } if (el.name === 'role' && /^adm-invite/.test(el.form.getAttribute('data-f6form'))) f.values.projectId = ''; if (el.name === 'action') f.values.userId = '';
       U().render(); var again = document.getElementById(el.id); if (again) again.focus(); return true;
     }
     return false;
@@ -265,6 +317,17 @@
       need(String(v.reason || '').length >= 5, 'reason', 'rd.err.reason'); if (invalid()) return true;
       run('admin.authority.revoke', { id: id, reason: v.reason }, t('adm.done.revoke')); return true;
     }
+    if (kind === 'adm-role') {
+      need(v.role, 'role', 'wiz.err.choose'); var rd = A().ROLES[v.role]; if (rd && rd.scopeLevel !== 'global') need(v.projectId, 'projectId', 'wiz.err.choose'); need(String(v.reason || '').length >= 5, 'reason', 'rd.err.reason'); if (invalid()) return true;
+      run('admin.user.setRole', { id: id, role: v.role, projectId: v.projectId, reason: v.reason }, t('adm.done.role'), function (r) { U().toast(r.inert && r.inert.length ? t('adm.done.role.inert', { n: r.inert.length }) : t('adm.done.role')); U().render(); }); return true;
+    }
+    if (kind === 'adm-orgnew') { need(String(v.name || '').length >= 2, 'name', 'adm.err.orgname'); if (invalid()) return true; run('admin.org.create', { name: v.name, nameAr: v.nameAr }, t('adm.done.org')); return true; }
+    if (kind === 'adm-orgedit') { need(String(v.name || '').length >= 2, 'name', 'adm.err.orgname'); if (invalid()) return true; run('admin.org.update', { id: id, name: v.name, nameAr: v.nameAr }, t('adm.done.orgedit')); return true; }
+    if (kind === 'adm-grant') {
+      need(v.action, 'action', 'wiz.err.choose'); need(v.userId, 'userId', 'wiz.err.choose'); need(v.projectId, 'projectId', 'wiz.err.choose'); need(v.validTo, 'validTo', 'adm.err.validTo'); need(v.nominatedBy, 'nominatedBy', 'wiz.err.choose'); if (invalid()) return true;
+      run('admin.authority.grant', { action: v.action, userId: v.userId, projectId: v.projectId, validFrom: v.validFrom, validTo: v.validTo, nominatedBy: v.nominatedBy }, t('adm.done.grant')); return true;
+    }
+    if (kind === 'sup-reply') { need(String(v.message || '').length >= 2, 'message', 'adm.err.reply'); if (invalid()) return true; run('support.reply', { id: id, message: v.message }, t('adm.done.reply'), function () { U().render(); }); return true; }
     if (kind === 'sup-new') {
       need(v.category, 'category', 'wiz.err.choose'); need(String(v.subject || '').length >= 3, 'subject', 'adm.err.subject'); need(String(v.message || '').length >= 10, 'message', 'adm.err.message'); if (invalid()) return true;
       run('support.request', { category: v.category, subject: v.subject, message: v.message }, t('adm.done.support')); return true;

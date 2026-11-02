@@ -737,7 +737,7 @@
     else if (act === 'opennav') { S.navOpen = true; render(); var f = document.querySelector('.nav a'); if (f) f.focus(); }
     else if (act === 'closenav') { S.navOpen = false; render(); }
     else if (act === 'resetdemo') { try { localStorage.removeItem(PKEY); } catch (e) {} location.hash = '#home'; location.reload(); }
-    else if (act === 'signout') { S.dialog = null; S.userId = null; save('user', null); S.menuOpen = false; S.route = 'home'; S.login = { email: '', password: '', errors: {}, busy: false, note: '' }; try { history.replaceState(null, '', '#'); } catch (e) {} render(); }
+    else if (act === 'signout') { S.dialog = null; S.adm = null; S.f6 = null; S.userId = null; save('user', null); S.menuOpen = false; S.route = 'home'; S.login = { email: '', password: '', errors: {}, busy: false, note: '' }; try { history.replaceState(null, '', '#'); } catch (e) {} render(); }
     else if (act === 'togglepw') { var p = document.getElementById('password'); var show = p.type === 'password'; p.type = show ? 'text' : 'password'; el.setAttribute('aria-label', t(show ? 'login.hide' : 'login.show')); }
     else if (act === 'forgot') { S.login.note = t('login.forgot.msg'); render(); }
     else if (act === 'sso') { S.login.note = t('login.sso.msg'); render(); }

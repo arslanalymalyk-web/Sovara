@@ -6,7 +6,7 @@ for (const scheme of ['light', 'dark']) for (const id of PERSONAS) {
   const ctx = await b.newContext({ viewport: { width: 1360, height: 900 }, colorScheme: scheme }), page = await ctx.newPage();
   await signIn(page, srv.url, id);
   for (const r of await routesOf(page)) {
-    if (seen.has(scheme + r)) continue; seen.add(scheme + r); await go(page, r, 400);
+    if (seen.has(scheme + r)) continue; seen.add(scheme + r); await go(page, r, 600);
     await page.evaluate(axeSource);
     const res = await page.evaluate(() => axe.run(document, { runOnly: ['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice'] }));
     R.ok(!res.violations.length, `${scheme} ${id}#${r}: ` + res.violations.map((v) => v.id + '×' + v.nodes.length).join(', '));

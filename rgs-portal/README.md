@@ -31,13 +31,14 @@ Pick a persona on the sign-in page (13 are provided: customer viewer/requester/a
 
 ```bash
 npx playwright install chromium   # once
-npm test                          # crawl, workflows, mobile, accessibility
+npm test                          # crawl, workflows, admin, mobile, accessibility
 ```
 
 | Command | Checks |
 |---|---|
 | `npm run test:crawl` | Every persona opens every screen it can reach with no script or console errors |
 | `npm run test:workflows` | Approvals, request wizard to triage, inspection verification, upload keeps typed text, user suspend/sign-in block/audit, customer support request |
+| `npm run test:admin` | Grant authority (eligibility, 12-month limit, duplicates), change role, organisations, support replies and resolve/reopen, audit entries, axe on the open forms |
 | `npm run test:mobile` | At 390px: no sideways page scroll, no text under 12px, no buttons or fields under 44px |
 | `npm run test:a11y` | axe-core WCAG 2.0/2.1 A and AA plus best practice, light and dark, no violations allowed |
 
