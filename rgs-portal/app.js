@@ -440,16 +440,16 @@
       '<p class="visually-hidden" role="status">' + esc(t('st.loading.d')) + '</p></div>';
   }
   function emptyState() {
-    return '<div class="state">' + '<div class="glyph">' + ic('inbox') + '</div><h2>' + esc(t('st.empty.t')) + '</h2><p>' + esc(t('st.empty.d')) + '</p>' +
+    return '<div class="state">' + '<div class="glyph">' + ic('inbox') + '</div><h1>' + esc(t('st.empty.t')) + '</h1><p>' + esc(t('st.empty.d')) + '</p>' +
       '<div class="actions"><button class="btn btn-primary" data-act="toast" data-msg="' + esc(t('mod.planned')) + ' 4">' + esc(t('st.empty.a')) + '</button></div></div>';
   }
   function errorState() {
-    return '<div class="state err" role="alert"><div class="glyph">' + ic('cloudx') + '</div><h2>' + esc(t('st.error.t')) + '</h2><p>' + esc(t('st.error.d')) + '</p>' +
+    return '<div class="state err" role="alert"><div class="glyph">' + ic('cloudx') + '</div><h1>' + esc(t('st.error.t')) + '</h1><p>' + esc(t('st.error.d')) + '</p>' +
       '<p class="mono" style="font-size:var(--fs-xs)">' + esc(t('st.error.ref')) + ': ERR-DOC-504-7F3A</p>' +
       '<div class="actions"><button class="btn btn-primary" data-act="retry">' + esc(t('st.error.a')) + '</button><button class="btn btn-secondary" data-route="support">' + esc(t('nav.support')) + '</button></div></div>';
   }
   function deniedState(res, m) {
-    return '<div class="card"><div class="state denied" role="alert"><div class="glyph">' + ic('lockx') + '</div><h2>' + esc(t('st.denied.t')) + '</h2><p>' + esc(t('st.denied.d')) + '</p>' +
+    return '<div class="card"><div class="state denied" role="alert"><div class="glyph">' + ic('lockx') + '</div><h1>' + esc(t('st.denied.t')) + '</h1><p>' + esc(t('st.denied.d')) + '</p>' +
       '<div class="reason"><b>' + esc(t('st.denied.why')) + ':</b> ' + esc(t('reason.' + res.code)) + (m ? ' <span class="mono" style="color:var(--muted)">(' + esc(navLabel(m, user())) + ' · ' + esc(res.code) + ')</span>' : '') + '</div>' +
       '<div class="actions"><button class="btn btn-primary" data-route="home">' + esc(t('st.denied.a')) + '</button><button class="btn btn-secondary" data-act="toast" data-msg="' + esc(t('st.denied.requested')) + '">' + esc(t('st.denied.b')) + '</button></div></div></div>';
   }

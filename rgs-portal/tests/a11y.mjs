@@ -17,6 +17,9 @@ for (const scheme of ['light', 'dark']) for (const id of PERSONAS) {
   const records = {};
   for (const r of await routesOf(page)) for (const h of await check(r)) { const kind = h.split('.')[0]; (records[kind] ||= new Set()).add(h); }
   for (const kind of Object.keys(records)) for (const h of [...records[kind]].slice(0, 2)) await check(h);
+  // the not-found screen, and (for a customer) the denied screen for projects that belong to another organisation
+  await check('req.nope');
+  if (id === 'u-cr') for (const p of ['p1', 'p2', 'p3', 'p4']) await check('project.' + p);
   await ctx.close();
 }
 console.log(`a11y: ${screens} screens checked`);

@@ -294,7 +294,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .state .glyph .icon { width: 30px; height: 30px; }
 .state.err .glyph { background: var(--crit-soft); color: var(--crit); border-color: transparent; }
 .state.denied .glyph { background: var(--warn-soft); color: var(--warn); border-color: transparent; }
-.state h2 { font-size: var(--fs-xl); }
+.state h1, .state h2 { font-size: var(--fs-xl); } /* a state that replaces the whole page carries the page's h1 */
 .state p { color: var(--muted); max-width: 52ch; }
 .state .actions { display: flex; gap: var(--s3); flex-wrap: wrap; justify-content: center; margin-top: var(--s2); }
 .reason { font-size: var(--fs-sm); background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--s3) var(--s4); text-align: start; max-width: 520px; width: 100%; }
@@ -1080,6 +1080,7 @@ tbody tr:hover td { background: var(--surface-2); }
 .notice.warn { background: var(--warn-soft); border-color: transparent; color: var(--ink); }
 .nextbar { background: var(--nav-bg-2); color: var(--white); border-color: var(--line-strong); border-radius: var(--r-sm); }
 .nextbar .label { color: var(--mist); }
+.nextbar .muted, .nextbar.mine .muted { color: var(--mist); } /* grey text would not reach contrast on the navy bar */
 .nextbar a { color: inherit; }
 .nextbar.mine { background: var(--accent-solid); color: var(--white); border-color: var(--accent-solid); }
 .phero { grid-template-columns: minmax(0, 1fr) minmax(200px, 280px) minmax(200px, 26%); gap: var(--s6); align-items: stretch; background: transparent; color: var(--ink); border-radius: 0; border-block-end: 2px solid var(--ink); padding-block-end: var(--s5); min-height: 0; overflow: visible; }
