@@ -132,7 +132,7 @@
     var res = ST().recordAccess(u.id, kind, rec);
     if (res.allowed) return null;
     if (res.code === 'not_found') {
-      return '<div class="card"><div class="state err" role="alert"><div class="glyph">' + U().ic('alert') + '</div><h2>' + esc(t('nf.title')) + '</h2><p>' + esc(t('nf.desc')) + '</p><div class="actions"><button class="btn btn-primary" data-route="projects">' + esc(t('nf.back')) + '</button></div></div></div>';
+      return '<div class="card"><div class="state err" role="alert"><div class="glyph">' + U().ic('alert') + '</div><h1>' + esc(t('nf.title')) + '</h1><p>' + esc(t('nf.desc')) + '</p><div class="actions"><button class="btn btn-primary" data-route="projects">' + esc(t('nf.back')) + '</button></div></div></div>';
     }
     return U().deniedState(res, null);
   }
