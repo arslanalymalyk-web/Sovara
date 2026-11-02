@@ -1,0 +1,172 @@
+/* UI strings, English and Arabic. Arabic needs review by a native-speaking RGS reviewer before release. */
+(function (root) {
+  'use strict';
+  var T = {
+    en: {
+      'app.name': 'RGS Client Portal',
+      'app.tagline': 'Scaffolding, insulation, waterproofing and fireproofing projects in one controlled workspace.',
+      'svc.scaffolding': 'Scaffolding', 'svc.insulation': 'Insulation', 'svc.waterproofing': 'Waterproofing', 'svc.fireproofing': 'Fireproofing',
+      'svc.scaffolding.d': 'Safe access for complex work', 'svc.insulation.d': 'Thermal and acoustic performance',
+      'svc.waterproofing.d': 'Long-term asset protection', 'svc.fireproofing.d': 'Passive fire protection for critical assets',
+      'ptype.industrial': 'Industrial', 'ptype.infrastructure': 'Infrastructure / non-industrial', 'ptype.commercial': 'Commercial', 'ptype.residential': 'Residential',
+      'pstatus.execution': 'In execution', 'pstatus.mobilising': 'Mobilising', 'pstatus.handover': 'Handover',
+
+      'login.welcome': 'Welcome to', 'login.title': 'Sign in to your account',
+      'login.sub': 'Projects, documents, inspections and approvals in one secure place.',
+      'login.email': 'Email address', 'login.password': 'Password', 'login.remember': 'Keep me signed in on this device',
+      'login.forgot': 'Forgot password?', 'login.submit': 'Sign in', 'login.or': 'or', 'login.sso': 'Sign in with company SSO',
+      'login.help': 'Need help?', 'login.support': 'Contact RGS support',
+      'login.demo': 'Prototype sign-in', 'login.demo.note': 'Authentication is not connected yet. Choose a sample persona; no password is checked.',
+      'login.persona': 'Sample persona', 'login.persona.pick': 'Choose a persona',
+      'login.grp.customer': 'Customer organisation', 'login.grp.staff': 'RGS staff',
+      'login.err.email': 'Enter your email address.', 'login.err.emailfmt': 'Enter an email address in the format name@company.com.',
+      'login.err.password': 'Enter your password.', 'login.err.unknown': 'No sample account uses that email. Pick a persona above to fill it in.',
+      'login.forgot.msg': 'Password reset arrives with the authentication service (Stage 2).',
+      'login.sso.msg': 'Company single sign-on (Microsoft Entra ID / SAML) is planned for Stage 2.',
+      'login.signing': 'Signing in…', 'login.show': 'Show password', 'login.hide': 'Hide password',
+
+      'top.search': 'Search projects, packages, documents…', 'top.notifications': 'Notifications', 'top.lang': 'Language',
+      'top.theme': 'Theme', 'top.menu': 'Open navigation', 'top.signout': 'Sign out', 'top.switch': 'Switch persona',
+      'top.scope': 'Project', 'top.allprojects': 'All my projects', 'top.searchsoon': 'Search arrives in Stage 2.',
+      'shell.customer': 'Client workspace', 'shell.staff': 'RGS operations',
+      'shell.sample': 'Prototype · sample data',
+
+      'grp.workspace': 'Workspace', 'grp.delivery': 'Delivery', 'grp.customer': 'Customer interface', 'grp.quality': 'Quality and safety',
+      'grp.documents': 'Document control', 'grp.support': 'Help', 'grp.insight': 'Insight', 'grp.admin': 'Administration', 'grp.review': 'Stage 1 review',
+
+      'nav.home': 'Overview', 'nav.projects': 'Projects', 'nav.services': 'Service packages', 'nav.sitemap': 'Site map',
+      'nav.requests': 'Requests', 'nav.instructions': 'Instructions and changes', 'nav.approvals': 'Approvals',
+      'nav.signoffs': 'My sign-offs', 'nav.documents': 'Documents', 'nav.inspections': 'Inspections', 'nav.corrective': 'Corrective actions',
+      'nav.hse': 'HSE', 'nav.commitments': 'Commitments and milestones', 'nav.handover': 'Handover', 'nav.reports': 'Reports',
+      'nav.knowledge': 'Knowledge hub', 'nav.ai': 'AI insights', 'nav.support': 'Support', 'nav.users': 'Users',
+      'nav.orgs': 'Organisations', 'nav.roles': 'Roles and authority', 'nav.audit': 'Audit and access', 'nav.settings': 'System settings',
+      'nav.ds': 'Design system', 'nav.model': 'Data model', 'nav.matrix': 'Permission matrix', 'nav.tester': 'Access tester',
+      'nav.arch': 'Architecture', 'nav.states': 'Interface states',
+
+      'role.customer_viewer': 'Customer viewer', 'role.customer_requester': 'Customer requester', 'role.customer_approver': 'Customer approver',
+      'role.general_manager': 'General manager', 'role.operations_manager': 'Operations manager', 'role.project_manager': 'Project manager',
+      'role.site_officer': 'Site officer', 'role.service_supervisor': 'Service supervisor', 'role.qa_qc_inspector': 'QA/QC inspector',
+      'role.hse_officer': 'HSE officer', 'role.document_controller': 'Document controller', 'role.portal_admin': 'Portal administrator',
+
+      'home.hello': 'Good morning,', 'home.access': 'Your access', 'home.access.d': 'Calculated live from your role assignments and delegated authority.',
+      'home.projects': 'Projects', 'home.scope.area': 'Site area', 'home.scope.service': 'Service', 'home.scope.all': 'All projects',
+      'home.authority': 'Delegated authority', 'home.noauthority': 'No technical sign-off authority. Approvals stay with authorised people.',
+      'home.until': 'until', 'home.expired': 'expired', 'home.today': 'Today', 'home.sampleitems': 'Sample items',
+      'home.services': 'Our specialist services', 'home.packages': 'Service packages in your scope',
+      'home.modules': 'Modules in this workspace', 'home.ai': 'AI project briefing',
+      'home.ai.scope': 'Uses only records you can open. Findings link to their evidence and wait for human review.',
+      'home.ai.review': 'Needs human review', 'home.ai.evidence': 'Evidence', 'home.ai.later': 'Live briefings arrive in Stage 7.',
+      'home.noadmincontent': 'Administrators manage people and access. Technical records are not visible from this role.',
+      'home.open': 'Open',
+
+      'mod.planned': 'Planned for Stage', 'mod.refs': 'Reference screens', 'mod.yourperms': 'What you can do here',
+      'mod.empty.t': 'This module is not built yet', 'mod.empty.d': 'Navigation, permissions and the data it will use are in place. The workflow itself is scheduled for a later stage.',
+      'perm.yes': 'Allowed in your scope', 'perm.auth': 'Allowed with delegated authority', 'perm.no': 'Not available to your role',
+      'perm.authneeded': 'Needs delegated authority',
+
+      'st.loading': 'Loading', 'st.loading.d': 'Fetching records for your projects…',
+      'st.empty.t': 'No requests yet', 'st.empty.d': 'Requests you raise with RGS appear here with their status and responses.', 'st.empty.a': 'Create a request',
+      'st.error.t': 'We couldn’t load the document register', 'st.error.d': 'The connection to the server timed out. Your work is saved. Try again, or contact support if it keeps happening.',
+      'st.error.a': 'Try again', 'st.error.ref': 'Reference',
+      'st.denied.t': 'You don’t have access to this page', 'st.denied.d': 'Access depends on your organisation, the projects you are assigned to and any authority delegated to you.',
+      'st.denied.why': 'Reason', 'st.denied.a': 'Back to overview', 'st.denied.b': 'Request access',
+      'st.denied.requested': 'Access request noted. In Stage 2 this goes to your portal administrator for review.',
+
+      'reason.org_boundary': 'This record belongs to another organisation.',
+      'reason.scope': 'Your role is not assigned to this project, area or service.',
+      'reason.role': 'None of your roles includes this action.',
+      'reason.authority': 'This is a technical approval. It needs delegated authority for this record.',
+      'reason.authority_expired': 'Your delegated authority for this record has expired.',
+      'reason.no_role': 'You have no active role assignment.', 'reason.inactive': 'This account is not active.',
+      'reason.not_found': 'The record could not be found.', 'reason.ai_forbidden': 'The assistant can read and summarise only. Recording and approval stay with authorised people.',
+      'reason.ok': 'Allowed.', 'reason.unknown_action': 'Unknown action.',
+
+      'misc.sample': 'Sample', 'misc.code': 'Code', 'misc.progress': 'Progress', 'misc.stage': 'Stage', 'misc.close': 'Close',
+      'misc.light': 'Light', 'misc.dark': 'Dark', 'misc.system': 'System'
+    },
+    ar: {
+      'app.name': 'بوابة عملاء RGS',
+      'app.tagline': 'مشاريع السقالات والعزل الحراري والعزل المائي والحماية من الحريق في مساحة عمل واحدة منضبطة.',
+      'svc.scaffolding': 'السقالات', 'svc.insulation': 'العزل الحراري', 'svc.waterproofing': 'العزل المائي', 'svc.fireproofing': 'الحماية من الحريق',
+      'svc.scaffolding.d': 'وصول آمن للأعمال المعقدة', 'svc.insulation.d': 'أداء حراري وصوتي',
+      'svc.waterproofing.d': 'حماية طويلة الأمد للأصول', 'svc.fireproofing.d': 'حماية سلبية من الحريق للأصول الحرجة',
+      'ptype.industrial': 'صناعي', 'ptype.infrastructure': 'بنية تحتية / غير صناعي', 'ptype.commercial': 'تجاري', 'ptype.residential': 'سكني',
+      'pstatus.execution': 'قيد التنفيذ', 'pstatus.mobilising': 'قيد التجهيز', 'pstatus.handover': 'التسليم',
+
+      'login.welcome': 'مرحبًا بكم في', 'login.title': 'تسجيل الدخول إلى حسابك',
+      'login.sub': 'المشاريع والوثائق والتفتيش والموافقات في مكان آمن واحد.',
+      'login.email': 'البريد الإلكتروني', 'login.password': 'كلمة المرور', 'login.remember': 'ابقني مسجلًا على هذا الجهاز',
+      'login.forgot': 'نسيت كلمة المرور؟', 'login.submit': 'تسجيل الدخول', 'login.or': 'أو', 'login.sso': 'الدخول عبر حساب الشركة',
+      'login.help': 'هل تحتاج إلى مساعدة؟', 'login.support': 'تواصل مع دعم RGS',
+      'login.demo': 'دخول تجريبي', 'login.demo.note': 'لم تُربط خدمة المصادقة بعد. اختر شخصية نموذجية؛ لا يتم التحقق من كلمة المرور.',
+      'login.persona': 'شخصية نموذجية', 'login.persona.pick': 'اختر شخصية',
+      'login.grp.customer': 'منظمة العميل', 'login.grp.staff': 'فريق RGS',
+      'login.err.email': 'أدخل بريدك الإلكتروني.', 'login.err.emailfmt': 'أدخل بريدًا بصيغة name@company.com.',
+      'login.err.password': 'أدخل كلمة المرور.', 'login.err.unknown': 'لا يوجد حساب نموذجي بهذا البريد. اختر شخصية من القائمة لتعبئته.',
+      'login.forgot.msg': 'تتوفر إعادة تعيين كلمة المرور مع خدمة المصادقة (المرحلة 2).',
+      'login.sso.msg': 'تسجيل الدخول الموحد للشركات مخطط له في المرحلة 2.',
+      'login.signing': 'جارٍ تسجيل الدخول…', 'login.show': 'إظهار كلمة المرور', 'login.hide': 'إخفاء كلمة المرور',
+
+      'top.search': 'ابحث في المشاريع والحزم والوثائق…', 'top.notifications': 'الإشعارات', 'top.lang': 'اللغة',
+      'top.theme': 'المظهر', 'top.menu': 'فتح القائمة', 'top.signout': 'تسجيل الخروج', 'top.switch': 'تبديل الشخصية',
+      'top.scope': 'المشروع', 'top.allprojects': 'كل مشاريعي', 'top.searchsoon': 'يتوفر البحث في المرحلة 2.',
+      'shell.customer': 'مساحة العميل', 'shell.staff': 'عمليات RGS',
+      'shell.sample': 'نموذج أولي · بيانات نموذجية',
+
+      'grp.workspace': 'مساحة العمل', 'grp.delivery': 'التنفيذ', 'grp.customer': 'التعامل مع العميل', 'grp.quality': 'الجودة والسلامة',
+      'grp.documents': 'ضبط الوثائق', 'grp.support': 'المساعدة', 'grp.insight': 'التحليلات', 'grp.admin': 'الإدارة', 'grp.review': 'مراجعة المرحلة 1',
+
+      'nav.home': 'نظرة عامة', 'nav.projects': 'المشاريع', 'nav.services': 'حزم الخدمات', 'nav.sitemap': 'خريطة الموقع',
+      'nav.requests': 'الطلبات', 'nav.instructions': 'التعليمات والتغييرات', 'nav.approvals': 'الموافقات',
+      'nav.signoffs': 'اعتماداتي', 'nav.documents': 'الوثائق', 'nav.inspections': 'التفتيش', 'nav.corrective': 'الإجراءات التصحيحية',
+      'nav.hse': 'الصحة والسلامة والبيئة', 'nav.commitments': 'الالتزامات والمعالم', 'nav.handover': 'التسليم', 'nav.reports': 'التقارير',
+      'nav.knowledge': 'مركز المعرفة', 'nav.ai': 'رؤى الذكاء الاصطناعي', 'nav.support': 'الدعم', 'nav.users': 'المستخدمون',
+      'nav.orgs': 'المنظمات', 'nav.roles': 'الأدوار والصلاحيات', 'nav.audit': 'التدقيق والوصول', 'nav.settings': 'إعدادات النظام',
+      'nav.ds': 'نظام التصميم', 'nav.model': 'نموذج البيانات', 'nav.matrix': 'مصفوفة الصلاحيات', 'nav.tester': 'اختبار الوصول',
+      'nav.arch': 'البنية التقنية', 'nav.states': 'حالات الواجهة',
+
+      'role.customer_viewer': 'مشاهد من العميل', 'role.customer_requester': 'مقدّم طلبات من العميل', 'role.customer_approver': 'مُعتمد من العميل',
+      'role.general_manager': 'المدير العام', 'role.operations_manager': 'مدير العمليات', 'role.project_manager': 'مدير المشروع',
+      'role.site_officer': 'مسؤول الموقع', 'role.service_supervisor': 'مشرف الخدمة', 'role.qa_qc_inspector': 'مفتش الجودة QA/QC',
+      'role.hse_officer': 'مسؤول الصحة والسلامة والبيئة', 'role.document_controller': 'مراقب الوثائق', 'role.portal_admin': 'مسؤول البوابة',
+
+      'home.hello': 'صباح الخير،', 'home.access': 'صلاحيات الوصول', 'home.access.d': 'تُحسب مباشرة من أدوارك المسندة والصلاحيات المفوضة.',
+      'home.projects': 'المشاريع', 'home.scope.area': 'منطقة الموقع', 'home.scope.service': 'الخدمة', 'home.scope.all': 'كل المشاريع',
+      'home.authority': 'الصلاحيات المفوضة', 'home.noauthority': 'لا توجد صلاحية اعتماد فني. تبقى الموافقات للأشخاص المخوّلين.',
+      'home.until': 'حتى', 'home.expired': 'منتهية', 'home.today': 'اليوم', 'home.sampleitems': 'عناصر نموذجية',
+      'home.services': 'خدماتنا المتخصصة', 'home.packages': 'حزم الخدمات ضمن نطاقك',
+      'home.modules': 'وحدات مساحة العمل', 'home.ai': 'ملخص المشروع بالذكاء الاصطناعي',
+      'home.ai.scope': 'يستخدم السجلات التي يمكنك فتحها فقط. ترتبط النتائج بأدلتها وتنتظر المراجعة البشرية.',
+      'home.ai.review': 'يحتاج مراجعة بشرية', 'home.ai.evidence': 'الدليل', 'home.ai.later': 'تتوفر الملخصات المباشرة في المرحلة 6.',
+      'home.noadmincontent': 'يدير المسؤولون الأشخاص والوصول. السجلات الفنية غير مرئية من هذا الدور.',
+      'home.open': 'فتح',
+
+      'mod.planned': 'مخطط له في المرحلة', 'mod.refs': 'شاشات مرجعية', 'mod.yourperms': 'ما يمكنك فعله هنا',
+      'mod.empty.t': 'هذه الوحدة لم تُبن بعد', 'mod.empty.d': 'التنقل والصلاحيات والبيانات جاهزة. سيُنفّذ سير العمل في مرحلة لاحقة.',
+      'perm.yes': 'مسموح ضمن نطاقك', 'perm.auth': 'مسموح بصلاحية مفوضة', 'perm.no': 'غير متاح لدورك',
+      'perm.authneeded': 'يحتاج صلاحية مفوضة',
+
+      'st.loading': 'جارٍ التحميل', 'st.loading.d': 'نجلب سجلات مشاريعك…',
+      'st.empty.t': 'لا توجد طلبات بعد', 'st.empty.d': 'تظهر هنا الطلبات التي ترفعها إلى RGS مع حالتها والردود عليها.', 'st.empty.a': 'إنشاء طلب',
+      'st.error.t': 'تعذّر تحميل سجل الوثائق', 'st.error.d': 'انتهت مهلة الاتصال بالخادم. عملك محفوظ. حاول مجددًا، أو تواصل مع الدعم إذا تكرر ذلك.',
+      'st.error.a': 'حاول مجددًا', 'st.error.ref': 'المرجع',
+      'st.denied.t': 'ليس لديك صلاحية الوصول إلى هذه الصفحة', 'st.denied.d': 'يعتمد الوصول على منظمتك والمشاريع المسندة إليك وأي صلاحية مفوضة لك.',
+      'st.denied.why': 'السبب', 'st.denied.a': 'العودة إلى النظرة العامة', 'st.denied.b': 'طلب الوصول',
+      'st.denied.requested': 'تم تسجيل طلب الوصول. في المرحلة 2 يذهب الطلب إلى مسؤول البوابة للمراجعة.',
+
+      'reason.org_boundary': 'هذا السجل يخص منظمة أخرى.',
+      'reason.scope': 'دورك غير مسند إلى هذا المشروع أو المنطقة أو الخدمة.',
+      'reason.role': 'لا يتضمن أي من أدوارك هذا الإجراء.',
+      'reason.authority': 'هذا اعتماد فني يحتاج صلاحية مفوضة لهذا السجل.',
+      'reason.authority_expired': 'انتهت صلاحيتك المفوضة لهذا السجل.',
+      'reason.no_role': 'لا يوجد لديك دور نشط.', 'reason.inactive': 'هذا الحساب غير نشط.',
+      'reason.not_found': 'تعذّر العثور على السجل.', 'reason.ai_forbidden': 'يمكن للمساعد القراءة والتلخيص فقط. يبقى التسجيل والاعتماد للأشخاص المخوّلين.',
+      'reason.ok': 'مسموح.', 'reason.unknown_action': 'إجراء غير معروف.',
+
+      'misc.sample': 'نموذج', 'misc.code': 'الرمز', 'misc.progress': 'التقدم', 'misc.stage': 'المرحلة', 'misc.close': 'إغلاق',
+      'misc.light': 'فاتح', 'misc.dark': 'داكن', 'misc.system': 'حسب النظام'
+    }
+  };
+
+  root.RGSi18n = { T: T };
+})(globalThis);
