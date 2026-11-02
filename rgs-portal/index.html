@@ -173,6 +173,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .logo-row { display: flex; align-items: center; gap: var(--s5); }
 .logo-row .divider { width: 1px; align-self: stretch; background: var(--line); }
 .logo-rgs { height: 72px; width: auto; display: block; }
+.badge3d { position: relative; display: block; flex: none; width: 96px; height: 96px; }
+.badge3d .logo-rgs { width: 100%; height: 100%; object-fit: contain; }
+.badge3d canvas { position: absolute; inset: 0; }
+.badge3d.ready .logo-rgs { visibility: hidden; }
 .logo-gc { height: 56px; width: auto; display: block; }
 .logo-plate { background: var(--white); border-radius: var(--r-sm); padding: 4px 8px; display: inline-flex; }
 .langswitch { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
@@ -611,7 +615,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .userbtn .who { display: none; }
   .hier { grid-template-columns: minmax(0, 1fr); }
   .hier .node::after { display: none; }
-  .logo-rgs { height: 60px; } .logo-gc { height: 46px; }
+  .logo-rgs { height: 60px; } .logo-gc { height: 46px; } .badge3d { width: 72px; height: 72px; }
   .login-card h2 { font-size: var(--fs-xl); }
 }
 

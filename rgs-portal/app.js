@@ -264,8 +264,16 @@
       '<button type="button" data-act="lang" data-v="en" aria-pressed="' + (S.lang === 'en') + '" lang="en">EN</button>' +
       '<button type="button" data-act="lang" data-v="ar" aria-pressed="' + (S.lang === 'ar') + '" lang="ar">العربية</button></div>';
   }
+  var badgeModule;
+  function mountBadge3D() {
+    var host = document.querySelector('[data-badge3d]');
+    if (!host || !window.WebGLRenderingContext) return;
+    badgeModule = badgeModule || import('./3d/dist/badge-embed.js').catch(function () { return null; });
+    badgeModule.then(function (m) { var h = document.querySelector('[data-badge3d]'); if (m && h) { try { m.mountRGSBadge(h); } catch (e) { /* keep the PNG */ } } });
+  }
   function logos(cls) {
-    return '<img class="logo-rgs" src="assets/rgs-logo.png" alt="RGS" width="134" height="134">' +
+    // The flat PNG stays as the fallback; mountBadge3D() swaps in the 3D badge when WebGL and the module are available.
+    return '<span class="badge3d" data-badge3d role="img" aria-label="RGS"><img class="logo-rgs" src="assets/rgs-logo.png" alt="" width="134" height="134"></span>' +
       '<span class="divider" aria-hidden="true"></span>' +
       '<img class="logo-gc" src="assets/global-construction-logo.png" alt="Global Construction" width="246" height="114">';
   }
@@ -700,6 +708,7 @@
     var menu = document.querySelector('.menu'); if (menu && !wasMenu) menu.classList.add('menu-enter'); wasMenu = !!menu;
     var view = document.getElementById('content'); if (S.enter && !S.loading && view) view.classList.add('enter'); S.enter = false;
     enhanceA11y();
+    if (!S.userId) mountBadge3D();
   }
   function go(route, fromHistory) {
     route = String(route || 'home');

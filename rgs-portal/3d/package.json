@@ -4,8 +4,12 @@
   "type": "module",
   "description": "Code-only procedural Three.js model of the RGS logo, rebuilt with the img2threejs pipeline.",
   "scripts": {
-    "build": "esbuild viewer/main.ts --bundle --format=esm --outfile=dist/viewer.js --minify"
+    "build": "esbuild viewer/main.ts --bundle --format=esm --outfile=dist/viewer.js --minify && esbuild viewer/embed.ts --bundle --format=esm --outfile=dist/badge-embed.js --minify"
   },
-  "dependencies": { "three": "0.170.0" },
-  "devDependencies": { "esbuild": "0.24.2" }
+  "dependencies": {
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.2"
+  }
 }
