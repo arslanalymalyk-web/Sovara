@@ -343,8 +343,10 @@
     var u = user(), cust = isCustomer(u), o = org(u);
     var groups = navFor(u);
     var nav = groups.map(function (g) {
+      var items = g.items.filter(function (m) { return !(m.review && cust) && (isBuilt(m) || u.role === 'portal_admin'); });
+      if (!items.length) return '';
       return (g.group ? '<div class="nav-group">' + esc(t('grp.' + g.group)) + '</div>' : '') +
-        g.items.map(function (m) {
+        items.map(function (m) {
           return '<a href="#' + m.id + '" data-route="' + m.id + '"' + (navCurrent() === m.id ? ' aria-current="page"' : '') + '>' + ic(m.icon) + '<span>' + esc(navLabel(m, u)) + '</span>' +
             (isBuilt(m) ? '' : '<span class="stage" title="' + esc(t('mod.planned')) + ' ' + m.stage + '">' + esc(t('nav.soon')) + '</span>') + '</a>';
         }).join('');
@@ -492,7 +494,7 @@
   function projectsCard(u) {
     var ps = ST.visibleProjects(u.id).filter(function (p) { return S.project === 'all' || p.id === S.project; });
     if (!ps.length) return '';
-    return '<section class="card"><div class="card-h"><h2>' + esc(t('nav.projects')) + '</h2><a class="linkbtn" href="#projects" data-route="projects">' + esc(t('dir.title')) + '</a></div><div class="tablewrap"><table><thead><tr><th>' + esc(t('misc.code')) + '</th><th>' + esc(t('nav.projects')) + '</th><th>' + esc(t('f.type')) + '</th><th>' + esc(t('f.health')) + '</th><th class="num">' + esc(t('misc.progress')) + '</th></tr></thead><tbody>' +
+    return '<section class="card"><div class="card-h"><h2>' + esc(t('nav.projects')) + '</h2><a class="linkbtn" href="#projects" data-route="projects">' + esc(t('dir.title')) + '</a></div><div class="tablewrap"><table class="tbl-projects"><thead><tr><th>' + esc(t('misc.code')) + '</th><th>' + esc(t('nav.projects')) + '</th><th>' + esc(t('f.type')) + '</th><th>' + esc(t('f.health')) + '</th><th class="num">' + esc(t('misc.progress')) + '</th></tr></thead><tbody>' +
       ps.map(function (p) { return '<tr><td class="mono"><a href="#project.' + p.id + '" data-route="project.' + p.id + '">' + esc(p.code) + '</a></td><td><b>' + esc(L(p, 'name')) + '</b><br><span style="color:var(--muted)">' + esc(L(p, 'location')) + '</span></td><td>' + esc(t('ptype.' + p.type)) + '</td><td>' + window.RGSPages.healthPill(ST.projectHealth(p.id)) + '</td><td class="num"><div class="proj-bar">' + (function (pr) { return pr.pct === null || pr.pct === undefined ? '' : '<div class="progress" role="progressbar" aria-valuenow="' + pr.pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="' + esc(t('misc.progress')) + '"><i style="width:' + pr.pct + '%"></i></div>'; })(ST.projectProgress(p.id, u.id)) + '<b>' + esc(window.RGSPages.pctText(ST.projectProgress(p.id, u.id))) + '</b></div></td></tr>'; }).join('') +
       '</tbody></table></div></section>';
   }
@@ -514,7 +516,7 @@
         '<div class="grid g-home"><div class="grid">' + accessCard(u) + '</div><div class="grid"></div></div>' + modulesCard(u);
     }
     return banner +
-      '<div class="grid g-home"><div class="grid">' + projectsCard(u) + todayCard(u) + packagesCard(u) + '</div><div class="grid">' + accessCard(u) + aiCard(u) + '</div></div>' + modulesCard(u);
+      '<div class="grid g-home"><div class="grid">' + projectsCard(u) + todayCard(u) + packagesCard(u) + '</div><div class="grid">' + accessCard(u) + aiCard(u) + '</div></div>';
   }
 
   // ---------------------------------------------------------------- planned module page

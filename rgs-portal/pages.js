@@ -241,10 +241,10 @@
     var upcoming = [];
     rows.forEach(function (r) { st.commitments(uid, r.project.id).forEach(function (c) { if (st.commitmentStatus(c) !== 'complete') upcoming.push(c); }); });
     upcoming.sort(function (a, b) { return st.dueOf(a) < st.dueOf(b) ? -1 : 1; });
-    var banner = '<section class="banner"><img src="assets/banner.jpg" alt="" aria-hidden="true"><span class="illus-tag">' + esc(t('img.illustrative')) + '</span><div class="inner"><p class="greet">' + esc(t('home.hello')) + ' ' + esc(u.name.split(' ')[0]) + '</p>' +
+    var banner = '<section class="mast"><div><p class="greet">' + esc(t('home.hello')) + ' ' + esc(u.name.split(' ')[0]) + '</p>' +
       '<h1>' + esc(t('ov.title')) + '</h1><div class="chips"><span class="chip brand">' + esc(t('role.' + u.role)) + '</span><span class="chip">' + esc(L(o, 'name')) + '</span>' +
       '<span class="chip">' + esc(t('ov.chip.projects', { n: rows.length })) + '</span><span class="chip">' + esc(t('ov.chip.actions', { n: mine.length })) + '</span>' +
-      '<span class="chip">' + esc(t('ov.chip.changes', { n: since.length, date: fd(u.lastVisitAt) })) + '</span></div></div></section>';
+      '<span class="chip">' + esc(t('ov.chip.changes', { n: since.length, date: fd(u.lastVisitAt) })) + '</span></div></div><figure><img src="assets/banner.jpg" alt="" aria-hidden="true"><span class="illus-tag">' + esc(t('img.illustrative')) + '</span></figure></section>';
     var qa = quickActions(u);
     if (!rows.length) return banner + qa + '<div class="card">' + emptyBox('projects', t('ov.noProjects'), t('ov.noProjects.d'), '<button class="btn btn-secondary" data-pact="dlg" data-v="contact">' + esc(t('qa.contact')) + '</button>') + '</div>';
     var projects = '<section class="stack"><div class="row-between"><h2 class="sec-h">' + esc(t('ov.yourProjects')) + '</h2><a class="linkbtn" ' + go('projects') + '>' + esc(t('ov.allProjects')) + '</a></div><div class="grid pgrid">' + rows.map(function (r) { return projectCard(u, r); }).join('') + '</div></section>';
