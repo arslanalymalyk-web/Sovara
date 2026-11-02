@@ -347,7 +347,7 @@
   function isBuilt(m) { return BUILT.indexOf(m.id) >= 0 || !!(window.RGSPages && window.RGSPages.hasModule && window.RGSPages.hasModule(m.id)); }
   // Keyboard and screen-reader access for scrollable tables and icon-only header cells.
   function enhanceA11y() {
-    Array.prototype.forEach.call(document.querySelectorAll('.tablewrap, .lifecycle'), function (w) { if (w.scrollWidth > w.clientWidth || w.scrollHeight > w.clientHeight) { w.tabIndex = 0; w.setAttribute('role', 'region'); if (!w.hasAttribute('aria-label')) w.setAttribute('aria-label', (document.querySelector('h1') || {}).textContent || 'Table'); } });
+    Array.prototype.forEach.call(document.querySelectorAll('.tablewrap, .lifecycle'), function (w) { if (w.scrollWidth > w.clientWidth || w.scrollHeight > w.clientHeight) { w.tabIndex = 0; if (!/^(OL|UL|TABLE)$/.test(w.tagName)) w.setAttribute('role', 'region'); /* a list keeps its list role; region is not allowed on it */ if (!w.hasAttribute('aria-label')) w.setAttribute('aria-label', (document.querySelector('h1') || {}).textContent || 'Table'); } });
     Array.prototype.forEach.call(document.querySelectorAll('th'), function (th) { if (!th.textContent.trim() && !th.querySelector('[aria-label]')) th.innerHTML = '<span class="visually-hidden">' + (S.lang === 'ar' ? 'إجراءات' : 'Actions') + '</span>'; });
   }
   function renderApp() {
