@@ -18,7 +18,7 @@
   var PRIORITIES = ['low', 'normal', 'high', 'urgent'];
   var FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'application/pdf'];
   var MAX_FILE = 25 * 1048576;
-  var MUTABLE = ['milestones', 'progressConfigs', 'dailyUpdates', 'dependencies', 'reports', 'handoverPackages', 'releases', 'requests', 'requestNotes', 'changes', 'commitments', 'actions', 'notifications', 'files', 'audit', 'activity', 'idempotency', 'documents', 'transmittals', 'evidence', 'inspections', 'findings', 'correctiveActions', 'checklistTemplates'];
+  var MUTABLE = ['milestones', 'progressConfigs', 'dailyUpdates', 'dependencies', 'reports', 'handoverPackages', 'releases', 'requests', 'requestNotes', 'changes', 'commitments', 'actions', 'notifications', 'files', 'audit', 'activity', 'idempotency', 'documents', 'transmittals', 'evidence', 'inspections', 'findings', 'correctiveActions', 'checklistTemplates', 'users', 'assignments', 'authorities', 'supportTickets'];
   // Stage 4: document files. Types are checked against the declared MIME type AND the file's first bytes.
   var DOC_FILE_TYPES = FILE_TYPES.concat(['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'image/vnd.dwg']);
   var SIGNATURES = { 'application/pdf': ['25504446'], 'image/png': ['89504e47'], 'image/jpeg': ['ffd8ff'], 'image/webp': ['52494646'], 'image/heic': ['@4:66747970'],
@@ -1481,6 +1481,63 @@
       c.doneAt = today(); c.history.push({ type: 'complete', at: now, by: actor, reason: String(p.note || '').trim() }); bump(c, now);
       t.audit('commitment.complete', { kind: 'commitment', id: c.id }, null, String(p.note || ''));
       return { doneAt: c.doneAt };
+    };
+
+
+    // ---------- administration and support ----------
+    var SUPPORT_CATS = ['access', 'data', 'report', 'other'];
+    H['admin.user.setStatus'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var u = ST.user(p.id); need(u, 'not_found', { kind: 'user', id: p.id });
+      need(p.id !== actor, 'self_action');
+      need(p.status === 'active' || p.status === 'suspended', 'bad_status');
+      need(u.status !== p.status, 'bad_state');
+      var reason = String(p.reason || '').trim();
+      if (p.status === 'suspended') need(reason.length >= 5, 'reason_required');
+      var from = u.status; u.status = p.status; u.statusReason = reason || null; u.statusAt = now; u.statusBy = actor;
+      t.audit('admin.user.status', { kind: 'user', id: u.id }, null, reason, { from: from, to: p.status });
+      return { status: u.status };
+    };
+    H['admin.user.invite'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var name = String(p.name || '').trim(), email = String(p.email || '').trim().toLowerCase();
+      need(name.length >= 2, 'name_required');
+      need(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email), 'email_invalid');
+      need(!ds.users.some(function (x) { return String(x.email).toLowerCase() === email; }), 'email_taken');
+      var org = ds.orgs.filter(function (o) { return o.id === p.orgId; })[0]; need(org, 'org_required');
+      var def = A.ROLES[p.role]; need(def, 'role_required');
+      need((def.side === 'rgs') === (org.kind === 'rgs'), 'role_org_mismatch');
+      var scope = { projectId: '*' };
+      if (def.scopeLevel !== 'global') {
+        var pr = ds.projects.filter(function (x) { return x.id === p.projectId; })[0]; need(pr, 'project_required');
+        if (org.kind === 'customer') need(pr.customerOrgId === org.id, 'project_org_mismatch');
+        scope = { projectId: pr.id };
+      } else if (def.side === 'rgs' && p.role !== 'portal_admin' && p.role !== 'general_manager') { scope = { projectId: '*' }; }
+      var u = { id: uid('u'), orgId: org.id, role: p.role, name: name, email: email, status: 'invited', invitedAt: now, invitedBy: actor };
+      ds.users.push(u);
+      ds.assignments.push({ id: uid('ra'), userId: u.id, role: p.role, scope: scope });
+      t.audit('admin.user.invite', { kind: 'user', id: u.id }, null, '', { role: p.role, org: org.id, scope: scope });
+      return { id: u.id };
+    };
+    H['admin.authority.revoke'] = function (actor, p, t, now) {
+      allow(actor, 'admin.authority.grant', null);
+      var d = ds.authorities.filter(function (x) { return x.id === p.id; })[0]; need(d, 'not_found', { kind: 'authority', id: p.id });
+      need(d.status === 'active' && !d.revokedAt, 'bad_state');
+      var reason = String(p.reason || '').trim(); need(reason.length >= 5, 'reason_required');
+      d.status = 'revoked'; d.revokedAt = now; d.revokedBy = actor; d.revokeReason = reason;
+      t.audit('admin.authority.revoke', { kind: 'authority', id: d.id }, null, reason, { userId: d.userId, action: d.action });
+      return { id: d.id };
+    };
+    H['support.request'] = function (actor, p, t, now) {
+      allow(actor, 'support.use', null);
+      var subject = String(p.subject || '').trim(), msg = String(p.message || '').trim();
+      need(subject.length >= 3, 'subject_required'); need(msg.length >= 10, 'message_required');
+      need(SUPPORT_CATS.indexOf(p.category) >= 0, 'category_required');
+      var mine = ds.supportTickets.filter(function (x) { return x.userId === actor; }).length;
+      var tk = { id: uid('sup'), ref: 'SUP-' + String(ds.supportTickets.length + 1).padStart(4, '0'), userId: actor, category: p.category, subject: subject, message: msg, status: 'open', createdAt: now, version: 1 };
+      ds.supportTickets.push(tk);
+      t.audit('support.request', { kind: 'support', id: tk.id }, null, '', { category: p.category, ref: tk.ref, mine: mine + 1 });
+      return { id: tk.id, ref: tk.ref };
     };
 
     // ---------- dependencies ----------
