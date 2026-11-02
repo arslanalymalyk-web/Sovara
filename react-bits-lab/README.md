@@ -9,3 +9,5 @@ They were written from the repo's `public/r/*.json` registry files because the s
     npx shadcn@latest add @react-bits/<Name>-TS-CSS
 
 `npm run dev` / `npm run build`.
+
+Backgrounds (in `src/components/react-bits/backgrounds/`): Aurora, Particles, Iridescence, Waves, LiquidChrome, Orb, Silk, Beams, Balatro, Dither (WebGL, no extra deps). Gallery: `src/Backgrounds.tsx`.

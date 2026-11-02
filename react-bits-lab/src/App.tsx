@@ -14,6 +14,8 @@ import GlitchText from '@/components/react-bits/GlitchText/GlitchText';
 
 const box = { display: 'grid', gap: 12, padding: 24, border: '1px solid #333', borderRadius: 12 } as const;
 
+import Backgrounds from './Backgrounds';
+
 export default function App() {
   return (
     <ClickSpark sparkColor="#fff">
@@ -31,6 +33,7 @@ export default function App() {
         <section style={box}><FuzzyText fontSize="2rem">Fuzzy</FuzzyText><small>FuzzyText</small></section>
         <section style={box}><GlitchText>Glitch</GlitchText><small>GlitchText · click anywhere for ClickSpark</small></section>
       </main>
+      <Backgrounds />
     </ClickSpark>
   );
 }

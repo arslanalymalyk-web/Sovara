@@ -5304,9 +5304,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/src/App.tsx": {
-    "mtime": 1793644025.1735532,
-    "seen": 1793644094.1031737,
-    "ast_hash": "3d75808ee541de6aeac703e2d8494999",
+    "mtime": 1793644138.5392663,
+    "seen": 1793644205.4065979,
+    "ast_hash": "e45d14a605d3a5d7149de07ed15a013f",
     "semantic_hash": ""
   },
   "react-bits-lab/src/components/react-bits/GradientText/GradientText.tsx": {
@@ -5412,9 +5412,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/README.md": {
-    "mtime": 1793644058.9658828,
-    "seen": 1793644094.1198754,
-    "ast_hash": "256cfea7aa0fdd4ef32eab4eb4ce5c92",
+    "mtime": 1793644170.906555,
+    "seen": 1793644205.4206512,
+    "ast_hash": "90ee6f203fe71355543b8082c5d6ffd1",
     "semantic_hash": ""
   },
   "react-bits-lab/index.html": {
@@ -5481,6 +5481,72 @@
     "mtime": 1793644021.1764498,
     "seen": 1793644094.1033697,
     "ast_hash": "73a62b53a2e5f403247c68904641a236",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/Backgrounds.tsx": {
+    "mtime": 1793644138.5305557,
+    "seen": 1793644205.4066017,
+    "ast_hash": "8d136ca47581fd6c048904298fc59900",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Aurora/Aurora.tsx": {
+    "mtime": 1793644138.5145557,
+    "seen": 1793644205.4069898,
+    "ast_hash": "084e6912913892553073e3f26e3a64ba",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Balatro/Balatro.tsx": {
+    "mtime": 1793644138.522766,
+    "seen": 1793644205.4069917,
+    "ast_hash": "d3faa560af207eac3f1304d7b76a0a28",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Beams/Beams.tsx": {
+    "mtime": 1793644138.5214677,
+    "seen": 1793644205.4069932,
+    "ast_hash": "ac8954afb435c9184a0e641145ae97f7",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Dither/Dither.tsx": {
+    "mtime": 1793644138.523312,
+    "seen": 1793644205.4069943,
+    "ast_hash": "6551e3e3a623db8013312d6e02c7a963",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Iridescence/Iridescence.tsx": {
+    "mtime": 1793644138.5186975,
+    "seen": 1793644205.4069963,
+    "ast_hash": "a35e5078eebc1c97e40346d0782b71a4",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/LiquidChrome/LiquidChrome.tsx": {
+    "mtime": 1793644138.5199602,
+    "seen": 1793644205.4069977,
+    "ast_hash": "44ecbfddb9453f39e45d3fc649bcae5e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Orb/Orb.tsx": {
+    "mtime": 1793644138.5203753,
+    "seen": 1793644205.4069996,
+    "ast_hash": "b80bfa25407a4b2fd784d745c2fca00a",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Particles/Particles.tsx": {
+    "mtime": 1793644138.5180337,
+    "seen": 1793644205.4070008,
+    "ast_hash": "071fad0dc0da4c9d14e33fd51e3d7ec0",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Silk/Silk.tsx": {
+    "mtime": 1793644138.520918,
+    "seen": 1793644205.4070024,
+    "ast_hash": "72f24c41f8f3f66695dd1ca8c229a978",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Waves/Waves.tsx": {
+    "mtime": 1793644138.5194094,
+    "seen": 1793644205.4070039,
+    "ast_hash": "274722b5d9e98a14d3836d823b5b8c3e",
     "semantic_hash": ""
   },
   ".claude/skills/img2threejs/integrations/glb_character_pipeline/node/package-lock.json": {
