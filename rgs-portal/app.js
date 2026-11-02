@@ -332,6 +332,13 @@
   }
 
   // ---------------------------------------------------------------- app shell
+  var BUILT = ['home', 'projects', 'actions', 'activity', 'requests', 'triage', 'instructions', 'approvals', 'notifications', 'ds', 'model', 'matrix', 'tester', 'states', 'arch'];
+  function isBuilt(m) { return BUILT.indexOf(m.id) >= 0 || !!(window.RGSPages && window.RGSPages.hasModule && window.RGSPages.hasModule(m.id)); }
+  // Keyboard and screen-reader access for scrollable tables and icon-only header cells.
+  function enhanceA11y() {
+    Array.prototype.forEach.call(document.querySelectorAll('.tablewrap, .lifecycle'), function (w) { if (w.scrollWidth > w.clientWidth || w.scrollHeight > w.clientHeight) { w.tabIndex = 0; w.setAttribute('role', 'region'); if (!w.hasAttribute('aria-label')) w.setAttribute('aria-label', (document.querySelector('h1') || {}).textContent || 'Table'); } });
+    Array.prototype.forEach.call(document.querySelectorAll('th'), function (th) { if (!th.textContent.trim() && !th.querySelector('[aria-label]')) th.innerHTML = '<span class="visually-hidden">' + (S.lang === 'ar' ? 'إجراءات' : 'Actions') + '</span>'; });
+  }
   function renderApp() {
     var u = user(), cust = isCustomer(u), o = org(u);
     var groups = navFor(u);
@@ -339,7 +346,7 @@
       return (g.group ? '<div class="nav-group">' + esc(t('grp.' + g.group)) + '</div>' : '') +
         g.items.map(function (m) {
           return '<a href="#' + m.id + '" data-route="' + m.id + '"' + (navCurrent() === m.id ? ' aria-current="page"' : '') + '>' + ic(m.icon) + '<span>' + esc(navLabel(m, u)) + '</span>' +
-            (m.stage > 2 ? '<span class="stage" title="' + esc(t('mod.planned')) + ' ' + m.stage + '">S' + m.stage + '</span>' : '') + '</a>';
+            (isBuilt(m) ? '' : '<span class="stage" title="' + esc(t('mod.planned')) + ' ' + m.stage + '">' + esc(t('nav.soon')) + '</span>') + '</a>';
         }).join('');
     }).join('');
     var projects = A.visibleProjects(D, u.id);
@@ -478,7 +485,7 @@
     return '<section class="card"><div class="card-h"><h2>' + esc(t('home.packages')) + '</h2></div><div class="list">' +
       pk.map(function (w) {
         var p = byId(D.projects, w.projectId), a = byId(D.areas, w.areaId), pr = ST.packageProgress(w.id, u.id);
-        return '<a class="pkg rowlink" href="#package.' + w.id + '" data-route="package.' + w.id + '"><img src="' + SVC_IMG[w.service] + '" alt="" aria-hidden="true"><div class="t"><b>' + esc(t('svc.' + w.service)) + ' \u00b7 ' + esc(L(a, 'name')) + '</b><span class="mono">' + esc(w.code) + '</span> <span>\u00b7 ' + esc(L(p, 'name')) + '</span>' +
+        return '<a class="pkg rowlink" href="#package.' + w.id + '" data-route="package.' + w.id + '"><img src="' + SVC_IMG[w.service] + '" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="t"><b>' + esc(t('svc.' + w.service)) + ' \u00b7 ' + esc(L(a, 'name')) + '</b><span class="mono">' + esc(w.code) + '</span> <span>\u00b7 ' + esc(L(p, 'name')) + '</span>' +
           window.RGSPages.bar(pr.pct) + '</div><b class="num" style="text-align:end">' + esc(window.RGSPages.pctText(pr)) + '</b></a>';
       }).join('') + '</div></section>';
   }
@@ -681,6 +688,7 @@
     root.innerHTML = S.userId ? renderApp() + (S.dialog ? window.RGSPages.renderDialog(user()) : '') : renderLogin();
     if (S.userId && S.dialog) window.RGSPages.afterDialogRender();
     if (keepScroll) window.scrollTo(0, keepScroll);
+    enhanceA11y();
   }
   function go(route, fromHistory) {
     route = String(route || 'home');

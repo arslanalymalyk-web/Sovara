@@ -6,14 +6,14 @@
 <title>RGS Client Portal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"></noscript>
 <style>
 /* Layout: standalone split-screen sign-in; app = fixed navy rail + light working surface with a photographic banner. */
 :root {
   /* Brand */
   --brand-orange: #F16033;      /* sampled from the supplied RGS logo */
-  --accent: #C9461B;            /* button fills and links: white text passes 4.5:1 */
-  --accent-hover: #B03C15;
+  --accent: #B53F16;            /* button fills and links: white text passes 4.5:1 */
+  --accent-hover: #9A340F;
   --accent-soft: #F9E6DB;
   --on-accent: #FFFFFF;
   --nav-bg: #0D1E39;            /* sampled from benchmark navigation */
@@ -136,7 +136,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .field-error { color: var(--crit); font-size: var(--fs-sm); display: flex; gap: 8px; align-items: flex-start; }
 .field-hint { color: var(--muted); font-size: var(--fs-sm); }
 .check { display: inline-flex; gap: var(--s2); align-items: center; font-size: var(--fs-sm); cursor: pointer; }
-.check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.check input { width: 24px; height: 24px; accent-color: var(--accent); }
 .toggle { display: inline-flex; align-items: center; gap: var(--s2); font-size: var(--fs-sm); cursor: pointer; position: relative; }
 .toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .toggle .track { width: 40px; height: 24px; border-radius: 999px; background: var(--line-strong); position: relative; flex: none; transition: background .15s; }
@@ -303,7 +303,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .reason { font-size: var(--fs-sm); background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--s3) var(--s4); text-align: start; max-width: 520px; width: 100%; }
 .skel { background: linear-gradient(90deg, var(--surface-2) 0%, var(--line) 50%, var(--surface-2) 100%); background-size: 200% 100%; animation: shimmer 1.3s ease-in-out infinite; border-radius: var(--r-sm); }
 @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
-@media (prefers-reduced-motion: reduce) { .skel, .btn .spin { animation: none; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .skel, .btn .spin { animation: none; } .toggle .track::after, button:active, .btn:active, a.rec:active, .pcard:active, .iconbtn:active { transition: none; transform: none; } .toggle input:checked + .track::after { transform: translateX(16px); } [dir="rtl"] .toggle input:checked + .track::after { transform: translateX(-16px); } }
 
 /* Tables */
 .tablewrap { overflow-x: auto; }
@@ -355,7 +355,7 @@ thead th { background: var(--surface-2); font-weight: 600; color: var(--ink-2); 
 
 
 /* ================= Stage 2: customer journey ================= */
-:root { --svc-scf: var(--accent-solid); --svc-ins: #1F5FA8; --svc-wpr: #0F7C7C; --svc-fpr: #8238A8; --svc-scf-bg: #FDEDE6; --svc-ins-bg: #E4EEFA; --svc-wpr-bg: #DDF3F1; --svc-fpr-bg: #F2E6F8; }
+:root { --svc-scf: var(--accent); --svc-ins: #1F5FA8; --svc-wpr: #0B6B6B; --svc-fpr: #8238A8; --svc-scf-bg: #FDEDE6; --svc-ins-bg: #E4EEFA; --svc-wpr-bg: #DDF3F1; --svc-fpr-bg: #F2E6F8; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --svc-scf: #FF8A5C; --svc-ins: #7DB4F5; --svc-wpr: #5FD0C8; --svc-fpr: #C99BF0; --svc-scf-bg: #3A2017; --svc-ins-bg: #132B4A; --svc-wpr-bg: #0E3433; --svc-fpr-bg: #2E1A3D; } }
 :root[data-theme="dark"] { --svc-scf: #FF8A5C; --svc-ins: #7DB4F5; --svc-wpr: #5FD0C8; --svc-fpr: #C99BF0; --svc-scf-bg: #3A2017; --svc-ins-bg: #132B4A; --svc-wpr-bg: #0E3433; --svc-fpr-bg: #2E1A3D; }
 .muted { color: var(--muted); }
@@ -669,6 +669,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .dtype { color: var(--nav-bg); }
 :root[data-theme="dark"] .dtype { color: var(--ink); }
 .dt-customer_approval, .dt-completion_acceptance, .dt-customer_acceptance, .dt-request_ack { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+.dt-internal_review { color: var(--ink-2); background: var(--surface-2); border-color: var(--line); }
 .dt-execution_authorisation, .dt-technical_signoff, .dt-inspection_signoff { color: var(--info); background: var(--info-soft); border-color: transparent; }
 
 /* request centre */
@@ -1067,11 +1068,17 @@ tbody tr:hover td { background: var(--surface-2); }
 .login-panel { order: 1; background: var(--bg); place-items: start center; padding-block: clamp(24px, 6vh, 64px); }
 .login-card { background: var(--surface); border: 1px solid var(--line); border-block-start: 2px solid var(--ink); border-radius: var(--r-sm); box-shadow: none; }
 .login-hero::after { background: linear-gradient(180deg, var(--navy-a15) 0%, var(--navy-a78) 70%, var(--navy-a94) 100%); }
-.login-hero .welcome { font-size: var(--fs-lg); color: var(--mist); }
+.login-hero .welcome { font-size: var(--fs-lg); color: var(--white); }
 .login-hero h1 { font-size: clamp(3rem, 6.4vw, 5.6rem); }
 .svc-line span + span::before { border-radius: 1px; }
 .demo-box { border-radius: var(--r-sm); }
 @media (max-width: 900px) { .mast { grid-template-columns: 1fr; } .mast figure { height: 132px; } .login { grid-template-columns: 1fr; } .login-hero { order: 0; min-height: 260px; } }
+/* ---- audit fixes: targets, headings, motion ---- */
+.rec, .crumbs a, .linkbtn { min-height: 24px; }
+.crumbs a, .linkbtn { display: inline-flex; align-items: center; }
+.pcard-b h2 { font-size: var(--fs-lg); font-weight: 600; }
+.lifecycle li, .stepper li, .cons li, .nextbar, .page-h > * { min-width: 0; overflow-wrap: anywhere; }
+.tablewrap:focus-visible { outline-offset: -3px; }
 /* ---- site ledger, screen layer: heroes, filters, notices, tiles, states ---- */
 .card.card-b[class*="-tools"] { color: var(--ink); background: var(--surface-2); border: 0; border-block: 1px solid var(--line-strong); border-radius: 0; padding: var(--s3) var(--s4); }
 .card.card-b[class*="-tools"] label, .card.card-b[class*="-tools"] .label { font-size: var(--fs-xs); color: var(--muted); }

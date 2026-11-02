@@ -182,7 +182,7 @@
     var p = row.project, route = 'project.' + p.id;
     return '<article class="card pcard"><a class="pcard-link" ' + go(route) + ' aria-label="' + esc(L(p, 'name') + ', ' + p.code) + '"></a>' + illus(p.cover, 'pcard-img') +
       '<div class="pcard-b"><div class="row-between"><span class="mono muted">' + esc(p.code) + '</span><span class="row" style="gap:6px">' + sp('life', p.status, 'pstatus') + sp('health', row.health) + '</span></div>' +
-      '<h3>' + esc(L(p, 'name')) + '</h3><p class="muted">' + pic('pin') + ' ' + esc(L(p, 'location')) + ' · ' + esc(t('ptype.' + p.type)) + '</p>' +
+      '<h2>' + esc(L(p, 'name')) + '</h2><p class="muted">' + pic('pin') + ' ' + esc(L(p, 'location')) + ' · ' + esc(t('ptype.' + p.type)) + '</p>' +
       '<div class="svc-tags">' + row.services.map(svcTag).join('') + '</div>' +
       '<div class="pcard-prog"><div class="row-between"><span class="label">' + esc(t('misc.progress')) + '</span><b class="num">' + esc(pctText(row.progress)) + '</b></div>' + pctBar(row.progress) + '</div>' +
       '<dl class="pcard-meta"><div><dt>' + esc(t('card.lastUpdate')) + '</dt><dd>' + esc(fd(row.lastUpdate)) + '</dd></div>' +
@@ -414,7 +414,7 @@
     var next = pr.milestones.filter(function (m) { return !m.completedAt; })[0];
     var issues = st.correctives(u.id, null, w.id).filter(st.openCorrective).length + st.requests(u.id, null, w.id).filter(function (r) { return st.OPEN_REQ.indexOf(r.status) >= 0; }).length;
     return '<article class="card pkgcard"><a class="pcard-link" ' + go('package.' + w.id) + ' aria-label="' + esc(t('svc.' + w.service) + ' ' + w.code) + '"></a>' + illus(SVC_IMG[w.service], 'pkg-img') +
-      '<div class="pcard-b"><div class="row-between">' + svcTag(w.service) + sp('pkg', st.packageStatus(w.id), 'pkgstatus') + '</div><h3 class="mono">' + esc(w.code) + '</h3><p class="muted">' + esc(L(a, 'name')) + ' · ' + esc(person(w.supervisorId)) + '</p>' +
+      '<div class="pcard-b"><div class="row-between">' + svcTag(w.service) + sp('pkg', st.packageStatus(w.id), 'pkgstatus') + '</div><h2 class="mono">' + esc(w.code) + '</h2><p class="muted">' + esc(L(a, 'name')) + ' · ' + esc(person(w.supervisorId)) + '</p>' +
       '<div class="pcard-prog"><div class="row-between"><span class="label">' + esc(t('pkg.milestonesDone', { a: pr.completed, b: pr.total })) + '</span><b class="num">' + esc(pctText(pr)) + '</b></div>' + pctBar(pr) + '</div>' +
       '<dl class="pcard-meta"><div><dt>' + esc(t('pkg.next')) + '</dt><dd>' + (next ? esc(L(next, 'name')) + ' · ' + dueCell(next.forecast) : esc(t('pkg.allDone'))) + '</dd></div><div><dt>' + esc(t('pkg.openIssues')) + '</dt><dd class="num">' + issues + '</dd></div></dl></div></article>';
   }

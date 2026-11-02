@@ -96,7 +96,7 @@
         }).join('') + '</ul></div>';
       }).join('') + '</details>';
     }).join('');
-    var tabs = '<div class="seg" role="tablist" aria-label="' + esc(t('dc.views')) + '"><button class="btn btn-sm" role="tab" data-pact="dc-view" data-v="list" aria-selected="' + (f.view === 'list') + '" aria-pressed="' + (f.view === 'list') + '">' + ic('reports') + esc(t('dc.list')) + '</button><button class="btn btn-sm" role="tab" data-pact="dc-view" data-v="folders" aria-selected="' + (f.view === 'folders') + '" aria-pressed="' + (f.view === 'folders') + '">' + ic('folder') + esc(t('dc.folders')) + '</button></div>';
+    var tabs = '<div class="seg" role="tablist" aria-label="' + esc(t('dc.views')) + '"><button class="btn btn-sm" role="tab" data-pact="dc-view" data-v="list" aria-selected="' + (f.view === 'list') + '">' + ic('reports') + esc(t('dc.list')) + '</button><button class="btn btn-sm" role="tab" data-pact="dc-view" data-v="folders" aria-selected="' + (f.view === 'folders') + '">' + ic('folder') + esc(t('dc.folders')) + '</button></div>';
     var links = cust ? '' : '<div class="row">' + (can(u.id, 'document.review', { projectId: 'p1' }) || st.myReviews(u.id).length ? '<a class="btn btn-secondary btn-sm" ' + go('docreview') + '>' + esc(t('nav.docreview')) + ' <span class="pill plain num">' + st.myReviews(u.id).filter(function (x) { return x.mine; }).length + '</span></a>' : '') +
       (U().MODULE_BY.doccontrol && U().moduleAllowed && U().moduleAllowed(u.id, U().MODULE_BY.doccontrol) ? '<a class="btn btn-secondary btn-sm" ' + go('doccontrol') + '>' + esc(t('nav.doccontrol')) + '</a>' : '') + '</div>';
     return crumbs([[t('nav.home'), 'home'], [t('nav.documents'), null]]) +
@@ -512,7 +512,7 @@
   function evState() { var s = S(); if (!s.evf) s.evf = { project: '', package: '', area: '', linked: '' }; return s.evf; }
   function evTile(u, e) {
     var st = ST(), a = U().byId(U().D.areas, e.areaId), w = st.get('package', e.packageId), f = e.fileId && st.get('file', e.fileId), url = f && blobUrl(f.id);
-    var media = url && /^image\//.test(f.type) && f.type !== 'image/heic' ? '<img src="' + url + '" alt="' + esc(e.caption) + '" class="ev-img">' : pic('camera') + '<span>' + esc(t(f ? (url ? 'evl.noPreview' : 'dv.notRetained') : 'ev.nofile')) + '</span>';
+    var media = url && /^image\//.test(f.type) && f.type !== 'image/heic' ? '<img loading="lazy" decoding="async" src="' + url + '" alt="' + esc(e.caption) + '" class="ev-img">' : pic('camera') + '<span>' + esc(t(f ? (url ? 'evl.noPreview' : 'dv.notRetained') : 'ev.nofile')) + '</span>';
     return '<figure class="evidence"><a class="ev-media' + (url ? '' : ' nofile') + '" ' + go('ev.' + e.id) + ' aria-label="' + esc(e.ref) + '">' + media + '<span class="ev-badge">' + esc(t('ev.badge')) + '</span>' + (e.audience === 'internal' ? '<span class="ev-int">' + esc(t('misc.internal')) + '</span>' : '') + '</a>' +
       '<figcaption><b class="mono"><a ' + go('ev.' + e.id) + '>' + esc(e.ref) + '</a></b><span>' + esc(e.caption) + '</span><dl class="ev-meta"><dt>' + esc(t('evl.uploaded')) + '</dt><dd class="num">' + esc(fdt(e.uploadedAt)) + ' · ' + esc(person(e.uploadedBy)) + ' <span class="vtag ok">' + esc(t('evl.verified')) + '</span></dd>' +
       '<dt>' + esc(t('ev.captured')) + '</dt><dd class="num">' + (e.capturedAt ? esc(fdt(e.capturedAt)) + ' <span class="vtag">' + esc(t('evl.stated')) + '</span>' : '<span class="muted">' + esc(t('evl.notStated')) + '</span>') + '</dd>' +

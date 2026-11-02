@@ -59,7 +59,7 @@
       'home.noadmincontent': 'Administrators manage people and access. Technical records are not visible from this role.',
       'home.open': 'Open',
 
-      'mod.planned': 'Planned for Stage', 'mod.refs': 'Reference screens', 'mod.yourperms': 'What you can do here',
+      'nav.soon': 'Soon', 'mod.planned': 'Planned for Stage', 'mod.refs': 'Reference screens', 'mod.yourperms': 'What you can do here',
       'mod.empty.t': 'This module is not built yet', 'mod.empty.d': 'Navigation, permissions and the data it will use are in place. The workflow itself is scheduled for a later stage.',
       'perm.yes': 'Allowed in your scope', 'perm.auth': 'Allowed with delegated authority', 'perm.no': 'Not available to your role',
       'perm.authneeded': 'Needs delegated authority',
@@ -141,7 +141,7 @@
       'home.noadmincontent': 'يدير المسؤولون الأشخاص والوصول. السجلات الفنية غير مرئية من هذا الدور.',
       'home.open': 'فتح',
 
-      'mod.planned': 'مخطط له في المرحلة', 'mod.refs': 'شاشات مرجعية', 'mod.yourperms': 'ما يمكنك فعله هنا',
+      'nav.soon': 'قريبًا', 'mod.planned': 'مخطط له في المرحلة', 'mod.refs': 'شاشات مرجعية', 'mod.yourperms': 'ما يمكنك فعله هنا',
       'mod.empty.t': 'هذه الوحدة لم تُبن بعد', 'mod.empty.d': 'التنقل والصلاحيات والبيانات جاهزة. سيُنفّذ سير العمل في مرحلة لاحقة.',
       'perm.yes': 'مسموح ضمن نطاقك', 'perm.auth': 'مسموح بصلاحية مفوضة', 'perm.no': 'غير متاح لدورك',
       'perm.authneeded': 'يحتاج صلاحية مفوضة',
