@@ -6,7 +6,7 @@ The RGS Client Portal and the tooling used to build it.
 |---|---|
 | [`rgs-portal/`](rgs-portal/README.md) | **The product.** Static prototype of the portal (English and Arabic), its automated tests and the code-built 3D badge. |
 | [`docs/PRODUCTION-PLAN.md`](docs/PRODUCTION-PLAN.md) | Plan to turn the prototype into a production system (TypeScript, PostgreSQL, Azure in Saudi Arabia). |
-| `.github/workflows/portal-checks.yml` | CI: runs the portal tests on every push. |
+| `.github/workflows/` | CI: `portal-checks` (prototype tests) and `app-checks` (production app, database on real PostgreSQL, infrastructure templates). |
 | `react-bits-lab/` | Optional playground for [React Bits](https://github.com/DavidHDev/react-bits) components (Vite + React). **Not used by the portal.** |
 | `gate-bench/` | Early benchmark page used to compare design directions. Reference only. |
 | `design-references/` | Design-system references (awesome-design-md) used while designing. |

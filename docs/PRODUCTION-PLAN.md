@@ -41,7 +41,7 @@ Status: **approved decisions recorded 2 Nov 2026** (§1 and §1a). Nothing here 
 | Address | A subdomain of RGS's domain (e.g. `portal.<rgs-domain>`); RGS IT adds the DNS record |
 | Pull requests | One per stage into `main` |
 
-### Stage 0 deliverables (next pull request, after PR #2 merges)
+### Stage 0 deliverables (built on branch `claude/stage-0-foundations`)
 
 1. `app/` Next.js + TypeScript skeleton with strict TypeScript, linting, unit and end-to-end test runners, and the Sunday–Thursday working-calendar helper.
 2. Drizzle schema and migrations for organisations, users, role assignments, delegated authorities, projects, audit log and support requests; append-only audit table; row-level-security policies.
@@ -123,3 +123,17 @@ No RGS decision owner is assigned. These block go-live and should have a name ne
 | R4 | Prototype rules are browser-only and untested against concurrency. | Rebuild enforcement on the server and port the prototype's workflow checks as automated tests first. |
 | R5 | Customers on personal email accounts. | Customer MFA by authenticator app or SMS; invitation-only, no self-registration. |
 | R6 | Azure Saudi region service gaps. | Confirm availability of Database for PostgreSQL, Blob, Communication Services and Entra External ID in the target region in Stage 0. |
+
+## 9. Stage 0 status
+
+Built and tested (see `app/`, `infra/`, `docs/RUNBOOK.md`):
+
+- **Access rules ported to the server** with a parity test against the prototype: identical decisions for every person, action and record (over 20,000 combinations), ten account-change scenarios and 5,000+ grant cases. The rule tables are generated from the prototype and CI fails if they drift.
+- **Database**: schema and migrations; the application login sees nothing without a signed-in identity; **row-level security** matches the TypeScript rules for projects, packages and areas for every demo person; support requests are private to their author and administrators.
+- **Audit log**: append-only (update, delete and truncate are refused even for the owner), hash-chained, with a verification function that finds a tampered entry.
+- **Integrity rules in the database**: no self-granted authority, authority at most 12 months, nomination required, only delegable actions can be delegated, role side must match the person's organisation, case-insensitive unique emails and organisation names.
+- **Both test databases**: the same 27 database tests pass on in-memory PostgreSQL and on real PostgreSQL 16.
+- **Working calendar** (Sunday to Thursday, Riyadh time), **environment validation**, **health endpoint** with security headers, a bundled **migration tool**.
+- **Bicep templates** for dev, staging and production compile and validate; **not yet deployed** (needs RGS IT and the open items in §6).
+
+Not in Stage 0 (Stage 1 next): sign-in (Entra), invitation and user administration commands, the audited command layer that writes data, and the first screens.
