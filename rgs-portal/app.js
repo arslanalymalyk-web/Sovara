@@ -486,7 +486,7 @@
     var ps = ST.visibleProjects(u.id).filter(function (p) { return S.project === 'all' || p.id === S.project; });
     if (!ps.length) return '';
     return '<section class="card"><div class="card-h"><h2>' + esc(t('nav.projects')) + '</h2><a class="linkbtn" href="#projects" data-route="projects">' + esc(t('dir.title')) + '</a></div><div class="tablewrap"><table><thead><tr><th>' + esc(t('misc.code')) + '</th><th>' + esc(t('nav.projects')) + '</th><th>' + esc(t('f.type')) + '</th><th>' + esc(t('f.health')) + '</th><th class="num">' + esc(t('misc.progress')) + '</th></tr></thead><tbody>' +
-      ps.map(function (p) { return '<tr><td class="mono"><a href="#project.' + p.id + '" data-route="project.' + p.id + '">' + esc(p.code) + '</a></td><td><b>' + esc(L(p, 'name')) + '</b><br><span style="color:var(--muted)">' + esc(L(p, 'location')) + '</span></td><td>' + esc(t('ptype.' + p.type)) + '</td><td>' + window.RGSPages.healthPill(ST.projectHealth(p.id)) + '</td><td class="num">' + esc(window.RGSPages.pctText(ST.projectProgress(p.id, u.id))) + '</td></tr>'; }).join('') +
+      ps.map(function (p) { return '<tr><td class="mono"><a href="#project.' + p.id + '" data-route="project.' + p.id + '">' + esc(p.code) + '</a></td><td><b>' + esc(L(p, 'name')) + '</b><br><span style="color:var(--muted)">' + esc(L(p, 'location')) + '</span></td><td>' + esc(t('ptype.' + p.type)) + '</td><td>' + window.RGSPages.healthPill(ST.projectHealth(p.id)) + '</td><td class="num"><div class="proj-bar">' + (function (pr) { return pr.pct === null || pr.pct === undefined ? '' : '<div class="progress" role="progressbar" aria-valuenow="' + pr.pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="' + esc(t('misc.progress')) + '"><i style="width:' + pr.pct + '%"></i></div>'; })(ST.projectProgress(p.id, u.id)) + '<b>' + esc(window.RGSPages.pctText(ST.projectProgress(p.id, u.id))) + '</b></div></td></tr>'; }).join('') +
       '</tbody></table></div></section>';
   }
   function modulesCard(u) {
@@ -498,9 +498,10 @@
     var o = org(u);
     var chips = ['<span class="chip brand">' + esc(t('role.' + u.role)) + '</span>', '<span class="chip">' + esc(L(o, 'name')) + '</span>']
       .concat(scopeChips(u).map(function (c) { return '<span class="chip">' + esc(c) + '</span>'; }));
-    var banner = '<section class="banner"><img src="assets/banner.jpg" alt="" aria-hidden="true"><span class="illus-tag">' + esc(t('img.illustrative')) + '</span><div class="inner"><p class="greet">' + esc(t('home.hello')) + ' ' + esc(u.name.split(' ')[0]) + '</p>' +
+    var banner = '<section class="mast"><div><p class="greet">' + esc(t('home.hello')) + ' ' + esc(u.name.split(' ')[0]) + '</p>' +
       '<h1>' + esc(S.lang === 'ar' ? 'مساحة عمل ' + t('role.' + u.role) : t('role.' + u.role) + ' workspace') + '</h1>' +
-      '<div class="chips">' + chips.join('') + '</div></div></section>';
+      '<div class="chips">' + chips.join('') + '</div></div>' +
+      '<figure><img src="assets/banner.jpg" alt="" aria-hidden="true"><span class="illus-tag">' + esc(t('img.illustrative')) + '</span></figure></section>';
     if (u.role === 'portal_admin') {
       return banner + '<div class="notice">' + ic('shield') + '<span>' + esc(t('home.noadmincontent')) + '</span></div>' +
         '<div class="grid g-home"><div class="grid">' + accessCard(u) + '</div><div class="grid"></div></div>' + modulesCard(u);
