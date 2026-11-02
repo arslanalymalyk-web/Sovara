@@ -5298,15 +5298,15 @@
     "semantic_hash": ""
   },
   "react-bits-lab/package.json": {
-    "mtime": 1793641944.9825082,
-    "seen": 1793642578.9503243,
-    "ast_hash": "764f505318fe0f7b0efacd533ac2932b",
+    "mtime": 1793644025.0785582,
+    "seen": 1793644094.1031685,
+    "ast_hash": "6e1c5f212d8cc62d72b8bda3a0839c1c",
     "semantic_hash": ""
   },
   "react-bits-lab/src/App.tsx": {
-    "mtime": 1793642525.383064,
-    "seen": 1793642578.950326,
-    "ast_hash": "2ce75f27c1081d2583e18c55b23a7d77",
+    "mtime": 1793644025.1735532,
+    "seen": 1793644094.1031737,
+    "ast_hash": "3d75808ee541de6aeac703e2d8494999",
     "semantic_hash": ""
   },
   "react-bits-lab/src/components/react-bits/GradientText/GradientText.tsx": {
@@ -5334,9 +5334,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/tsconfig.json": {
-    "mtime": 1793641919.2659798,
-    "seen": 1793642578.9503334,
-    "ast_hash": "af43eca8f4bc72b1d23d268ee09026ed",
+    "mtime": 1793644036.4024138,
+    "seen": 1793644094.10341,
+    "ast_hash": "39516a9d467dcd019d5a5de3d47c66cb",
     "semantic_hash": ""
   },
   "react-bits-lab/vite.config.ts": {
@@ -5412,15 +5412,75 @@
     "semantic_hash": ""
   },
   "react-bits-lab/README.md": {
-    "mtime": 1793642540.3193266,
-    "seen": 1793642578.9647682,
-    "ast_hash": "9e0ab1ebefc72182122996973c8d59bf",
+    "mtime": 1793644058.9658828,
+    "seen": 1793644094.1198754,
+    "ast_hash": "256cfea7aa0fdd4ef32eab4eb4ce5c92",
     "semantic_hash": ""
   },
   "react-bits-lab/index.html": {
     "mtime": 1793641919.2723298,
     "seen": 1793642578.964771,
     "ast_hash": "4750ca9efe627dbbf6df5c24e3955a2d",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/BlurText/BlurText.tsx": {
+    "mtime": 1793644021.1665583,
+    "seen": 1793644094.1031773,
+    "ast_hash": "70e3338ff3d1e3e17a4d51bef0bf6e01",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ClickSpark/ClickSpark.tsx": {
+    "mtime": 1793644021.1764498,
+    "seen": 1793644094.10318,
+    "ast_hash": "6093d7a501535d986b02ee22674272af",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/CountUp/CountUp.tsx": {
+    "mtime": 1793644021.1705585,
+    "seen": 1793644094.103182,
+    "ast_hash": "e5af4e8fe6ece1757125a2c7e0c98ef0",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/DecryptedText/DecryptedText.tsx": {
+    "mtime": 1793644021.1705585,
+    "seen": 1793644094.1031857,
+    "ast_hash": "d1d7b11dc1de8be829c098fcfd251e44",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/FuzzyText/FuzzyText.tsx": {
+    "mtime": 1793644021.177623,
+    "seen": 1793644094.1031883,
+    "ast_hash": "5594c23e0cd15eafb6c55be5f879cc7e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/GlitchText/GlitchText.tsx": {
+    "mtime": 1793644021.1784782,
+    "seen": 1793644094.1031902,
+    "ast_hash": "b89fc538cdc74b6cb2167e8d7156c355",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/Magnet/Magnet.tsx": {
+    "mtime": 1793644021.1764498,
+    "seen": 1793644094.1032577,
+    "ast_hash": "f821b2103e2d7f5598a9f20780a27174",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/RotatingText/RotatingText.tsx": {
+    "mtime": 1793644021.177623,
+    "seen": 1793644094.1032603,
+    "ast_hash": "fd7c8a69798b648782ffbc788b8d7a7d",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/SpotlightCard/SpotlightCard.tsx": {
+    "mtime": 1793644021.1745584,
+    "seen": 1793644094.1033676,
+    "ast_hash": "996950dfff3314889e8774222ddc8caf",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/StarBorder/StarBorder.tsx": {
+    "mtime": 1793644021.1764498,
+    "seen": 1793644094.1033697,
+    "ast_hash": "73a62b53a2e5f403247c68904641a236",
     "semantic_hash": ""
   },
   ".claude/skills/img2threejs/integrations/glb_character_pipeline/node/package-lock.json": {
@@ -5436,9 +5496,9 @@
     "semantic_hash": ""
   },
   "react-bits-lab/package-lock.json": {
-    "mtime": 1793642519.5153272,
-    "seen": 1793642578.968368,
-    "ast_hash": "eee57cfedd8311e7c77e07cb9ce7523c",
+    "mtime": 1793644025.1265583,
+    "seen": 1793644094.123612,
+    "ast_hash": "e491f5add438d1498fd20e3274876750",
     "semantic_hash": ""
   },
   "rgs-portal/3d/package-lock.json": {
