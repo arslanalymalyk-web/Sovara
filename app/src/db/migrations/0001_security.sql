@@ -7,6 +7,9 @@ END $$;
 --> statement-breakpoint
 GRANT USAGE ON SCHEMA public TO rgs_app_rw;
 --> statement-breakpoint
+-- The migration login can SET ROLE to the application role (used by tests and for support diagnostics).
+GRANT rgs_app_rw TO CURRENT_USER;
+--> statement-breakpoint
 
 -- ---- Session identity -----------------------------------------------------------------------------------------------
 -- The application sets `app.user_id` for the length of each transaction (see src/db/session.ts).
@@ -68,46 +71,28 @@ GRANT EXECUTE ON FUNCTION app_user_id(), app_role_allows(uuid, text, uuid, uuid,
 --> statement-breakpoint
 
 -- ---- Row-level security -------------------------------------------------------------------------------------------------
+-- Policies apply to the application role. The table owner (the migration login) is not subject to them, which is what lets the
+-- SECURITY DEFINER functions above read the access tables. The application must never connect as the owner (docs/RUNBOOK.md step 2).
 -- Tables with no INSERT/UPDATE policy cannot be written by the application role in Stage 0; Stage 1 adds audited commands.
 ALTER TABLE organisations ENABLE ROW LEVEL SECURITY;
 --> statement-breakpoint
-ALTER TABLE organisations FORCE ROW LEVEL SECURITY;
---> statement-breakpoint
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
---> statement-breakpoint
-ALTER TABLE users FORCE ROW LEVEL SECURITY;
 --> statement-breakpoint
 ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
 --> statement-breakpoint
-ALTER TABLE projects FORCE ROW LEVEL SECURITY;
---> statement-breakpoint
 ALTER TABLE areas ENABLE ROW LEVEL SECURITY;
---> statement-breakpoint
-ALTER TABLE areas FORCE ROW LEVEL SECURITY;
 --> statement-breakpoint
 ALTER TABLE packages ENABLE ROW LEVEL SECURITY;
 --> statement-breakpoint
-ALTER TABLE packages FORCE ROW LEVEL SECURITY;
---> statement-breakpoint
 ALTER TABLE role_assignments ENABLE ROW LEVEL SECURITY;
---> statement-breakpoint
-ALTER TABLE role_assignments FORCE ROW LEVEL SECURITY;
 --> statement-breakpoint
 ALTER TABLE delegated_authorities ENABLE ROW LEVEL SECURITY;
 --> statement-breakpoint
-ALTER TABLE delegated_authorities FORCE ROW LEVEL SECURITY;
---> statement-breakpoint
 ALTER TABLE audit_log ENABLE ROW LEVEL SECURITY;
---> statement-breakpoint
-ALTER TABLE audit_log FORCE ROW LEVEL SECURITY;
 --> statement-breakpoint
 ALTER TABLE support_requests ENABLE ROW LEVEL SECURITY;
 --> statement-breakpoint
-ALTER TABLE support_requests FORCE ROW LEVEL SECURITY;
---> statement-breakpoint
 ALTER TABLE support_replies ENABLE ROW LEVEL SECURITY;
---> statement-breakpoint
-ALTER TABLE support_replies FORCE ROW LEVEL SECURITY;
 --> statement-breakpoint
 
 -- Reference tables are not sensitive; they hold the rules themselves.

@@ -25,8 +25,18 @@ const migrationsFolder = path.resolve(import.meta.dirname, '../src/db/migrations
 export async function createTestDb() {
   const url = process.env.TEST_DATABASE_URL;
   if (url) {
-    const pool = new Pool({ connectionString: url, max: 1 });
-    await pool.query('DROP SCHEMA IF EXISTS public CASCADE; DROP SCHEMA IF EXISTS drizzle CASCADE; CREATE SCHEMA public;');
+    // Real PostgreSQL: wipe, then run the migrations as a NON-superuser owner, exactly as in Azure (a superuser would ignore row-level
+    // security and hide any problem with how the definer functions read the access tables).
+    const admin = new Pool({ connectionString: url, max: 1 });
+    await admin.query('DROP SCHEMA IF EXISTS public CASCADE; DROP SCHEMA IF EXISTS drizzle CASCADE; CREATE SCHEMA public;');
+    // roles are cluster-wide and survive the schema wipe: remove the application role so the owner creates it fresh, as in a new deployment
+    await admin.query("DO $$ BEGIN IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'rgs_app_rw') THEN DROP OWNED BY rgs_app_rw; DROP ROLE rgs_app_rw; END IF; END $$;");
+    await admin.query("DO $$ BEGIN IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'rgs_test_owner') THEN CREATE ROLE rgs_test_owner LOGIN PASSWORD 'owner-pass' NOSUPERUSER NOBYPASSRLS CREATEROLE; END IF; END $$;");
+    await admin.query('ALTER DATABASE ' + JSON.stringify((new URL(url).pathname.slice(1))) + ' OWNER TO rgs_test_owner');
+    await admin.query('ALTER SCHEMA public OWNER TO rgs_test_owner; GRANT ALL ON SCHEMA public TO rgs_test_owner;');
+    await admin.end();
+    const u = new URL(url); u.username = 'rgs_test_owner'; u.password = 'owner-pass';
+    const pool = new Pool({ connectionString: u.toString(), max: 1 });
     const pdb = drizzlePg(pool, { schema });
     await pgMigrate(pdb, { migrationsFolder });
     const synced = await syncAccessRules(pdb as never);
