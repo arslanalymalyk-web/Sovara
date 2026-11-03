@@ -9,9 +9,11 @@ for (const scheme of ['light', 'dark']) for (const id of PERSONAS) {
   await signIn(page, srv.url, id);
   const check = async (r) => {
     if (seen.has(scheme + r)) return []; seen.add(scheme + r); await go(page, r, 700);
+    await page.addStyleTag({ content: '*,*::before,*::after{transition:none!important;animation:none!important}' });
+    await page.waitForTimeout(150);
     await page.evaluate(axeSource);
     const res = await page.evaluate(() => axe.run(document, { runOnly: ['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice'] }));
-    screens++; R.ok(!res.violations.length, `${scheme} ${id}#${r}: ` + res.violations.map((v) => v.id + '×' + v.nodes.length).join(', '));
+    screens++; R.ok(!res.violations.length, `${scheme} ${id}#${r}: ` + res.violations.map((v) => v.id + '×' + v.nodes.length + ' [' + v.nodes.slice(0, 2).map((n) => n.html.slice(0, 90)).join(' | ') + ']').join(', '));
     return page.evaluate(() => [...new Set([...document.querySelectorAll('main a[href^="#"]')].map((a) => a.getAttribute('href').slice(1)))].filter((h) => /^[a-z]+\.[A-Za-z0-9._-]+$/.test(h)));
   };
   const records = {};
