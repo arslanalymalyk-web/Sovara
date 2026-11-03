@@ -3,3 +3,5 @@ graphify-out/cache/last_query_stamp
 node_modules/
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+.taste-skill/
+graphify-out/.rebuild.lock

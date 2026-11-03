@@ -18,7 +18,7 @@
   var PRIORITIES = ['low', 'normal', 'high', 'urgent'];
   var FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'application/pdf'];
   var MAX_FILE = 25 * 1048576;
-  var MUTABLE = ['milestones', 'progressConfigs', 'dailyUpdates', 'dependencies', 'reports', 'handoverPackages', 'releases', 'requests', 'requestNotes', 'changes', 'commitments', 'actions', 'notifications', 'files', 'audit', 'activity', 'idempotency', 'documents', 'transmittals', 'evidence', 'inspections', 'findings', 'correctiveActions', 'checklistTemplates'];
+  var MUTABLE = ['milestones', 'progressConfigs', 'dailyUpdates', 'dependencies', 'reports', 'handoverPackages', 'releases', 'requests', 'requestNotes', 'changes', 'commitments', 'actions', 'notifications', 'files', 'audit', 'activity', 'idempotency', 'documents', 'transmittals', 'evidence', 'inspections', 'findings', 'correctiveActions', 'checklistTemplates', 'users', 'assignments', 'authorities', 'supportTickets'];
   // Stage 4: document files. Types are checked against the declared MIME type AND the file's first bytes.
   var DOC_FILE_TYPES = FILE_TYPES.concat(['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'image/vnd.dwg']);
   var SIGNATURES = { 'application/pdf': ['25504446'], 'image/png': ['89504e47'], 'image/jpeg': ['ffd8ff'], 'image/webp': ['52494646'], 'image/heic': ['@4:66747970'],
@@ -1481,6 +1481,138 @@
       c.doneAt = today(); c.history.push({ type: 'complete', at: now, by: actor, reason: String(p.note || '').trim() }); bump(c, now);
       t.audit('commitment.complete', { kind: 'commitment', id: c.id }, null, String(p.note || ''));
       return { doneAt: c.doneAt };
+    };
+
+
+    // ---------- administration and support ----------
+    var SUPPORT_CATS = ['access', 'data', 'report', 'other'];
+    H['admin.user.setStatus'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var u = ST.user(p.id); need(u, 'not_found', { kind: 'user', id: p.id });
+      need(p.id !== actor, 'self_action');
+      need(p.status === 'active' || p.status === 'suspended', 'bad_status');
+      need(u.status !== p.status, 'bad_state');
+      var reason = String(p.reason || '').trim();
+      if (p.status === 'suspended') need(reason.length >= 5, 'reason_required');
+      var from = u.status; u.status = p.status; u.statusReason = reason || null; u.statusAt = now; u.statusBy = actor;
+      t.audit('admin.user.status', { kind: 'user', id: u.id }, null, reason, { from: from, to: p.status });
+      return { status: u.status };
+    };
+    H['admin.user.invite'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var name = String(p.name || '').trim(), email = String(p.email || '').trim().toLowerCase();
+      need(name.length >= 2, 'name_required');
+      need(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email), 'email_invalid');
+      need(!ds.users.some(function (x) { return String(x.email).toLowerCase() === email; }), 'email_taken');
+      var org = ds.orgs.filter(function (o) { return o.id === p.orgId; })[0]; need(org, 'org_required');
+      var def = A.ROLES[p.role]; need(def, 'role_required');
+      need((def.side === 'rgs') === (org.kind === 'rgs'), 'role_org_mismatch');
+      var scope = { projectId: '*' };
+      if (def.scopeLevel !== 'global') {
+        var pr = ds.projects.filter(function (x) { return x.id === p.projectId; })[0]; need(pr, 'project_required');
+        if (org.kind === 'customer') need(pr.customerOrgId === org.id, 'project_org_mismatch');
+        scope = { projectId: pr.id };
+      } else if (def.side === 'rgs' && p.role !== 'portal_admin' && p.role !== 'general_manager') { scope = { projectId: '*' }; }
+      var u = { id: uid('u'), orgId: org.id, role: p.role, name: name, email: email, status: 'invited', invitedAt: now, invitedBy: actor };
+      ds.users.push(u);
+      ds.assignments.push({ id: uid('ra'), userId: u.id, role: p.role, scope: scope });
+      t.audit('admin.user.invite', { kind: 'user', id: u.id }, null, '', { role: p.role, org: org.id, scope: scope });
+      return { id: u.id };
+    };
+    H['admin.authority.revoke'] = function (actor, p, t, now) {
+      allow(actor, 'admin.authority.grant', null);
+      var d = ds.authorities.filter(function (x) { return x.id === p.id; })[0]; need(d, 'not_found', { kind: 'authority', id: p.id });
+      need(d.status === 'active' && !d.revokedAt, 'bad_state');
+      var reason = String(p.reason || '').trim(); need(reason.length >= 5, 'reason_required');
+      d.status = 'revoked'; d.revokedAt = now; d.revokedBy = actor; d.revokeReason = reason;
+      t.audit('admin.authority.revoke', { kind: 'authority', id: d.id }, null, reason, { userId: d.userId, action: d.action });
+      return { id: d.id };
+    };
+    H['support.request'] = function (actor, p, t, now) {
+      need(A.canAnywhere(ds, actor, 'support.use'), 'forbidden');
+      var subject = String(p.subject || '').trim(), msg = String(p.message || '').trim();
+      need(subject.length >= 3, 'subject_required'); need(msg.length >= 10, 'message_required');
+      need(SUPPORT_CATS.indexOf(p.category) >= 0, 'category_required');
+      var mine = ds.supportTickets.filter(function (x) { return x.userId === actor; }).length;
+      var tk = { id: uid('sup'), ref: 'SUP-' + String(ds.supportTickets.length + 1).padStart(4, '0'), userId: actor, category: p.category, subject: subject, message: msg, status: 'open', createdAt: now, version: 1 };
+      ds.supportTickets.push(tk);
+      t.audit('support.request', { kind: 'support', id: tk.id }, null, '', { category: p.category, ref: tk.ref, mine: mine + 1 });
+      return { id: tk.id, ref: tk.ref };
+    };
+
+
+    // ---------- administration, part 2: grants, role changes, organisations, support replies ----------
+    function adminScopeFor(def, org, projectId) {
+      if (def.scopeLevel === 'global') return { projectId: '*' };
+      var pr = ds.projects.filter(function (x) { return x.id === projectId; })[0]; need(pr, 'project_required');
+      if (org.kind === 'customer') need(pr.customerOrgId === org.id, 'project_org_mismatch');
+      return { projectId: pr.id };
+    }
+    H['admin.authority.grant'] = function (actor, p, t, now) {
+      allow(actor, 'admin.authority.grant', null);
+      var target = ST.user(p.userId); need(target, 'not_found', { kind: 'user', id: p.userId });
+      need(p.projectId, 'project_required');
+      var from = String(p.validFrom || today()).slice(0, 10), to = String(p.validTo || '').slice(0, 10);
+      need(/^\d{4}-\d{2}-\d{2}$/.test(to), 'no_expiry'); need(from <= to, 'dates_order');
+      var nom = String(p.nominatedBy || ''); need(nom && (ST.user(nom) || ds.orgs.some(function (o) { return o.id === nom; })), 'no_nomination');
+      var grant = { userId: p.userId, action: p.action, scope: { projectId: p.projectId }, validTo: to, nominatedBy: nom };
+      var c = A.canGrant(ds, actor, grant); need(c.allowed, c.code || 'forbidden', { trace: c.trace });
+      need(!ds.authorities.some(function (d) { return d.userId === p.userId && d.action === p.action && d.status === 'active' && !d.revokedAt && d.scope && d.scope.projectId === p.projectId && String(d.validTo || '') >= from; }), 'authority_exists');
+      var n = ds.authorities.length + 1, id; do { id = 'DA-' + String(8000 + n++); } while (ds.authorities.some(function (d) { return d.id === id; }));
+      ds.authorities.push({ id: id, userId: p.userId, action: p.action, scope: { projectId: p.projectId }, grantedBy: actor, grantedAt: now, nominatedBy: nom, status: 'active', validFrom: from, validTo: to, validUntil: to + 'T23:59:00+03:00', timezone: 'Asia/Riyadh (UTC+03:00)' });
+      t.audit('authority.grant', { kind: 'authority', id: id }, null, '', { holder: p.userId, permission: p.action, scope: { projectId: p.projectId }, validFrom: from, validTo: to, nominatedBy: nom });
+      return { id: id };
+    };
+    H['admin.user.setRole'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var u = ST.user(p.id); need(u, 'not_found', { kind: 'user', id: p.id }); need(p.id !== actor, 'self_action');
+      var reason = String(p.reason || '').trim(); need(reason.length >= 5, 'reason_required');
+      var org = ds.orgs.filter(function (o) { return o.id === u.orgId; })[0]; need(org, 'org_required');
+      var def = A.ROLES[p.role]; need(def, 'role_required'); need((def.side === 'rgs') === (org.kind === 'rgs'), 'role_org_mismatch');
+      var scope = adminScopeFor(def, org, p.projectId), from = u.role;
+      ds.assignments.forEach(function (a) { if (a.userId === u.id && a.status !== 'revoked') { a.status = 'revoked'; a.revokedAt = now; a.revokedBy = actor; } });
+      ds.assignments.push({ id: uid('ra'), userId: u.id, role: p.role, scope: scope });
+      u.role = p.role;
+      var inert = ds.authorities.filter(function (d) { return d.userId === u.id && d.status === 'active' && !d.revokedAt && (def.eligible || []).indexOf(d.action) < 0; }).map(function (d) { return d.id; });
+      t.audit('admin.user.role', { kind: 'user', id: u.id }, null, reason, { from: from, to: p.role, scope: scope, authoritiesNoLongerUsable: inert });
+      return { role: u.role, inert: inert };
+    };
+    H['admin.org.create'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var name = String(p.name || '').trim(); need(name.length >= 2, 'name_required');
+      need(!ds.orgs.some(function (o) { return String(o.name).toLowerCase() === name.toLowerCase(); }), 'org_taken');
+      var id = 'org-' + (name.toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 8) || 'new'); while (ds.orgs.some(function (o) { return o.id === id; })) id += 'x';
+      ds.orgs.push({ id: id, kind: 'customer', name: name, nameAr: String(p.nameAr || '').trim() || name });
+      t.audit('admin.org.create', { kind: 'org', id: id }, null, '', { name: name });
+      return { id: id };
+    };
+    H['admin.org.update'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var o = ds.orgs.filter(function (x) { return x.id === p.id; })[0]; need(o, 'not_found', { kind: 'org', id: p.id });
+      var name = String(p.name || '').trim(); need(name.length >= 2, 'name_required');
+      need(!ds.orgs.some(function (x) { return x.id !== o.id && String(x.name).toLowerCase() === name.toLowerCase(); }), 'org_taken');
+      var before = { name: o.name, nameAr: o.nameAr }; o.name = name; o.nameAr = String(p.nameAr || '').trim() || name;
+      t.audit('admin.org.update', { kind: 'org', id: o.id }, null, '', { from: before, to: { name: o.name, nameAr: o.nameAr } });
+      return { id: o.id };
+    };
+    H['support.reply'] = function (actor, p, t, now) {
+      var tk = ds.supportTickets.filter(function (x) { return x.id === p.id; })[0]; need(tk, 'not_found', { kind: 'support', id: p.id });
+      var staff = A.can(ds, actor, 'admin.users', null).allowed; need(staff || tk.userId === actor, 'forbidden');
+      var msg = String(p.message || '').trim(); need(msg.length >= 2, 'message_required');
+      tk.replies = tk.replies || []; tk.replies.push({ by: actor, at: now, text: msg, staff: staff });
+      if (staff && tk.status === 'open') tk.status = 'in_progress';
+      if (!staff && tk.status === 'resolved') tk.status = 'open';
+      bump(tk, now);
+      t.audit('support.reply', { kind: 'support', id: tk.id }, null, '', { ref: tk.ref, staff: staff });
+      return { status: tk.status };
+    };
+    H['support.setStatus'] = function (actor, p, t, now) {
+      allow(actor, 'admin.users', null);
+      var tk = ds.supportTickets.filter(function (x) { return x.id === p.id; })[0]; need(tk, 'not_found', { kind: 'support', id: p.id });
+      need(['open', 'in_progress', 'resolved'].indexOf(p.status) >= 0, 'bad_status'); need(tk.status !== p.status, 'bad_state');
+      var from = tk.status; tk.status = p.status; tk.resolvedAt = p.status === 'resolved' ? now : null; bump(tk, now);
+      t.audit('support.status', { kind: 'support', id: tk.id }, null, '', { ref: tk.ref, from: from, to: p.status });
+      return { status: tk.status };
     };
 
     // ---------- dependencies ----------

@@ -333,6 +333,7 @@
     if (!pw) L0.errors.password = 'login.err.password';
     var u = D.users.filter(function (x) { return x.email.toLowerCase() === email.toLowerCase(); })[0];
     if (!L0.errors.email && !u) L0.errors.email = 'login.err.unknown';
+    else if (!L0.errors.email && u.status !== 'active') L0.errors.email = u.status === 'suspended' ? 'login.err.suspended' : 'login.err.inactive';
     if (Object.keys(L0.errors).length) { render(); var f = document.querySelector('[aria-invalid="true"]'); if (f) f.focus(); return; }
     L0.busy = true; render();
     setTimeout(function () {
@@ -346,7 +347,7 @@
   function isBuilt(m) { return BUILT.indexOf(m.id) >= 0 || !!(window.RGSPages && window.RGSPages.hasModule && window.RGSPages.hasModule(m.id)); }
   // Keyboard and screen-reader access for scrollable tables and icon-only header cells.
   function enhanceA11y() {
-    Array.prototype.forEach.call(document.querySelectorAll('.tablewrap, .lifecycle'), function (w) { if (w.scrollWidth > w.clientWidth || w.scrollHeight > w.clientHeight) { w.tabIndex = 0; w.setAttribute('role', 'region'); if (!w.hasAttribute('aria-label')) w.setAttribute('aria-label', (document.querySelector('h1') || {}).textContent || 'Table'); } });
+    Array.prototype.forEach.call(document.querySelectorAll('.tablewrap, .lifecycle'), function (w) { if (w.scrollWidth > w.clientWidth || w.scrollHeight > w.clientHeight) { w.tabIndex = 0; if (!/^(OL|UL|TABLE)$/.test(w.tagName)) w.setAttribute('role', 'region'); /* a list keeps its list role; region is not allowed on it */ if (!w.hasAttribute('aria-label')) w.setAttribute('aria-label', (document.querySelector('h1') || {}).textContent || 'Table'); } });
     Array.prototype.forEach.call(document.querySelectorAll('th'), function (th) { if (!th.textContent.trim() && !th.querySelector('[aria-label]')) th.innerHTML = '<span class="visually-hidden">' + (S.lang === 'ar' ? 'إجراءات' : 'Actions') + '</span>'; });
   }
   function renderApp() {
@@ -439,16 +440,16 @@
       '<p class="visually-hidden" role="status">' + esc(t('st.loading.d')) + '</p></div>';
   }
   function emptyState() {
-    return '<div class="state">' + '<div class="glyph">' + ic('inbox') + '</div><h2>' + esc(t('st.empty.t')) + '</h2><p>' + esc(t('st.empty.d')) + '</p>' +
+    return '<div class="state">' + '<div class="glyph">' + ic('inbox') + '</div><h1>' + esc(t('st.empty.t')) + '</h1><p>' + esc(t('st.empty.d')) + '</p>' +
       '<div class="actions"><button class="btn btn-primary" data-act="toast" data-msg="' + esc(t('mod.planned')) + ' 4">' + esc(t('st.empty.a')) + '</button></div></div>';
   }
   function errorState() {
-    return '<div class="state err" role="alert"><div class="glyph">' + ic('cloudx') + '</div><h2>' + esc(t('st.error.t')) + '</h2><p>' + esc(t('st.error.d')) + '</p>' +
+    return '<div class="state err" role="alert"><div class="glyph">' + ic('cloudx') + '</div><h1>' + esc(t('st.error.t')) + '</h1><p>' + esc(t('st.error.d')) + '</p>' +
       '<p class="mono" style="font-size:var(--fs-xs)">' + esc(t('st.error.ref')) + ': ERR-DOC-504-7F3A</p>' +
       '<div class="actions"><button class="btn btn-primary" data-act="retry">' + esc(t('st.error.a')) + '</button><button class="btn btn-secondary" data-route="support">' + esc(t('nav.support')) + '</button></div></div>';
   }
   function deniedState(res, m) {
-    return '<div class="card"><div class="state denied" role="alert"><div class="glyph">' + ic('lockx') + '</div><h2>' + esc(t('st.denied.t')) + '</h2><p>' + esc(t('st.denied.d')) + '</p>' +
+    return '<div class="card"><div class="state denied" role="alert"><div class="glyph">' + ic('lockx') + '</div><h1>' + esc(t('st.denied.t')) + '</h1><p>' + esc(t('st.denied.d')) + '</p>' +
       '<div class="reason"><b>' + esc(t('st.denied.why')) + ':</b> ' + esc(t('reason.' + res.code)) + (m ? ' <span class="mono" style="color:var(--muted)">(' + esc(navLabel(m, user())) + ' · ' + esc(res.code) + ')</span>' : '') + '</div>' +
       '<div class="actions"><button class="btn btn-primary" data-route="home">' + esc(t('st.denied.a')) + '</button><button class="btn btn-secondary" data-act="toast" data-msg="' + esc(t('st.denied.requested')) + '">' + esc(t('st.denied.b')) + '</button></div></div></div>';
   }
@@ -577,7 +578,7 @@
       '</div></section>' +
       '<section class="card"><div class="card-h"><h2>Cards and navigation</h2></div><div class="card-b stack">' +
         '<div class="card" style="box-shadow:none"><div class="list"><div class="list-row"><span class="sev warn"></span><div class="t"><b>Review insulation method statement</b><span class="mono">MS-INS-02 Rev B</span> <span>· due 15 Oct</span></div><span class="pill warn">2 days</span></div></div></div>' +
-        '<div style="background:var(--nav-bg);border-radius:var(--r-md);padding:var(--s3)" class="nav"><a href="#ds" aria-current="page">' + ic('home') + '<span>Active item</span></a><a href="#ds">' + ic('documents') + '<span>Default item</span><span class="stage">S5</span></a></div>' +
+        '<div style="background:var(--frame);border-radius:var(--r-md);padding:var(--s3)" class="nav"><a href="#ds" aria-current="page">' + ic('home') + '<span>Active item</span></a><a href="#ds">' + ic('documents') + '<span>Default item</span><span class="stage">S5</span></a></div>' +
         '<p class="field-hint">Cards set off one object; lists inside them use a severity stripe so state reads at a glance without colour alone (text label always present).</p>' +
       '</div></section></div>';
   }
@@ -736,7 +737,7 @@
     else if (act === 'opennav') { S.navOpen = true; render(); var f = document.querySelector('.nav a'); if (f) f.focus(); }
     else if (act === 'closenav') { S.navOpen = false; render(); }
     else if (act === 'resetdemo') { try { localStorage.removeItem(PKEY); } catch (e) {} location.hash = '#home'; location.reload(); }
-    else if (act === 'signout') { S.dialog = null; S.userId = null; save('user', null); S.menuOpen = false; S.route = 'home'; S.login = { email: '', password: '', errors: {}, busy: false, note: '' }; try { history.replaceState(null, '', '#'); } catch (e) {} render(); }
+    else if (act === 'signout') { S.dialog = null; S.adm = null; S.f6 = null; S.userId = null; save('user', null); S.menuOpen = false; S.route = 'home'; S.login = { email: '', password: '', errors: {}, busy: false, note: '' }; try { history.replaceState(null, '', '#'); } catch (e) {} render(); }
     else if (act === 'togglepw') { var p = document.getElementById('password'); var show = p.type === 'password'; p.type = show ? 'text' : 'password'; el.setAttribute('aria-label', t(show ? 'login.hide' : 'login.show')); }
     else if (act === 'forgot') { S.login.note = t('login.forgot.msg'); render(); }
     else if (act === 'sso') { S.login.note = t('login.sso.msg'); render(); }
@@ -774,6 +775,8 @@
   window.RGSUI = { S: S, ST: ST, D: D, A: A, API: API, CFG: CFG, FIXTURE: FIXTURE, navLabel: navLabel, MODULE_BY: MODULE_BY, t: t, esc: esc, ic: ic, L: L, fmtDate: fmtDate, toast: toast, user: user, org: org,
     go: go, render: render, actLabel: actLabel, loadingState: loadingState, emptyState: emptyState, errorState: errorState, deniedState: deniedState,
     byId: byId, SVC_IMG: SVC_IMG, initials: initials, canAny: canAny, moduleAllowed: moduleAllowed };
+  // A saved session for an account that has since been suspended does not carry on.
+  if (S.userId) { var cu0 = byId(D.users, S.userId); if (!cu0 || cu0.status !== 'active') { S.userId = null; save('user', null); } }
   var h0 = location.hash.slice(1);
   if (S.userId && h0 && /^[A-Za-z0-9._~-]+$/.test(h0) && (MODULE_BY[routeBase(h0)] || window.RGSPages.handles(routeBase(h0)))) S.route = h0;
   render();

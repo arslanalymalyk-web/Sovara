@@ -1980,15 +1980,15 @@
     "semantic_hash": ""
   },
   "rgs-portal/api.js": {
-    "mtime": 1793630059.1601284,
-    "seen": 1793641241.2257988,
-    "ast_hash": "a0b13de8d9e79d3f199e0c11f0cb5bb3",
+    "mtime": 1793651416.6089277,
+    "seen": 1793651715.27692,
+    "ast_hash": "36efca4a8556017172fada26816d3954",
     "semantic_hash": ""
   },
   "rgs-portal/app.js": {
-    "mtime": 1793640751.0465355,
-    "seen": 1793641241.225801,
-    "ast_hash": "d2b3820a7757dc65dc2823397597b557",
+    "mtime": 1793651354.7636592,
+    "seen": 1793651715.2769225,
+    "ast_hash": "da02595bdf7b1ee9928288fe65d5c446",
     "semantic_hash": ""
   },
   "rgs-portal/config.js": {
@@ -2040,9 +2040,9 @@
     "semantic_hash": ""
   },
   "rgs-portal/pages-stage3.js": {
-    "mtime": 1793632895.8698478,
-    "seen": 1793641241.2258215,
-    "ast_hash": "0602581fcf09d4aea04545d817258124",
+    "mtime": 1793646778.7939663,
+    "seen": 1793647715.5715654,
+    "ast_hash": "39c1b44785225e9b85bf91f1449d18a5",
     "semantic_hash": ""
   },
   "rgs-portal/pages-stage3b.js": {
@@ -2094,9 +2094,9 @@
     "semantic_hash": ""
   },
   "skills-lock.json": {
-    "mtime": 1793630527.031873,
-    "seen": 1793641241.2258465,
-    "ast_hash": "c6a5902ed9522c7ae7c805467e3ae6df",
+    "mtime": 1793647670.6896584,
+    "seen": 1793647715.5719104,
+    "ast_hash": "b28a27033968c6cfb67e551ebc536d95",
     "semantic_hash": ""
   },
   ".claude/CLAUDE.md": {
@@ -4632,9 +4632,9 @@
     "semantic_hash": ""
   },
   "rgs-portal/index.html": {
-    "mtime": 1793640809.151346,
-    "seen": 1793641241.2269166,
-    "ast_hash": "59435543a520dd3bb73c5e12fa28a88a",
+    "mtime": 1793651416.6104174,
+    "seen": 1793651715.2924852,
+    "ast_hash": "dc43070900cb7f0f3a229ce2b75d65bb",
     "semantic_hash": ""
   },
   ".claude/skills/hallmark/references/themes/almanac.jpg": {
@@ -5285,10 +5285,1660 @@
     "ast_hash": "a65fb8816750941d33c835bcdc6ae7ac",
     "semantic_hash": ""
   },
+  "package.json": {
+    "mtime": 1793651479.8621306,
+    "seen": 1793651715.2742,
+    "ast_hash": "b2329735613458f26cb6a91fc8f07bf6",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/components.json": {
+    "mtime": 1793641919.269904,
+    "seen": 1793642578.9503222,
+    "ast_hash": "303f2fb60284bf617619c3f1e6fdcb44",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/package.json": {
+    "mtime": 1793644690.3010635,
+    "seen": 1793644806.2923138,
+    "ast_hash": "576cefa6fdcdbcd9cc68ca16b15ce6fa",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/App.tsx": {
+    "mtime": 1793644706.6094158,
+    "seen": 1793644806.29234,
+    "ast_hash": "b391da333f22d7f2add8928660dd97c9",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/GradientText/GradientText.tsx": {
+    "mtime": 1793642518.771327,
+    "seen": 1793642578.9503276,
+    "ast_hash": "735f81ab5f5a511b4344cc13d498dc3c",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ShinyText/ShinyText.tsx": {
+    "mtime": 1793642518.8391368,
+    "seen": 1793642578.950329,
+    "ast_hash": "42ea75c4f11aaccf75ff5f9a8bc29d7f",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/SplitText/SplitText.tsx": {
+    "mtime": 1793642518.7193272,
+    "seen": 1793642578.950331,
+    "ast_hash": "914891db6c9bed82b32d0815f0a87533",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/main.tsx": {
+    "mtime": 1793642525.3809648,
+    "seen": 1793642578.9503322,
+    "ast_hash": "216c2ab82c5e9420e70a5274e15d96ff",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/tsconfig.json": {
+    "mtime": 1793644036.4024138,
+    "seen": 1793644094.10341,
+    "ast_hash": "39516a9d467dcd019d5a5de3d47c66cb",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/vite.config.ts": {
+    "mtime": 1793641919.268045,
+    "seen": 1793642578.9503348,
+    "ast_hash": "c07807c225694d7b2c003271b66a06e4",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/SKILL.md": {
+    "mtime": 1793641374.5241256,
+    "seen": 1793642578.9594352,
+    "ast_hash": "b4c813d355059d18dd8c56ab7d78e5dd",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/element-attributes.md": {
+    "mtime": 1793641374.5201502,
+    "seen": 1793642578.9594386,
+    "ast_hash": "8b8ffc48e38a5b4a04baec18a2732cd7",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/playwright-tests.md": {
+    "mtime": 1793641374.522982,
+    "seen": 1793642578.959441,
+    "ast_hash": "99970dceff6228941c8f994e7dd71d27",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/pr-attachments.md": {
+    "mtime": 1793641374.5210917,
+    "seen": 1793642578.9594424,
+    "ast_hash": "1177e18d35661616471a5dbc56d915b8",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/request-mocking.md": {
+    "mtime": 1793641374.5195062,
+    "seen": 1793642578.959444,
+    "ast_hash": "3b74af1fc908062c9c7f2cef04be6a24",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/running-code.md": {
+    "mtime": 1793641374.5170548,
+    "seen": 1793642578.9594457,
+    "ast_hash": "a051719484d5330b826a5664fa1fbb32",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/session-management.md": {
+    "mtime": 1793641374.5222945,
+    "seen": 1793642578.9594471,
+    "ast_hash": "911dd3af00bd5e8c8fa4515970d90dc1",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/storage-state.md": {
+    "mtime": 1793641374.5186799,
+    "seen": 1793642578.9594483,
+    "ast_hash": "c08abef5555579182415cbf6fe38540b",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/test-generation.md": {
+    "mtime": 1793641374.5216708,
+    "seen": 1793642578.9594498,
+    "ast_hash": "beb47388c77b47110c94e3c34739357f",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/tracing.md": {
+    "mtime": 1793641374.5179238,
+    "seen": 1793642578.9594514,
+    "ast_hash": "fd0e9fbd229a8954b2ac86a53c79308e",
+    "semantic_hash": ""
+  },
+  ".claude/skills/playwright-cli/references/video-recording.md": {
+    "mtime": 1793641374.515776,
+    "seen": 1793642578.9594526,
+    "ast_hash": "839208845060c048ac8e23f114e11aab",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/README.md": {
+    "mtime": 1793644757.733416,
+    "seen": 1793644806.3072987,
+    "ast_hash": "8301b9d2294c9a0f8035598a0e7859cd",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/index.html": {
+    "mtime": 1793641919.2723298,
+    "seen": 1793642578.964771,
+    "ast_hash": "4750ca9efe627dbbf6df5c24e3955a2d",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/BlurText/BlurText.tsx": {
+    "mtime": 1793644021.1665583,
+    "seen": 1793644094.1031773,
+    "ast_hash": "70e3338ff3d1e3e17a4d51bef0bf6e01",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ClickSpark/ClickSpark.tsx": {
+    "mtime": 1793644021.1764498,
+    "seen": 1793644094.10318,
+    "ast_hash": "6093d7a501535d986b02ee22674272af",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/CountUp/CountUp.tsx": {
+    "mtime": 1793644021.1705585,
+    "seen": 1793644094.103182,
+    "ast_hash": "e5af4e8fe6ece1757125a2c7e0c98ef0",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/DecryptedText/DecryptedText.tsx": {
+    "mtime": 1793644021.1705585,
+    "seen": 1793644094.1031857,
+    "ast_hash": "d1d7b11dc1de8be829c098fcfd251e44",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/FuzzyText/FuzzyText.tsx": {
+    "mtime": 1793644021.177623,
+    "seen": 1793644094.1031883,
+    "ast_hash": "5594c23e0cd15eafb6c55be5f879cc7e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/GlitchText/GlitchText.tsx": {
+    "mtime": 1793644021.1784782,
+    "seen": 1793644094.1031902,
+    "ast_hash": "b89fc538cdc74b6cb2167e8d7156c355",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/Magnet/Magnet.tsx": {
+    "mtime": 1793644021.1764498,
+    "seen": 1793644094.1032577,
+    "ast_hash": "f821b2103e2d7f5598a9f20780a27174",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/RotatingText/RotatingText.tsx": {
+    "mtime": 1793644021.177623,
+    "seen": 1793644094.1032603,
+    "ast_hash": "fd7c8a69798b648782ffbc788b8d7a7d",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/SpotlightCard/SpotlightCard.tsx": {
+    "mtime": 1793644021.1745584,
+    "seen": 1793644094.1033676,
+    "ast_hash": "996950dfff3314889e8774222ddc8caf",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/StarBorder/StarBorder.tsx": {
+    "mtime": 1793644021.1764498,
+    "seen": 1793644094.1033697,
+    "ast_hash": "73a62b53a2e5f403247c68904641a236",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/Backgrounds.tsx": {
+    "mtime": 1793644138.5305557,
+    "seen": 1793644205.4066017,
+    "ast_hash": "8d136ca47581fd6c048904298fc59900",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Aurora/Aurora.tsx": {
+    "mtime": 1793644138.5145557,
+    "seen": 1793644205.4069898,
+    "ast_hash": "084e6912913892553073e3f26e3a64ba",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Balatro/Balatro.tsx": {
+    "mtime": 1793644138.522766,
+    "seen": 1793644205.4069917,
+    "ast_hash": "d3faa560af207eac3f1304d7b76a0a28",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Beams/Beams.tsx": {
+    "mtime": 1793644138.5214677,
+    "seen": 1793644205.4069932,
+    "ast_hash": "ac8954afb435c9184a0e641145ae97f7",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Dither/Dither.tsx": {
+    "mtime": 1793644138.523312,
+    "seen": 1793644205.4069943,
+    "ast_hash": "6551e3e3a623db8013312d6e02c7a963",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Iridescence/Iridescence.tsx": {
+    "mtime": 1793644138.5186975,
+    "seen": 1793644205.4069963,
+    "ast_hash": "a35e5078eebc1c97e40346d0782b71a4",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/LiquidChrome/LiquidChrome.tsx": {
+    "mtime": 1793644138.5199602,
+    "seen": 1793644205.4069977,
+    "ast_hash": "44ecbfddb9453f39e45d3fc649bcae5e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Orb/Orb.tsx": {
+    "mtime": 1793644138.5203753,
+    "seen": 1793644205.4069996,
+    "ast_hash": "b80bfa25407a4b2fd784d745c2fca00a",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Particles/Particles.tsx": {
+    "mtime": 1793644138.5180337,
+    "seen": 1793644205.4070008,
+    "ast_hash": "071fad0dc0da4c9d14e33fd51e3d7ec0",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Silk/Silk.tsx": {
+    "mtime": 1793644138.520918,
+    "seen": 1793644205.4070024,
+    "ast_hash": "72f24c41f8f3f66695dd1ca8c229a978",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/backgrounds/Waves/Waves.tsx": {
+    "mtime": 1793644138.5194094,
+    "seen": 1793644205.4070039,
+    "ast_hash": "274722b5d9e98a14d3836d823b5b8c3e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/Animations.tsx": {
+    "mtime": 1793644546.7410755,
+    "seen": 1793644634.1665661,
+    "ast_hash": "dd2d4195519ef03bddd1060dd429e791",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/AnimatedContent/AnimatedContent.tsx": {
+    "mtime": 1793644539.945067,
+    "seen": 1793644634.1670024,
+    "ast_hash": "800b0200fe8b005a103b01207382c926",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/CircularText/CircularText.tsx": {
+    "mtime": 1793644539.9507291,
+    "seen": 1793644634.1670043,
+    "ast_hash": "4ba8f6a4157a3a4887af1fa92e9d68de",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/CurvedLoop/CurvedLoop.tsx": {
+    "mtime": 1793644539.95179,
+    "seen": 1793644634.1670065,
+    "ast_hash": "a3534d2a48a95750f4d4fe6627ff8640",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/FadeContent/FadeContent.tsx": {
+    "mtime": 1793644539.941067,
+    "seen": 1793644634.1670084,
+    "ast_hash": "51f3f469128478851e289402645e5384",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/GlareHover/GlareHover.tsx": {
+    "mtime": 1793644539.952323,
+    "seen": 1793644634.16701,
+    "ast_hash": "4818580e943dcf7061fb1327c26fec6a",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/MagnetLines/MagnetLines.tsx": {
+    "mtime": 1793644539.9529483,
+    "seen": 1793644634.1670113,
+    "ast_hash": "9276e9c02bc33d085682b132b2c7a7a3",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/Noise/Noise.tsx": {
+    "mtime": 1793644539.953667,
+    "seen": 1793644634.167013,
+    "ast_hash": "f233e3c21b04e320ac4671a536ea05f4",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/ScrollFloat/ScrollFloat.tsx": {
+    "mtime": 1793644539.9487302,
+    "seen": 1793644634.167014,
+    "ast_hash": "f7bf82f88ef38f93523bcb5893e0b920",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/ScrollReveal/ScrollReveal.tsx": {
+    "mtime": 1793644539.949378,
+    "seen": 1793644634.167015,
+    "ast_hash": "83a0b4ce30db0ad0a922ec3eba832b3b",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/ScrollVelocity/ScrollVelocity.tsx": {
+    "mtime": 1793644539.9512823,
+    "seen": 1793644634.1670167,
+    "ast_hash": "a5ba067c406cadc658e3c6fb9662080c",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/Shuffle/Shuffle.tsx": {
+    "mtime": 1793644539.9566028,
+    "seen": 1793644634.1670182,
+    "ast_hash": "00c736963ae4346ca7cf3431b161fbf3",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/animations/TrueFocus/TrueFocus.tsx": {
+    "mtime": 1793644539.9500718,
+    "seen": 1793644634.1670198,
+    "ast_hash": "2c45eec36d7b72cd0adb3e3934a3d3e2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/assets/base.js": {
+    "mtime": 1793644763.449645,
+    "seen": 1793644806.2827652,
+    "ast_hash": "5dd0784c14e17078fb7d97f9a837091a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/assets/charts.js": {
+    "mtime": 1793644763.4497108,
+    "seen": 1793644806.2827744,
+    "ast_hash": "0864e4b64994f8f2f1c1309cb47101fe",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/assets/scenes/stage.js": {
+    "mtime": 1793644763.4518242,
+    "seen": 1793644806.282778,
+    "ast_hash": "e9e37f2ab6a45706a3cedee5c7b983e0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/evals/evals.json": {
+    "mtime": 1793644763.4497044,
+    "seen": 1793644806.2827802,
+    "ast_hash": "99d6bf5572678a47e797a824b92d0fff",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/app.json": {
+    "mtime": 1793644763.4497404,
+    "seen": 1793644806.2827823,
+    "ast_hash": "d06586a5abf11c588624c4ec096caa63",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/directions.json": {
+    "mtime": 1793644763.4497404,
+    "seen": 1793644806.2827837,
+    "ast_hash": "2ace3a566f04c62e858d0e301a7f5cb2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/heroes.json": {
+    "mtime": 1793644763.4498188,
+    "seen": 1793644806.282786,
+    "ast_hash": "2a6244b32222798a5915d996e9f6f329",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/motions.json": {
+    "mtime": 1793644763.4497867,
+    "seen": 1793644806.2827883,
+    "ast_hash": "89ddb35071ca3c381c9b5654bf0de81d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/palettes.json": {
+    "mtime": 1793644763.449797,
+    "seen": 1793644806.28279,
+    "ast_hash": "9c0b1072fa730c38a1e50326daf7342a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/photos.json": {
+    "mtime": 1793644763.449839,
+    "seen": 1793644806.282792,
+    "ast_hash": "4eb4f32fe028dbf1c7c121404a3c86b1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/sections.json": {
+    "mtime": 1793644763.4499087,
+    "seen": 1793644806.2827938,
+    "ast_hash": "82fdc4a45c2bbaa256992d833605f50d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/sites.json": {
+    "mtime": 1793644763.4503598,
+    "seen": 1793644806.2827954,
+    "ast_hash": "bc687b33a29748d3e25b70e235fb450c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/library/type.json": {
+    "mtime": 1793644763.4499087,
+    "seen": 1793644806.2827973,
+    "ast_hash": "0015267c9eb8b8aa0367d3564471c5a4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/assets.mjs": {
+    "mtime": 1793644763.4504719,
+    "seen": 1793644806.2827985,
+    "ast_hash": "3637e9fb21e2afd2360440e20939aee5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/draw.mjs": {
+    "mtime": 1793644763.4506176,
+    "seen": 1793644806.2828,
+    "ast_hash": "6b49302383e9b8280d8a504554a89ba8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/inspect.mjs": {
+    "mtime": 1793644763.4504986,
+    "seen": 1793644806.2828016,
+    "ast_hash": "28249b1995a1579ae7f692d0e32b5df7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/app-draw.mjs": {
+    "mtime": 1793644763.4524693,
+    "seen": 1793644806.2828033,
+    "ast_hash": "f2b67f939a9714f5dbc66fae8554354b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/cdp.mjs": {
+    "mtime": 1793644763.4524922,
+    "seen": 1793644806.282805,
+    "ast_hash": "ef00d74becd052114890d365820d3e9e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/inspection-files.mjs": {
+    "mtime": 1793644763.4525564,
+    "seen": 1793644806.2828062,
+    "ast_hash": "036423fad7c2acdac27c0f326ef3a24e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/probe.mjs": {
+    "mtime": 1793644763.4525952,
+    "seen": 1793644806.2828078,
+    "ast_hash": "dad571f8052ec07896f4ccdcd2ea3c55",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lib/rules.mjs": {
+    "mtime": 1793644763.4525952,
+    "seen": 1793644806.2828095,
+    "ast_hash": "12fe8da2f2b2eac8fb88c5925b6a8b21",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/lint.mjs": {
+    "mtime": 1793644763.4504986,
+    "seen": 1793644806.2828112,
+    "ast_hash": "f653ce179e61df363622bdb08fd69fc6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/scripts/scenes.mjs": {
+    "mtime": 1793644763.4505625,
+    "seen": 1793644806.2828124,
+    "ast_hash": "58d717ed58f82be567350aa6edc9b98d",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/Ui.tsx": {
+    "mtime": 1793644706.6065636,
+    "seen": 1793644806.2923975,
+    "ast_hash": "e1160c8ac2fc43060fa0c442fe4498ee",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/BounceCards/BounceCards.tsx": {
+    "mtime": 1793644676.8425553,
+    "seen": 1793644806.2935345,
+    "ast_hash": "a54e1afb8ec09e5ae9ac39c4b160dc4b",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Carousel/Carousel.tsx": {
+    "mtime": 1793644676.8507051,
+    "seen": 1793644806.2935362,
+    "ast_hash": "c0a8e9769bfcde27efddbae3c7cb7609",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/ChromaGrid/ChromaGrid.tsx": {
+    "mtime": 1793644676.8431752,
+    "seen": 1793644806.2935376,
+    "ast_hash": "83d75cb5ea8554d2f7848d8209d39f1e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Counter/Counter.tsx": {
+    "mtime": 1793644676.8448272,
+    "seen": 1793644806.293539,
+    "ast_hash": "895050a64d32739e490c95d7b4e180ac",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Dock/Dock.tsx": {
+    "mtime": 1793644676.8330638,
+    "seen": 1793644806.2935412,
+    "ast_hash": "9d59943295e6c90102c5733458128884",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Folder/Folder.tsx": {
+    "mtime": 1793644676.8404217,
+    "seen": 1793644806.293543,
+    "ast_hash": "bb32286d8c1e39592246921aa16d207a",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/GlassSurface/GlassSurface.tsx": {
+    "mtime": 1793644676.8441353,
+    "seen": 1793644806.293545,
+    "ast_hash": "f2c52f198e658b186072088ef4e4b44e",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/GooeyNav/GooeyNav.tsx": {
+    "mtime": 1793644676.8494225,
+    "seen": 1793644806.2935464,
+    "ast_hash": "f607a115450359ddb44b7c253b6053f0",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/PillNav/PillNav.tsx": {
+    "mtime": 1793644676.848551,
+    "seen": 1793644806.2935479,
+    "ast_hash": "6749c8f955eed008c713564ba00970a6",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Stack/Stack.tsx": {
+    "mtime": 1793644676.8473256,
+    "seen": 1793644806.2935493,
+    "ast_hash": "c3abc3cf88a79ab98173138fe62a15d9",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/Stepper/Stepper.tsx": {
+    "mtime": 1793644676.8501158,
+    "seen": 1793644806.2935512,
+    "ast_hash": "5d9acfd28ae979a3b0f2a0cd224bb986",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/src/components/react-bits/ui/TiltedCard/TiltedCard.tsx": {
+    "mtime": 1793644676.8414443,
+    "seen": 1793644806.2935526,
+    "ast_hash": "729185393deb8c2a42a56fcae90f61cd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/README.md": {
+    "mtime": 1793644763.4462864,
+    "seen": 1793644806.2948864,
+    "ast_hash": "584bfa12c35b8c06df428deead797aae",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/SKILL.md": {
+    "mtime": 1793644763.4462864,
+    "seen": 1793644806.2948883,
+    "ast_hash": "fe445bafa7de21620e201c0660782f57",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/app-screens.md": {
+    "mtime": 1793644763.4500344,
+    "seen": 1793644806.2948902,
+    "ast_hash": "5ab4d22276990859c67f7ff43819e4cf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/colour.md": {
+    "mtime": 1793644763.4500344,
+    "seen": 1793644806.2948923,
+    "ast_hash": "ed2d6bf506e34cc7ac367a49be4c46b3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/copy.md": {
+    "mtime": 1793644763.4500952,
+    "seen": 1793644806.2948937,
+    "ast_hash": "af0e017bd419b5ba65bcd1674e47664a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/critique.md": {
+    "mtime": 1793644763.4501054,
+    "seen": 1793644806.2948952,
+    "ast_hash": "aa8895d37febb8ef1bbc55980f678ad9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/imagery.md": {
+    "mtime": 1793644763.4501593,
+    "seen": 1793644806.2948968,
+    "ast_hash": "b79a629229f225b683a607bfd7ab8beb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/layout.md": {
+    "mtime": 1793644763.4501758,
+    "seen": 1793644806.2948983,
+    "ast_hash": "82c275c532a6e56c43946380a13d1ebe",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/motion.md": {
+    "mtime": 1793644763.4502141,
+    "seen": 1793644806.2948995,
+    "ast_hash": "01ba9079a706b741fa608596fc6c2d76",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/research.md": {
+    "mtime": 1793644763.4502804,
+    "seen": 1793644806.294901,
+    "ast_hash": "550742238e1ad47035613ee0519e9509",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/scenes.md": {
+    "mtime": 1793644763.4503717,
+    "seen": 1793644806.2949026,
+    "ast_hash": "0f813d901630ec1264b2cdab41216185",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/tells.md": {
+    "mtime": 1793644763.4503598,
+    "seen": 1793644806.294904,
+    "ast_hash": "c4de5b16893aa24398b7e7365cec0627",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/references/type.md": {
+    "mtime": 1793644763.4504366,
+    "seen": 1793644806.2949052,
+    "ast_hash": "2258b887a5c37da15dba006e86090f8c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/scripts/extract-colors.cjs": {
+    "mtime": 1793647665.901744,
+    "seen": 1793647715.548192,
+    "ast_hash": "9e5dda9b72048c0fed63c4d1ee8db3cf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/scripts/inject-brand-context.cjs": {
+    "mtime": 1793647665.9018962,
+    "seen": 1793647715.5482047,
+    "ast_hash": "72ab4372fcdb90d68b5cb09b912e34f4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/scripts/sync-brand-to-tokens.cjs": {
+    "mtime": 1793647665.9018588,
+    "seen": 1793647715.548212,
+    "ast_hash": "317b5d8c1b47a2ed58d0cec36ff6dc01",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/scripts/tests/test_sync_brand_to_tokens.py": {
+    "mtime": 1793647665.905323,
+    "seen": 1793647715.548216,
+    "ast_hash": "e8a89dfd360da0676cb4825031cc8364",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/scripts/validate-asset.cjs": {
+    "mtime": 1793647665.9020827,
+    "seen": 1793647715.5482202,
+    "ast_hash": "8217a1364af59e1acfb95d71fd41df1e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/embed-tokens.cjs": {
+    "mtime": 1793647667.2950053,
+    "seen": 1793647715.5482244,
+    "ast_hash": "91f91a0db7c6dece4d2cebf2d9272f12",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/fetch-background.py": {
+    "mtime": 1793647667.295198,
+    "seen": 1793647715.5482278,
+    "ast_hash": "fda76d4123d18e97dd03cf3b485aba52",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/generate-slide.py": {
+    "mtime": 1793647667.295064,
+    "seen": 1793647715.5482311,
+    "ast_hash": "622d80cd7d9696f269e2da6b063754f7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/generate-tokens.cjs": {
+    "mtime": 1793647667.2952416,
+    "seen": 1793647715.548234,
+    "ast_hash": "a9a15066eeca1f70bd2edb90c645c9eb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/html-token-validator.py": {
+    "mtime": 1793647667.2952864,
+    "seen": 1793647715.5482373,
+    "ast_hash": "fe7faba684210c47b3c62f972b97f71f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/search-slides.py": {
+    "mtime": 1793647667.2953978,
+    "seen": 1793647715.5482407,
+    "ast_hash": "560ee6a3a35bcaadeadcec3fba9aa529",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/slide-token-validator.py": {
+    "mtime": 1793647667.2953978,
+    "seen": 1793647715.5482447,
+    "ast_hash": "ee5d76c06903f98a460a8661e150c5d3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/slide_search_core.py": {
+    "mtime": 1793647667.295425,
+    "seen": 1793647715.5482473,
+    "ast_hash": "994ab50455710fce437399e86df23286",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/tests/test_validate_tokens.py": {
+    "mtime": 1793647667.2970476,
+    "seen": 1793647715.5482502,
+    "ast_hash": "e41b099b283c27ea8f4588ae3813d87e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/scripts/validate-tokens.cjs": {
+    "mtime": 1793647667.2956014,
+    "seen": 1793647715.548252,
+    "ast_hash": "ebb5e5897d942f59ecd76bf710d06dff",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/templates/design-tokens-starter.json": {
+    "mtime": 1793647667.2954903,
+    "seen": 1793647715.5482547,
+    "ast_hash": "a5771c378d6fea057242eeebe83a7747",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/cip/core.py": {
+    "mtime": 1793647666.710529,
+    "seen": 1793647715.5496862,
+    "ast_hash": "9fcf192c150e285ab6176a9bbacd475b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/cip/generate.py": {
+    "mtime": 1793647666.7105663,
+    "seen": 1793647715.5496907,
+    "ast_hash": "6c290ffa332b6ffdf95dcb3d92b421d0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/cip/render-html.py": {
+    "mtime": 1793647666.710692,
+    "seen": 1793647715.5496943,
+    "ast_hash": "6fe3ce567110811670f05f40d386b48f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/cip/search.py": {
+    "mtime": 1793647666.7107563,
+    "seen": 1793647715.5496976,
+    "ast_hash": "21a63380316bd899c49302e1b9a59191",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/icon/generate.py": {
+    "mtime": 1793647666.7109716,
+    "seen": 1793647715.549701,
+    "ast_hash": "5e1da5f528d86d184544d7c43541802c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/logo/core.py": {
+    "mtime": 1793647666.7107563,
+    "seen": 1793647715.5497034,
+    "ast_hash": "b8ea226dde31603e5a5e790641334055",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/logo/generate.py": {
+    "mtime": 1793647666.71099,
+    "seen": 1793647715.549706,
+    "ast_hash": "732cc25c4ff586ddcafdbbf565018df1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/logo/search.py": {
+    "mtime": 1793647666.7110288,
+    "seen": 1793647715.549709,
+    "ast_hash": "56aa8e1e15479f304a7e4709a767c98b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/logo/tests/test_generate.py": {
+    "mtime": 1793647666.7124906,
+    "seen": 1793647715.549712,
+    "ast_hash": "7650dbf8b7e6a94a9ad029371d534f4a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/tests/test_cip_generate.py": {
+    "mtime": 1793647666.711244,
+    "seen": 1793647715.549714,
+    "ast_hash": "e68465a663445a7cef0fabeb1ef9baa7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/scripts/tests/test_icon_generate.py": {
+    "mtime": 1793647666.7113085,
+    "seen": 1793647715.549717,
+    "ast_hash": "bba0e85ea5c8666a62b7ee09aa450e59",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/scripts/shadcn_add.py": {
+    "mtime": 1793647669.1942651,
+    "seen": 1793647715.5497198,
+    "ast_hash": "4eb5eb020e3b45a8f73f4a371abbdbe1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/scripts/tailwind_config_gen.py": {
+    "mtime": 1793647669.1942976,
+    "seen": 1793647715.5497222,
+    "ast_hash": "d3c553c1faa5e9f4b5b055c49a7d3854",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/scripts/tests/coverage-ui.json": {
+    "mtime": 1793647669.2033043,
+    "seen": 1793647715.5497243,
+    "ast_hash": "42c486def8b180c1e72b1e7b865b9607",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/scripts/tests/test_shadcn_add.py": {
+    "mtime": 1793647669.2035928,
+    "seen": 1793647715.5497265,
+    "ast_hash": "51024123de02865d0c6dee29df6a887a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/scripts/tests/test_tailwind_config_gen.py": {
+    "mtime": 1793647669.2036283,
+    "seen": 1793647715.549729,
+    "ast_hash": "50aadff28b468306446a534c5002da5a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/data/catalog-summary.json": {
+    "mtime": 1793647670.5738633,
+    "seen": 1793647715.5497315,
+    "ast_hash": "1726df2ef85ddf616a450b0190b07836",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/data/data-provenance.json": {
+    "mtime": 1793647670.5740023,
+    "seen": 1793647715.549735,
+    "ast_hash": "4f0fbe5f16c919f87170d6f493fad5e3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/data/google-font-licenses.json": {
+    "mtime": 1793647670.574122,
+    "seen": 1793647715.549738,
+    "ast_hash": "c6f70c775c4b6ac26441cf1b0022ad71",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/data/phosphor-icons-upstream.json": {
+    "mtime": 1793647670.57481,
+    "seen": 1793647715.5497403,
+    "ast_hash": "933217ce321daf2458d12c41e5f19cb1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/core.py": {
+    "mtime": 1793647670.575257,
+    "seen": 1793647715.5497432,
+    "ast_hash": "5cc043c5aacc48ad32408975701c883f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/design_system.py": {
+    "mtime": 1793647670.5753317,
+    "seen": 1793647715.5497456,
+    "ast_hash": "a93a39562922b44b2dc8963daa606678",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/reasoning_contract.py": {
+    "mtime": 1793647670.5754285,
+    "seen": 1793647715.549748,
+    "ast_hash": "e03944fe11a921f4c13687774c97b09a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/search.py": {
+    "mtime": 1793647670.575498,
+    "seen": 1793647715.54975,
+    "ast_hash": "a05dc6ed7f8dc3989c2a9df02859885f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-api.json": {
+    "mtime": 1793647670.587861,
+    "seen": 1793647715.5497532,
+    "ast_hash": "a7237266e58d0d350d1b671a6c8cd5d3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-catalog.json": {
+    "mtime": 1793647670.5876362,
+    "seen": 1793647715.5497558,
+    "ast_hash": "02d80499488d2a6081061bc8e29c469e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-metadata.json": {
+    "mtime": 1793647670.5877385,
+    "seen": 1793647715.5497591,
+    "ast_hash": "10afdf3d0fe26e932bbb7ce6fe65a766",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-overrides.json": {
+    "mtime": 1793647670.588526,
+    "seen": 1793647715.5497622,
+    "ast_hash": "b690ec6f034bddc7902730d4cdeae73f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-core.json": {
+    "mtime": 1793647670.5881672,
+    "seen": 1793647715.5497656,
+    "ast_hash": "75b4d81152b32684a434ffd102341583",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-package.json": {
+    "mtime": 1793647670.58805,
+    "seen": 1793647715.5497687,
+    "ast_hash": "afc32a816bf0fa9b8c28b52a93becff0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-exports.json": {
+    "mtime": 1793647670.5880983,
+    "seen": 1793647715.549772,
+    "ast_hash": "ef522a435f50260b089f0212f84ae35a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-package.json": {
+    "mtime": 1793647670.5882387,
+    "seen": 1793647715.5497744,
+    "ast_hash": "5e4623083f8c525cbedd1f63b3352f8d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/relevance-baseline.json": {
+    "mtime": 1793647670.5856428,
+    "seen": 1793647715.5497766,
+    "ast_hash": "d73f2d115e89e3d8492591aad13b747d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/relevance-cases.json": {
+    "mtime": 1793647670.5857618,
+    "seen": 1793647715.5497794,
+    "ast_hash": "4df077e7335abb225f9674b8986515cf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/fixtures/relevance-thresholds.json": {
+    "mtime": 1793647670.5857182,
+    "seen": 1793647715.549782,
+    "ast_hash": "a72a59987d2f6dfa3252c38e8e4ef73f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_catalog_refresh.py": {
+    "mtime": 1793647670.580907,
+    "seen": 1793647715.5497844,
+    "ast_hash": "1068a876d6c669a8e8d3ac427c6d0dd0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_catalog_summary_line_endings.py": {
+    "mtime": 1793647670.5811312,
+    "seen": 1793647715.5497868,
+    "ast_hash": "4fabfd8065d8c8bdf1b844c94c2b00c4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_core.py": {
+    "mtime": 1793647670.5812411,
+    "seen": 1793647715.5497892,
+    "ast_hash": "2d94f15b1c12cf0b0e4993cacdb4f0ba",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_core_data_quality.py": {
+    "mtime": 1793647670.5810504,
+    "seen": 1793647715.5497918,
+    "ast_hash": "dd075aae5ec7d65b41d4e1fc730117ba",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_data_contracts.py": {
+    "mtime": 1793647670.5810902,
+    "seen": 1793647715.549795,
+    "ast_hash": "d5d35046faca80fe1a48776ad385338d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_design_system_mode.py": {
+    "mtime": 1793647670.5812063,
+    "seen": 1793647715.5497973,
+    "ast_hash": "c46fcbf50a023cbf994842482bee34b6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_design_system_stack.py": {
+    "mtime": 1793647670.5812998,
+    "seen": 1793647715.5498,
+    "ast_hash": "b6d5b4fb29fcfd9ac8006dd9222c3dee",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_native_desktop_stack_freshness.py": {
+    "mtime": 1793647670.5813372,
+    "seen": 1793647715.5498028,
+    "ast_hash": "6669e8b92bc089b774b8c19ef6f489a6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_relevance_evaluator.py": {
+    "mtime": 1793647670.5814216,
+    "seen": 1793647715.5498056,
+    "ast_hash": "10a92a919a7780ebb6aada75eb7d0ed5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_rtl_support.py": {
+    "mtime": 1793647670.5814557,
+    "seen": 1793647715.5498087,
+    "ast_hash": "bdb6b8cddc6e6800a52554b352639a41",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_skill_script_paths.py": {
+    "mtime": 1793647670.5815146,
+    "seen": 1793647715.549811,
+    "ast_hash": "1d360d5f0e17d3feb9f79f5e48d10abc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_style_taxonomy.py": {
+    "mtime": 1793647670.58155,
+    "seen": 1793647715.5498137,
+    "ast_hash": "32c02df463685f41869a7bb9b8396574",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_text_layout_resilience.py": {
+    "mtime": 1793647670.5815897,
+    "seen": 1793647715.5498161,
+    "ast_hash": "d9ce97bf10c398e3ce0304334ba98bc2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/tests/test_web_stack_freshness.py": {
+    "mtime": 1793647670.5816238,
+    "seen": 1793647715.5498185,
+    "ast_hash": "c7bb1383b7bd2425d1a30a598e868bcc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/scripts/validate_data.py": {
+    "mtime": 1793647670.5755389,
+    "seen": 1793647715.5498207,
+    "ast_hash": "0c5a3a29c6dc39190be1a0f2baca2a1c",
+    "semantic_hash": ""
+  },
+  ".mcp.json": {
+    "mtime": 1793645890.2810361,
+    "seen": 1793647715.5663364,
+    "ast_hash": "130e80afbfe2c9cd4ace104515770381",
+    "semantic_hash": ""
+  },
+  ".agents/skills/banner-design/SKILL.md": {
+    "mtime": 1793647665.47829,
+    "seen": 1793647715.5719166,
+    "ast_hash": "a9465501b8244dd88d83b68f89453d8a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/banner-design/references/banner-sizes-and-styles.md": {
+    "mtime": 1793647665.4786751,
+    "seen": 1793647715.5719216,
+    "ast_hash": "2581cbdf098909b898471bea6adabff6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/SKILL.md": {
+    "mtime": 1793647665.8974655,
+    "seen": 1793647715.5719242,
+    "ast_hash": "946ae697f967a654aef999a34a8fc474",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/approval-checklist.md": {
+    "mtime": 1793647665.9022648,
+    "seen": 1793647715.5719275,
+    "ast_hash": "9d6b5e6c77c3adb94066a79295ccdb2c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/asset-organization.md": {
+    "mtime": 1793647665.902445,
+    "seen": 1793647715.5719314,
+    "ast_hash": "8c359aaccb0d5f5a9c0daed9128fd9e9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/brand-guideline-template.md": {
+    "mtime": 1793647665.902505,
+    "seen": 1793647715.571935,
+    "ast_hash": "40aadbb3eb6b82efb9c933951cdfe632",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/color-palette-management.md": {
+    "mtime": 1793647665.9024704,
+    "seen": 1793647715.571938,
+    "ast_hash": "b7e3dc308cfc2e65bd94ecf85fb580e7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/consistency-checklist.md": {
+    "mtime": 1793647665.902663,
+    "seen": 1793647715.5719414,
+    "ast_hash": "e0be65fe750959b397a96d72ee939ebc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/logo-usage-rules.md": {
+    "mtime": 1793647665.902505,
+    "seen": 1793647715.5719442,
+    "ast_hash": "03cb4cb2d302a9e827fceeff93b4186a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/messaging-framework.md": {
+    "mtime": 1793647665.902631,
+    "seen": 1793647715.5719478,
+    "ast_hash": "9390c33e1c7ddb04a39528aa5872f85f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/typography-specifications.md": {
+    "mtime": 1793647665.902663,
+    "seen": 1793647715.5719507,
+    "ast_hash": "bc5d6e2d497b8aa2d3110de1d8463276",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/update.md": {
+    "mtime": 1793647665.9028013,
+    "seen": 1793647715.5719538,
+    "ast_hash": "bd336451b89b688a29c1ceb0f71ba2b0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/visual-identity.md": {
+    "mtime": 1793647665.9028013,
+    "seen": 1793647715.5719566,
+    "ast_hash": "0ada28b9a2e03da7fe50b95f3318f4de",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/references/voice-framework.md": {
+    "mtime": 1793647665.9027708,
+    "seen": 1793647715.5719593,
+    "ast_hash": "05b79e16c373850ea5e94e0977856dbc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/brand/templates/brand-guidelines-starter.md": {
+    "mtime": 1793647665.902312,
+    "seen": 1793647715.5719619,
+    "ast_hash": "f7a5da16b17f9792a93270626d97a978",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/SKILL.md": {
+    "mtime": 1793647667.289181,
+    "seen": 1793647715.5719657,
+    "ast_hash": "8910cb873f3faa735655d544b2e689e9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/references/component-specs.md": {
+    "mtime": 1793647667.29447,
+    "seen": 1793647715.571969,
+    "ast_hash": "4b96207671408be2dac5b13c9e31f5bd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/references/component-tokens.md": {
+    "mtime": 1793647667.2945733,
+    "seen": 1793647715.5719724,
+    "ast_hash": "c66d6ccb3240d4eba923891a2fdb3b58",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/references/primitive-tokens.md": {
+    "mtime": 1793647667.2946544,
+    "seen": 1793647715.5719755,
+    "ast_hash": "7ebd68b0dfab8c9df2f22d85a3022e09",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/references/semantic-tokens.md": {
+    "mtime": 1793647667.294709,
+    "seen": 1793647715.5719788,
+    "ast_hash": "c7078e566f78cb07696a158fa6746f54",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/references/states-and-variants.md": {
+    "mtime": 1793647667.2947357,
+    "seen": 1793647715.5719824,
+    "ast_hash": "ff0c751bff96625c6780ae076ed4558d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/references/tailwind-integration.md": {
+    "mtime": 1793647667.2948916,
+    "seen": 1793647715.5719852,
+    "ast_hash": "d111e6c9b42fc6c83e353be65f1e7380",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-system/references/token-architecture.md": {
+    "mtime": 1793647667.2948916,
+    "seen": 1793647715.5719872,
+    "ast_hash": "b63bc63526a343c95a7401aa17ec24fb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/SKILL.md": {
+    "mtime": 1793647666.701746,
+    "seen": 1793647715.5726001,
+    "ast_hash": "1ff44f5379664ebfe905e349b534e9a5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/banner-sizes-and-styles.md": {
+    "mtime": 1793647666.7072408,
+    "seen": 1793647715.5726025,
+    "ast_hash": "2581cbdf098909b898471bea6adabff6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/cip-deliverable-guide.md": {
+    "mtime": 1793647666.7075028,
+    "seen": 1793647715.5726051,
+    "ast_hash": "529d95a6ced350448cff5c2c994adaf6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/cip-design.md": {
+    "mtime": 1793647666.707744,
+    "seen": 1793647715.572609,
+    "ast_hash": "664f14fc81515248fd032d843070acd0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/cip-prompt-engineering.md": {
+    "mtime": 1793647666.70758,
+    "seen": 1793647715.572613,
+    "ast_hash": "71a93064bf55486c3d3bbbfa512db516",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/cip-style-guide.md": {
+    "mtime": 1793647666.707744,
+    "seen": 1793647715.5726159,
+    "ast_hash": "45ddddcc2633526b10d3936407a37fdb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/design-routing.md": {
+    "mtime": 1793647666.707793,
+    "seen": 1793647715.5726197,
+    "ast_hash": "a8a2efdee021c921d3552a7fe3935d1e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/icon-design.md": {
+    "mtime": 1793647666.7079058,
+    "seen": 1793647715.5726225,
+    "ast_hash": "c26005d5a67bd13298ed8b5039a6354d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/logo-color-psychology.md": {
+    "mtime": 1793647666.7079663,
+    "seen": 1793647715.5726254,
+    "ast_hash": "c16a5c2f71bca6dffe5be145fb8e1cb4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/logo-design.md": {
+    "mtime": 1793647666.7081351,
+    "seen": 1793647715.5726283,
+    "ast_hash": "bfbd340f130b67523b937384ffc6b7a8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/logo-prompt-engineering.md": {
+    "mtime": 1793647666.70828,
+    "seen": 1793647715.5726664,
+    "ast_hash": "f2efe3315b1b88e32e3a46f76f00e975",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/logo-style-guide.md": {
+    "mtime": 1793647666.7082062,
+    "seen": 1793647715.5726724,
+    "ast_hash": "87c13758b7b6ee686d46dd1ad444a3d0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/slides-copywriting-formulas.md": {
+    "mtime": 1793647666.7087924,
+    "seen": 1793647715.5726755,
+    "ast_hash": "90c72e1bd23d293a72a51548c2ea2f47",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/slides-create.md": {
+    "mtime": 1793647666.7084177,
+    "seen": 1793647715.5726798,
+    "ast_hash": "0c134b4ddc19a2be22f8e378e954cf29",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/slides-html-template.md": {
+    "mtime": 1793647666.7085955,
+    "seen": 1793647715.572683,
+    "ast_hash": "8240be541e1fa33ed5a1e6f3a6f56525",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/slides-layout-patterns.md": {
+    "mtime": 1793647666.7085447,
+    "seen": 1793647715.5726864,
+    "ast_hash": "6c85b5bb4c27c1d1468a60d448b990d5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/slides-strategies.md": {
+    "mtime": 1793647666.7086453,
+    "seen": 1793647715.57269,
+    "ast_hash": "0bd565eb12b73f18e7bc86c4b1c7fb94",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/slides.md": {
+    "mtime": 1793647666.7087924,
+    "seen": 1793647715.572693,
+    "ast_hash": "6c72659c3af2cdb7df76827cdfff8c2c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design/references/social-photos-design.md": {
+    "mtime": 1793647666.7087147,
+    "seen": 1793647715.572697,
+    "ast_hash": "3f5f1a39f489981d8418719ed3a929fa",
+    "semantic_hash": ""
+  },
+  ".agents/skills/slides/SKILL.md": {
+    "mtime": 1793647667.4624918,
+    "seen": 1793647715.5727003,
+    "ast_hash": "7276dd0779d81ada496784a3f532a731",
+    "semantic_hash": ""
+  },
+  ".agents/skills/slides/references/copywriting-formulas.md": {
+    "mtime": 1793647667.4632158,
+    "seen": 1793647715.572704,
+    "ast_hash": "90c72e1bd23d293a72a51548c2ea2f47",
+    "semantic_hash": ""
+  },
+  ".agents/skills/slides/references/create.md": {
+    "mtime": 1793647667.4632566,
+    "seen": 1793647715.5727081,
+    "ast_hash": "0c134b4ddc19a2be22f8e378e954cf29",
+    "semantic_hash": ""
+  },
+  ".agents/skills/slides/references/html-template.md": {
+    "mtime": 1793647667.4633048,
+    "seen": 1793647715.5727112,
+    "ast_hash": "8240be541e1fa33ed5a1e6f3a6f56525",
+    "semantic_hash": ""
+  },
+  ".agents/skills/slides/references/layout-patterns.md": {
+    "mtime": 1793647667.4633672,
+    "seen": 1793647715.5727146,
+    "ast_hash": "6c85b5bb4c27c1d1468a60d448b990d5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/slides/references/slide-strategies.md": {
+    "mtime": 1793647667.4634085,
+    "seen": 1793647715.5727174,
+    "ast_hash": "0bd565eb12b73f18e7bc86c4b1c7fb94",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/LICENSE.txt": {
+    "mtime": 1793647669.1789467,
+    "seen": 1793647715.5727205,
+    "ast_hash": "175792518e4ac015ab6696d16c4f607e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/SKILL.md": {
+    "mtime": 1793647669.179005,
+    "seen": 1793647715.5727234,
+    "ast_hash": "aadd8ded88a66b961be19496d8dfd46a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/ArsenalSC-OFL.txt": {
+    "mtime": 1793647669.1882114,
+    "seen": 1793647715.5727258,
+    "ast_hash": "6ba27859bff46d6040ce48e164b2b6b5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/BigShoulders-OFL.txt": {
+    "mtime": 1793647669.1883862,
+    "seen": 1793647715.5727289,
+    "ast_hash": "db35b3b1166369fabfe18614e67ad0f7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Boldonse-OFL.txt": {
+    "mtime": 1793647669.1885006,
+    "seen": 1793647715.5727324,
+    "ast_hash": "fd1bd9bdc739431ca190a2178b29fe2e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/BricolageGrotesque-OFL.txt": {
+    "mtime": 1793647669.188602,
+    "seen": 1793647715.5727358,
+    "ast_hash": "c01c6f2840f06aacc97899ab09ec0e01",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/CrimsonPro-OFL.txt": {
+    "mtime": 1793647669.1887672,
+    "seen": 1793647715.5727394,
+    "ast_hash": "2b62069b71f49dddd2bde54448a986a0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/DMMono-OFL.txt": {
+    "mtime": 1793647669.1894767,
+    "seen": 1793647715.572742,
+    "ast_hash": "c6a3ddf00ed346cbb45fdfa0ca2c4b9c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/EricaOne-OFL.txt": {
+    "mtime": 1793647669.190788,
+    "seen": 1793647715.5727446,
+    "ast_hash": "0312065d0003e7a4ef6a459afd7e1ccb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/GeistMono-OFL.txt": {
+    "mtime": 1793647669.1898134,
+    "seen": 1793647715.5727472,
+    "ast_hash": "9678944f41fc8b46592ca1626f1c0896",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Gloock-OFL.txt": {
+    "mtime": 1793647669.1898923,
+    "seen": 1793647715.57275,
+    "ast_hash": "2cc6d168f1171b25a10e825bb7a54ee7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/IBMPlexMono-OFL.txt": {
+    "mtime": 1793647669.190093,
+    "seen": 1793647715.5727525,
+    "ast_hash": "30de3a874e3399fc7b9d1bec045d3166",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/InstrumentSans-OFL.txt": {
+    "mtime": 1793647669.190788,
+    "seen": 1793647715.572755,
+    "ast_hash": "35856d470a6adf5d5c4a9bcdfd659bcc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Italiana-OFL.txt": {
+    "mtime": 1793647669.1910567,
+    "seen": 1793647715.5727577,
+    "ast_hash": "233d74d83b54a786d21a429304775aef",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/JetBrainsMono-OFL.txt": {
+    "mtime": 1793647669.191315,
+    "seen": 1793647715.5727603,
+    "ast_hash": "2025a2ee80175b15561a8232e67d74d5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Jura-OFL.txt": {
+    "mtime": 1793647669.1915872,
+    "seen": 1793647715.572763,
+    "ast_hash": "227060bfebf7bcf3f924fafa47d1237d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/LibreBaskerville-OFL.txt": {
+    "mtime": 1793647669.1916213,
+    "seen": 1793647715.572766,
+    "ast_hash": "077df2dc77ecd9ca43d6fbc15ed1c0cb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Lora-OFL.txt": {
+    "mtime": 1793647669.1919763,
+    "seen": 1793647715.5727684,
+    "ast_hash": "a6f35dd3870842fab964fbcd0ffb2908",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/NationalPark-OFL.txt": {
+    "mtime": 1793647669.1921856,
+    "seen": 1793647715.5727715,
+    "ast_hash": "67073750dbf1a5d68e56c4c5ffec8f09",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/NothingYouCouldDo-OFL.txt": {
+    "mtime": 1793647669.1922646,
+    "seen": 1793647715.5727744,
+    "ast_hash": "b3dd666855ec5cd55f351287c80b9eb1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Outfit-OFL.txt": {
+    "mtime": 1793647669.1924493,
+    "seen": 1793647715.5727775,
+    "ast_hash": "1b36bbe38eb97e26055123ff42f44fc7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/PixelifySans-OFL.txt": {
+    "mtime": 1793647669.1926346,
+    "seen": 1793647715.5727801,
+    "ast_hash": "1f685eb54479bfa39bced4f64798a900",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/PoiretOne-OFL.txt": {
+    "mtime": 1793647669.1926713,
+    "seen": 1793647715.5727835,
+    "ast_hash": "954ca844e5dd9e31353213c6a142b9a4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/RedHatMono-OFL.txt": {
+    "mtime": 1793647669.1928778,
+    "seen": 1793647715.5727863,
+    "ast_hash": "0787f4274246f7bbf6c429db807e3049",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Silkscreen-OFL.txt": {
+    "mtime": 1793647669.1929832,
+    "seen": 1793647715.57279,
+    "ast_hash": "ed13fbda3931ec8f3beb063f8fcd2182",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/SmoochSans-OFL.txt": {
+    "mtime": 1793647669.1932557,
+    "seen": 1793647715.5727923,
+    "ast_hash": "da377dd00a998b32d88274b2b17c64be",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/Tektur-OFL.txt": {
+    "mtime": 1793647669.1933682,
+    "seen": 1793647715.572795,
+    "ast_hash": "40fd22c803f19bfbdb6383598f3bfacb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/WorkSans-OFL.txt": {
+    "mtime": 1793647669.193743,
+    "seen": 1793647715.5727975,
+    "ast_hash": "4bf1338afcac74d0c9ea569f07a87fab",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/canvas-fonts/YoungSerif-OFL.txt": {
+    "mtime": 1793647669.1938584,
+    "seen": 1793647715.5728004,
+    "ast_hash": "fa532d4441344be225f3f46d7ce2aabf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/references/canvas-design-system.md": {
+    "mtime": 1793647669.194402,
+    "seen": 1793647715.5728033,
+    "ast_hash": "af9125f586c5909737dab10874f0c1e2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/references/shadcn-accessibility.md": {
+    "mtime": 1793647669.1944368,
+    "seen": 1793647715.5728068,
+    "ast_hash": "942f36327bb6ada5ce9a7f3d0e1877ce",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/references/shadcn-components.md": {
+    "mtime": 1793647669.1945128,
+    "seen": 1793647715.5728095,
+    "ast_hash": "e6c281ca23ac2a97aefae71f6190f915",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/references/shadcn-theming.md": {
+    "mtime": 1793647669.194548,
+    "seen": 1793647715.5728123,
+    "ast_hash": "1c3f2a49a346f7e22e364f94c3b1d99c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/references/tailwind-customization.md": {
+    "mtime": 1793647669.1946023,
+    "seen": 1793647715.572815,
+    "ast_hash": "214b07281279c73713262edc92cba5c4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/references/tailwind-responsive.md": {
+    "mtime": 1793647669.1946378,
+    "seen": 1793647715.5728183,
+    "ast_hash": "0404b2ca094826682d24226231ff2fef",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/references/tailwind-utilities.md": {
+    "mtime": 1793647669.1946905,
+    "seen": 1793647715.5728219,
+    "ast_hash": "cc42c158e59165c86fc826c83862c97e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/scripts/requirements.txt": {
+    "mtime": 1793647669.1941495,
+    "seen": 1793647715.5728245,
+    "ast_hash": "56d0657c2d53f4edf30689d0c217efbb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-styling/scripts/tests/requirements.txt": {
+    "mtime": 1793647669.203188,
+    "seen": 1793647715.572827,
+    "ast_hash": "d7fb3d2ea85706944ec8609949c3a851",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/SKILL.md": {
+    "mtime": 1793647670.5634031,
+    "seen": 1793647715.5728302,
+    "ast_hash": "bec05febf32b3e47a68c755284c257f7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/references/pro-rules.md": {
+    "mtime": 1793647670.5751188,
+    "seen": 1793647715.5728333,
+    "ast_hash": "42a2b0964fc17b5bf72078d292ae34db",
+    "semantic_hash": ""
+  },
+  ".agents/skills/ui-ux-pro-max/references/quick-reference.md": {
+    "mtime": 1793647670.5751898,
+    "seen": 1793647715.5728364,
+    "ast_hash": "1bfa0a6429977bdd596a1bc6a32fe4d2",
+    "semantic_hash": ""
+  },
+  "rgs-portal/i18n-admin.js": {
+    "mtime": 1793651203.2823887,
+    "seen": 1793651715.2769725,
+    "ast_hash": "5f418d671eb683635ce9e5e0c64470ef",
+    "semantic_hash": ""
+  },
+  "rgs-portal/pages-admin.js": {
+    "mtime": 1793651547.447413,
+    "seen": 1793651715.2770934,
+    "ast_hash": "20d774cd757c1daa60449dc0cbc2bec9",
+    "semantic_hash": ""
+  },
+  ".github/workflows/portal-checks.yml": {
+    "mtime": 1793651479.8624723,
+    "seen": 1793651715.2741218,
+    "ast_hash": "31211ae13e2883fd3b7b6963cad1b26c",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/a11y.mjs": {
+    "mtime": 1793651328.5337272,
+    "seen": 1793651715.2772772,
+    "ast_hash": "bb5cc31922a8325b8b928890f5093838",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/admin.mjs": {
+    "mtime": 1793651479.8522682,
+    "seen": 1793651715.2772794,
+    "ast_hash": "46f61d1f154be23ab5be5269ac3557c7",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/crawl.mjs": {
+    "mtime": 1793650560.8011715,
+    "seen": 1793651715.277281,
+    "ast_hash": "d69de4b6ad77ffed788dcf0b920abe12",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/lib/harness.mjs": {
+    "mtime": 1793650736.4726284,
+    "seen": 1793651715.277283,
+    "ast_hash": "5d80955f06842dfd160f14dc407973ab",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/mobile.mjs": {
+    "mtime": 1793650560.8044796,
+    "seen": 1793651715.2772849,
+    "ast_hash": "69fc5abff07ddb878e7c378027a07843",
+    "semantic_hash": ""
+  },
+  "rgs-portal/tests/workflows.mjs": {
+    "mtime": 1793650919.0434475,
+    "seen": 1793651715.2772863,
+    "ast_hash": "ce1cdcf23be73dfb7af68ffc0895cd64",
+    "semantic_hash": ""
+  },
+  "docs/PRODUCTION-PLAN.md": {
+    "mtime": 1793650536.317127,
+    "seen": 1793651715.292094,
+    "ast_hash": "ab7a98a20ccfdcb6986a3b35de690cf1",
+    "semantic_hash": ""
+  },
+  "rgs-portal/README.md": {
+    "mtime": 1793651479.8630042,
+    "seen": 1793651715.2924829,
+    "ast_hash": "4852cf6b97740d98c4a73931dbfe4f24",
+    "semantic_hash": ""
+  },
   ".claude/skills/img2threejs/integrations/glb_character_pipeline/node/package-lock.json": {
     "mtime": 1793637075.0,
     "seen": 1793641241.2271624,
     "ast_hash": "536c0727874b1839a29cbd5326a3afdb",
+    "semantic_hash": ""
+  },
+  "package-lock.json": {
+    "mtime": 1793651041.2289183,
+    "seen": 1793651715.295578,
+    "ast_hash": "7662ea838ca5692c6e9cf91bb5850e7d",
+    "semantic_hash": ""
+  },
+  "react-bits-lab/package-lock.json": {
+    "mtime": 1793644690.3490636,
+    "seen": 1793644806.3108473,
+    "ast_hash": "d6c09adb01e16770c6e61929555f7e24",
     "semantic_hash": ""
   },
   "rgs-portal/3d/package-lock.json": {
